@@ -1,0 +1,534 @@
+/**
+ * \file
+ * @brief Ice Detector Interface.
+ *
+ * This code runs on a DAU and replaces the factory installed program.
+ * The DAU communicates with Ice Detector model 0872F1 at 2400 baud,
+ * and reads the ice thickness once every 60 seconds.
+ * The vlaue is output on a DAC with 0 to 5 volts corresponding to an
+ * ice thickness of 0 to 2.5 mm
+ *
+ * \author Leo Cahalan. leoc@tilco-design.com
+ */
+
+
+/*********************************************************************
+ *  Include Files
+ *********************************************************************/
+#include <xc.h>
+#include <stdlib.h>
+ 
+/*********************************************************************
+ *  PIC Configuration Fuses
+ *********************************************************************/
+// CONFIG
+#pragma config FOSC = HS        // Oscillator Selection bits
+#pragma config WDTE = ON        // Watchdog Timer Enable bit (WDT enabled)
+#pragma config PWRTE = OFF      // Power-Up Timer Enable bit (PWRT disabled)
+#pragma config BOREN = ON       // Brown-out Detect Enable bit (BOD enabled)
+#pragma config CP = OFF         // Code Protection bit (Program Memory code protection is disabled)
+//#pragma config LVP = OFF        // Low voltage serial programming disabled. RB3 is digital I/O
+
+/*********************************************************************
+ *      Hardware Definitions
+ *********************************************************************/
+//#define _XTAL_FREQ 14768000
+#define GREEN_LED PORTAbits.RA5
+#define GREEN_LED_TRIS TRISAbits.TRISA5
+#define CLK_OUT PORTCbits.RC3
+#define CLK_OUT_TRIS TRISCbits.TRISC3
+#define DATA_OUT PORTCbits.RC5
+#define DATA_OUT_TRIS TRISCbits.TRISC5
+
+// EEPROM - not used
+#define EEPROM_CS PORTAbits.RA0
+#define EEPROM_CS_TRIS TRISAbits.TRISA0
+
+// Analog converter - not used
+#define ADC_CS PORTAbits.RA2
+#define ADC_CS_TRIS TRISAbits.TRISA2
+
+// DAC
+#define DAC_CS PORTAbits.RA3
+#define DAC_CS_TRIS TRISAbits.TRISA3
+
+/*********************************************************************
+ *  Constants
+ *********************************************************************/
+#define RXBUF_SIZE  32          // Serial port buffer
+#define RX_TIMEOUT 50           // msec
+
+#define MAX_FREQUENCY 40000     // 0 mm of ice
+#define MIN_FREQUENCY 39343     // 2.5 mm of ice
+#define MIN_DEFROST_FREQUENCY 38777 // 4.6 mm of ice
+#define MAX_DEFROST_FREQUENCY 39857 // 0.5 mm of ice
+#define MAX_DEFROST_TIMES (1+ (MAX_DEFROST_FREQUENCY - MIN_DEFROST_FREQUENCY)/16)
+#define FREQUENCY_RANGE (MAX_FREQUENCY - MIN_FREQUENCY)
+#define DAC_MULTIPLIER 1023     // 10 bit
+
+/*********************************************************************
+ *  Local Variables
+ *********************************************************************/
+unsigned char RxPtr = 0;
+unsigned char RxBuf[RXBUF_SIZE];
+unsigned char RxTimer = 0;
+unsigned char PrRxMsg = 0;
+unsigned char SecondInterrupt = 0;
+
+/*
+ * Defrost time formula is:
+ * Ice = -0.00015*Frequency + 6  (in inches)
+ * HeatTime = 214.29 * Ice + 5.7142
+ *
+ * This is a bit tricky to do on a PIC and so we just use a look
+ * up table instead.
+ *
+ * Maximum heat time is 45 and minimum is 10 seconds. This
+ * corresponds to frequencies in the range 38777 to 39857,
+ * a range of 1080 values. To shorten the table, we just
+ * divide this by 16, reducing the table size to 68 entries
+ */
+const unsigned char DefrostTimes[MAX_DEFROST_TIMES] =
+{
+ // Time   Freq.	Ice (mm)  Offset  Divide by 16
+	45, // 38777	4.65963	  0     	0
+	44, // 38807	4.54533	  30		1
+	43, // 38817	4.50723	  40		2
+	43, // 38837	4.43103	  60		3
+	42, // 38847	4.39293	  70		4
+	42, // 38857	4.35483	  80		5
+	41, // 38877	4.27863	  100		6
+	41, // 38897	4.20243	  120		7
+	40, // 38907	4.16433	  130		8
+	40, // 38927	4.08813	  150		9
+	39, // 38937	4.05003	  160		10
+	38, // 38967	3.93573	  190		11
+	38, // 38977	3.89763	  200		12
+	38, // 38987	3.85953	  210		13
+ 	37, // 39007	3.78333	  230		14
+	37, // 39017	3.74523	  240		15
+	36, // 39047	3.63093	  270		16
+	36, // 39057	3.59283	  280		17
+	35, // 39067	3.55473	  290		18
+	35, // 39087	3.47853	  310		19
+	34, // 39097	3.44043	  320		20
+	34, // 39117	3.36423	  340		21
+ 	33, // 39137	3.28803	  360		22
+	32, // 39157	3.21183	  380		23
+	32, // 39167	3.17373	  390		24
+	32, // 39177	3.13563	  400		25
+	31, // 39197	3.05943	  420		26
+	30, // 39217	2.98323	  440		27
+	30, // 39227	2.94513	  450		28
+	29, // 39247	2.86893	  470		29
+	29, // 39257	2.83083	  480		30
+	28, // 39277	2.75463	  500		31
+	28, // 39297	2.67843	  520		32
+	27, // 39307	2.64033	  530		33
+	27, // 39327	2.56413	  550		34
+	27, // 39337	2.52603	  560		35
+	26, // 39367	2.41173	  590		36
+	25, // 39377	2.37363	  600		37
+	25, // 39387	2.33553	  610		38
+	24, // 39407	2.25933	  630		39
+	24, // 39427	2.18313	  650		40
+	23, // 39447	2.10693	  670		41
+	23, // 39457	2.06883	  680		42
+	22, // 39477	1.99263	  700		43
+	22, // 39487	1.95453	  710		44
+	21, // 39497	1.91643	  720		45
+	21, // 39517	1.84023	  740		46
+	20, // 39537	1.76403	  760		47
+	20, // 39547	1.72593	  770		48
+	19, // 39567	1.64973	  790		49
+	19, // 39577	1.61163	  800		50
+	18, // 39607	1.49733	  830		51
+	18, // 39617	1.45923	  840		52
+	17, // 39637	1.38303	  860		53
+	17, // 39647	1.34493	  870		54
+	16, // 39657	1.30683	  880		55
+	15, // 39687	1.19253	  910		56
+	15, // 39697	1.15443	  920		57
+	15, // 39707	1.11633	  930		58
+	14, // 39727	1.04013	  950		59
+	14, // 39737	1.00203	  960		60
+	13, // 39757	0.92583	  980		61
+	12, // 39777	0.84963	  1000		62
+	12, // 39787	0.81153	  1010		63
+	11, // 39807	0.73533	  1030		64
+	11, // 39817	0.69723	  1040		65
+	10, // 39837	0.62103	  1060		66
+	10, // 39857	0.54483	  1080		67
+};
+
+/*********************************************************************
+ *  Function Definitions
+ *********************************************************************/
+static void InitPorts(void);
+static void InitTimer(void);
+static void Init_UART(void);
+static void UART_putc(char c);
+static void Write_DAC(unsigned int value);
+static void Write_DAC_Chan(unsigned int value);
+static void Read_UART(void);
+static void Pr_UART_Data(void);
+static void GetIceReading(void);
+
+/*********************************************************************
+ *  Main Program
+ *********************************************************************/
+ void main()
+ {
+    unsigned char PollTimer = 58;
+
+    //Configure watchdog
+    OPTION_REGbits.PSA = 1; //Prescale assigned to watchdog
+    OPTION_REGbits.PS2 = 0; //Divide by 16
+
+    InitPorts();
+    InitTimer();
+    Init_UART();
+    Write_DAC(0);   // Default output to no ice; output 0V
+
+     // Main loop
+     for (;;)
+     {
+         CLRWDT();                  // Reset the watchdog
+         Read_UART();               // Read incoming serial port data
+         Pr_UART_Data();            // Process UART data if available
+         if (SecondInterrupt)
+         {
+             SecondInterrupt = 0;
+             //Get a reading every 60 seconds
+             if (++PollTimer > 59)
+             {
+                 PollTimer = 0;
+                 GetIceReading();
+             }
+         }
+     }                           // repeat forever
+ }
+
+ /*******************************************************************//**
+ * @brief   Configure UART for 2400 baud, 8 data bits, no parity
+ *
+ * @param 
+ *
+ * @return  none
+ */
+ static void Init_UART(void)
+ {
+   TXSTAbits.BRGH = 0;  // Low speed
+   TXSTAbits.TXEN = 1;  // Enable transmit
+
+   RCSTAbits.SPEN = 1;  // Enable serial port
+   RCSTAbits.CREN = 1;  // Enable continuous receive
+
+   SPBRG = 95;  // 2400 baud. SPBRG+1 =  14745600/(64 * Baudrate)
+   //SPBRG = 191; // 1200
+
+ }
+ /* 1 Msec interrupt
+  */
+//Timer 1 reload value 0xffff - 0x0e66. 3686 ticks == 1 msec
+#define TMR1H_VAL 0x0F1
+#define TMR1L_VAL 0x098
+
+ /*******************************************************************//**
+ * @brief   Configure Timer 1 for 1 msec periodic operation
+ *
+ * @param
+ *
+ * @return  none
+ */
+ static void InitTimer(void)
+ {
+    T1CON = 0x01;               //Configure Timer1 interrupt
+    TMR1L = TMR1L_VAL;
+    TMR1H = TMR1H_VAL;
+ 
+    PIE1bits.TMR1IE = 1;    // Timer 1 interrupt enable
+    INTCONbits.PEIE = 1;
+    INTCONbits.GIE = 1;     // Global interrupt enable
+    T1CONbits.TMR1ON = 1;
+    T1CONbits.T1OSCEN = 1;  // OSCillator enable
+    T1CONbits.T1CKPS0 = 0;  // Prescale
+    T1CONbits.T1CKPS1 = 0;
+ }
+
+ /*******************************************************************//**
+ * @brief   Interrupt Handler
+ *
+ * @param
+ *
+ * @return  none
+ */
+ void interrupt isr(void)
+ {
+    static int Count=0;
+    static unsigned char temp1;
+
+    // 1 msec timer
+    if (PIR1bits.TMR1IF)
+    {
+        PIR1bits.TMR1IF = 0;
+        TMR1L = TMR1L_VAL;
+        TMR1H = TMR1H_VAL;
+
+        if (++Count > 999)
+        {
+            Count = 0;
+            SecondInterrupt = 1;
+            if (++temp1 & 1)
+               GREEN_LED = 0;
+            else GREEN_LED = 1;
+        }
+
+        // Check the receive timer
+        if (RxTimer)
+        {
+            if (!--RxTimer)
+                PrRxMsg = 1;    // Process the packet now.
+        }
+    }
+ }
+
+ /*******************************************************************//**
+ * @brief   Send command 'Z1' to Ice Detector to get ice thickness
+ *          reading.
+ *
+ * @param
+ *
+ * @return  none
+ */
+ static void GetIceReading(void)
+ {
+    UART_putc('Z');
+    UART_putc('1');
+ }
+
+ /*******************************************************************//**
+ * @brief   Send character to serial port
+ *
+ * @param   c - character to send
+ *
+ * @return  none
+ */
+ static void UART_putc(char c)
+ {
+     //Wait until last char is sent
+     while (TXSTAbits.TRMT == 0);
+
+     TXREG = c;
+ }
+
+ /*******************************************************************//**
+ * @brief   Configure I/O ports
+ *
+ * @param
+ *
+ * @return  none
+ */
+ static void InitPorts(void)
+ {
+     GREEN_LED_TRIS = 0; // Output
+     GREEN_LED = 0;
+
+     CLK_OUT = 0;
+     CLK_OUT_TRIS = 0;
+
+     DATA_OUT = 0;
+     DATA_OUT_TRIS = 0;
+
+     EEPROM_CS = 1;
+     EEPROM_CS_TRIS = 0;
+
+     ADC_CS = 1;
+     ADC_CS_TRIS = 0;
+
+     DAC_CS = 1;
+     DAC_CS_TRIS = 0;
+
+     //Set all inputs to digitial
+     ADCON1 = 6;
+ }
+
+ /*******************************************************************//**
+ * @brief   Write value to Digital to Analog Converter (DAC)
+ *
+ *
+ * @param   value: 0 to 1023. 0 is 0V, 1023 is 5V
+ * @param
+ *
+ * @return  none
+ */
+ static void Write_DAC(unsigned int value)
+ {
+     unsigned char i;
+
+
+     DAC_CS = 0;            //Select DAC chip. Active low
+     Write_DAC_Chan(value); //Output value to chan A
+     Write_DAC_Chan(value); //Output value to chan B
+     NOP();
+     DAC_CS = 1;            // De-select DAC chip
+ }
+/*******************************************************************//**
+ * @brief   DAC has 2 outputs and each output is written in one
+ *          transacation.
+ *
+ *
+ * @param   value: 0 to 1023. 0 is 0V, 1023 is 5V
+ * @param
+ *
+ * @return  none
+ */
+ static void Write_DAC_Chan(unsigned int value)
+ {
+     unsigned char i;
+
+
+     for (i=0; i < 12; i++)
+     {
+         // Output the data. MSB first (12 bits)
+         if (value & 0x200)
+             DATA_OUT = 1;
+         else DATA_OUT = 0;
+
+         //Clock the data
+         NOP();
+         CLK_OUT = 1;
+         NOP();
+         CLK_OUT = 0;
+         NOP();
+         value <<= 1;       // Get next bit
+     }
+     NOP();
+ }
+ /*******************************************************************//**
+ * @brief   Read data from ICE detector on serial port
+ *
+ *          Store char in RxBuf and load timeout timer.
+ *          Packet is processed after RX_TIMEOUT (msec).
+ * @param
+ *
+ * @return  none
+ */
+ static void Read_UART(void)
+ {
+     unsigned char c;
+
+     if (RCSTAbits.FERR || RCSTAbits.OERR)
+     {
+         c = RCREG;
+         RCSTAbits.CREN = 0;
+         NOP();
+         RCSTAbits.CREN = 1;
+     }
+
+     // Check if char available
+     if (PIR1bits.RCIF)
+     {
+         c = RCREG;
+         if (RxPtr < RXBUF_SIZE)
+         {             
+             RxBuf[RxPtr++] = c;
+             RxTimer = RX_TIMEOUT;
+         }
+     }
+ }
+
+ /*******************************************************************//**
+ * @brief   Process response packet from Ice Detector
+ *
+ *
+ * @param   RxBuf = *ZPxxxxxcc. where xxxxx is the frequency and
+ *          cc is the checcksum.
+ *
+ *          Packet Format:
+ *          <STX><CR><LF>ZP xxxxxyy<ETX><CR><LF>
+ *          0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
+ *          02 0D 0A 5A 50 20 33 39 39 34 30 45 43 03 0D 0A
+ *                   Z  P     --Frequency---
+ *          Probe frequency range: 38400 to 41500
+ *          If the ice is over .02 inches then we issue the Z3
+ *          command with the computed heat time.
+ *
+ * @return  none
+ */
+ static void Pr_UART_Data(void)
+ {
+     unsigned int Frequency;
+     unsigned int DAC_value;
+     unsigned int Offset;
+     unsigned char HeatTime = 0;
+     unsigned char Buf[6];
+     unsigned long temp1;
+
+     if (PrRxMsg)
+     {
+         PrRxMsg = 0;
+         
+         // 0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
+         // 02 0D 0A 5A 50 20 33 39 39 34 30 45 43 03 0D 0A
+         //          Z  P     --Frequency---
+         if (RxPtr > 13 && RxBuf[3] == 'Z' && RxBuf[4] == 'P')
+         {
+             //only interested in 'ZP' messages
+             RxPtr = 0;
+         }
+         else
+         {
+             // Discard message
+             RxPtr = 0;
+             return;
+         }
+
+         RxBuf[11] = 0;  //Terminate string after frequency
+         Frequency = strtol(RxBuf+6, NULL, 10);
+
+         // Check to see if we need to defrost
+         if (Frequency < MIN_DEFROST_FREQUENCY)
+         {
+            // > 4.6 mm of ice
+            HeatTime = 45;
+         }
+         else if (Frequency <= MAX_DEFROST_FREQUENCY)
+         {
+            // we are between min and max defrost frequencies
+            // 0.5 mm to 4.5 mm of ice)
+            // The DefrostTimes table dives the range by 16 to keep the table
+            // small.
+            Offset = (Frequency - MIN_DEFROST_FREQUENCY)/16;
+            if (Offset < MAX_DEFROST_TIMES)
+                HeatTime = DefrostTimes[Offset];
+        }
+        if (HeatTime)
+        {
+            //Send defrost time to ice sensor 'Z345'
+            itoa(Buf,HeatTime,10);
+            UART_putc('Z');
+            UART_putc('3');
+            UART_putc(Buf[0]);
+            UART_putc(Buf[1]);
+        }
+
+         //Limit the frequency to the range of interest
+         if (Frequency > MAX_FREQUENCY)
+             Frequency = MAX_FREQUENCY;
+         else if (Frequency < MIN_FREQUENCY)
+             Frequency = MIN_FREQUENCY;
+
+         //Adjust frequency by removing offset. this will give a value
+         // of 0 to FREQUENCY_RANGE
+         Frequency -= MIN_FREQUENCY;
+         temp1 = (unsigned long)Frequency*1023;
+         DAC_value = 1023 - temp1/FREQUENCY_RANGE;
+
+         //Write the value to the DAC
+         Write_DAC(DAC_value);
+
+
+     }
+ }
+ 

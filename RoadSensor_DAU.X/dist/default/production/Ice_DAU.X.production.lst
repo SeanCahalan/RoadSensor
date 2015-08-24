@@ -1,0 +1,2526 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.35 build -356382666 
+                                                                                               Mon Aug 24 14:06:41 2015
+
+Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
+     1                           	processor	16F874A
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	idataBANK0,global,class=CODE,delta=2
+     5                           	psect	idataBANK1,global,class=CODE,delta=2
+     6                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     7                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     8                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	dataBANK1,global,class=BANK1,space=1,delta=1
+    10                           	psect	clrtext,global,class=CODE,delta=2
+    11                           	psect	inittext,global,class=CODE,delta=2
+    12                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    13                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    14                           	psect	maintext,global,class=CODE,split=1,delta=2
+    15                           	psect	text1,local,class=CODE,merge=1,delta=2
+    16                           	psect	swtext1,local,class=CONST,delta=2
+    17                           	psect	text2,local,class=CODE,merge=1,delta=2
+    18                           	psect	text3,local,class=CODE,merge=1,delta=2
+    19                           	psect	text4,local,class=CODE,merge=1,delta=2
+    20                           	psect	text5,local,class=CODE,merge=1,delta=2
+    21                           	psect	text6,local,class=CODE,merge=1,delta=2
+    22                           	psect	text7,local,class=CODE,merge=1,delta=2
+    23                           	psect	text8,local,class=CODE,merge=1,delta=2
+    24                           	psect	text9,local,class=CODE,merge=1,delta=2
+    25                           	psect	text10,local,class=CODE,merge=1,delta=2
+    26                           	psect	text11,local,class=CODE,merge=1,delta=2
+    27                           	psect	text12,local,class=CODE,merge=1,delta=2
+    28                           	psect	intentry,global,class=CODE,delta=2
+    29                           	dabs	1,0x7E,2
+    30  0000                     	;# 
+    31  0001                     	;# 
+    32  0002                     	;# 
+    33  0003                     	;# 
+    34  0004                     	;# 
+    35  0005                     	;# 
+    36  0006                     	;# 
+    37  0007                     	;# 
+    38  0008                     	;# 
+    39  0009                     	;# 
+    40  000A                     	;# 
+    41  000B                     	;# 
+    42  000C                     	;# 
+    43  000D                     	;# 
+    44  000E                     	;# 
+    45  000E                     	;# 
+    46  000F                     	;# 
+    47  0010                     	;# 
+    48  0011                     	;# 
+    49  0012                     	;# 
+    50  0013                     	;# 
+    51  0014                     	;# 
+    52  0015                     	;# 
+    53  0015                     	;# 
+    54  0016                     	;# 
+    55  0017                     	;# 
+    56  0018                     	;# 
+    57  0019                     	;# 
+    58  001A                     	;# 
+    59  001B                     	;# 
+    60  001B                     	;# 
+    61  001C                     	;# 
+    62  001D                     	;# 
+    63  001E                     	;# 
+    64  001F                     	;# 
+    65  0081                     	;# 
+    66  0085                     	;# 
+    67  0086                     	;# 
+    68  0087                     	;# 
+    69  0088                     	;# 
+    70  0089                     	;# 
+    71  008C                     	;# 
+    72  008D                     	;# 
+    73  008E                     	;# 
+    74  0091                     	;# 
+    75  0092                     	;# 
+    76  0093                     	;# 
+    77  0094                     	;# 
+    78  0098                     	;# 
+    79  0099                     	;# 
+    80  009C                     	;# 
+    81  009D                     	;# 
+    82  009E                     	;# 
+    83  009F                     	;# 
+    84  010C                     	;# 
+    85  010D                     	;# 
+    86  010E                     	;# 
+    87  010F                     	;# 
+    88  018C                     	;# 
+    89  018D                     	;# 
+    90                           
+    91                           	psect	idataBANK0
+    92  0390                     __pidataBANK0:	
+    93                           
+    94                           ;initializer for _PollTimer
+    95  0390  343A               	retlw	58
+    96                           
+    97                           	psect	idataBANK1
+    98  031E                     __pidataBANK1:	
+    99                           
+   100                           ;initializer for _TxBuf
+   101  031E  3401               	retlw	1
+   102  031F  3410               	retlw	16
+   103  0320  3401               	retlw	1
+   104  0321  3410               	retlw	16
+   105  0322  3401               	retlw	1
+   106  0323  34F0               	retlw	240
+   107  0324  3407               	retlw	7
+   108  0325  3402               	retlw	2
+   109  0326  342F               	retlw	47
+   110  0327  3410               	retlw	16
+   111  0328  3402               	retlw	2
+   112  0329  3486               	retlw	134
+   113  032A  3403               	retlw	3
+   114  032B  3459               	retlw	89
+   115  032C  3402               	retlw	2
+   116  032D  3403               	retlw	3
+   117  032E  3418               	retlw	24
+   118  032F  347E               	retlw	126
+   119  0330  3404               	retlw	4
+   120  000B                     _INTCONbits	set	11
+   121  000C                     _PIR1bits	set	12
+   122  0005                     _PORTAbits	set	5
+   123  0006                     _PORTBbits	set	6
+   124  0007                     _PORTCbits	set	7
+   125  0008                     _PORTDbits	set	8
+   126  0009                     _PORTEbits	set	9
+   127  001A                     _RCREG	set	26
+   128  0018                     _RCSTAbits	set	24
+   129  0010                     _T1CON	set	16
+   130  0010                     _T1CONbits	set	16
+   131  000F                     _TMR1H	set	15
+   132  000E                     _TMR1L	set	14
+   133  0019                     _TXREG	set	25
+   134  009F                     _ADCON1	set	159
+   135  0081                     _OPTION_REGbits	set	129
+   136  008C                     _PIE1bits	set	140
+   137  0099                     _SPBRG	set	153
+   138  0085                     _TRISAbits	set	133
+   139  0086                     _TRISBbits	set	134
+   140  0087                     _TRISCbits	set	135
+   141  0088                     _TRISDbits	set	136
+   142  0089                     _TRISEbits	set	137
+   143  0098                     _TXSTAbits	set	152
+   144                           
+   145                           ; #config settings
+   146  0000                     
+   147                           	psect	cinit
+   148  0013                     start_initialization:	
+   149  0013                     __initialization:	
+   150                           
+   151                           ; Clear objects allocated to BANK0
+   152  0013  1383               	bcf	3,7	;select IRP bank0
+   153  0014  3020               	movlw	low __pbssBANK0
+   154  0015  0084               	movwf	4
+   155  0016  3049               	movlw	low (__pbssBANK0+41)
+   156  0017  118A  2388  118A   	fcall	clear_ram0
+   157                           
+   158                           ; Initialize objects allocated to BANK1
+   159  001A  30B3               	movlw	low (__pdataBANK1+19)
+   160  001B  00FD               	movwf	btemp+-1
+   161  001C  3003               	movlw	high __pidataBANK1
+   162  001D  00FE               	movwf	btemp
+   163  001E  301E               	movlw	low __pidataBANK1
+   164  001F  00FF               	movwf	btemp+1
+   165  0020  30A0               	movlw	low __pdataBANK1
+   166  0021  0084               	movwf	4
+   167  0022  118A  2348  118A   	fcall	init_ram0
+   168                           
+   169                           ; Initialize objects allocated to BANK0
+   170  0025  118A  2390         	fcall	__pidataBANK0	;fetch initializer
+   171  0027  00ED               	movwf	__pdataBANK0& (0+127)
+   172  0028                     end_of_initialization:	
+   173                           ;End of C runtime variable initialization code
+   174                           
+   175  0028                     __end_of__initialization:	
+   176  0028  0183               	clrf	3
+   177  0029  118A  2AC2         	ljmp	_main	;jump to C main() function
+   178                           
+   179                           	psect	bssBANK0
+   180  0020                     __pbssBANK0:	
+   181  0020                     _GreenLED_timer:	
+   182  0020                     	ds	2
+   183  0022                     _RedLED_timer:	
+   184  0022                     	ds	2
+   185  0024                     _Rx_OK:	
+   186  0024                     	ds	2
+   187  0026                     isr@Count:	
+   188  0026                     	ds	2
+   189  0028                     _PrRxMsg:	
+   190  0028                     	ds	1
+   191  0029                     _RxPtr:	
+   192  0029                     	ds	1
+   193  002A                     _RxTimer:	
+   194  002A                     	ds	1
+   195  002B                     _SecondInterrupt:	
+   196  002B                     	ds	1
+   197  002C                     _RxBuf:	
+   198  002C                     	ds	29
+   199                           
+   200                           	psect	dataBANK0
+   201  006D                     __pdataBANK0:	
+   202  006D                     _PollTimer:	
+   203  006D                     	ds	1
+   204                           
+   205                           	psect	dataBANK1
+   206  00A0                     __pdataBANK1:	
+   207  00A0                     _TxBuf:	
+   208  00A0                     	ds	19
+   209                           
+   210                           	psect	clrtext
+   211  0388                     clear_ram0:	
+   212                           ;	Called with FSR containing the base address, and
+   213                           ;	W with the last address+1
+   214                           
+   215  0388  0064               	clrwdt	;clear the watchdog before getting into this loop
+   216  0389                     clrloop0:	
+   217  0389  0180               	clrf	0	;clear RAM location pointed to by FSR
+   218  038A  0A84               	incf	4,f	;increment pointer
+   219  038B  0604               	xorwf	4,w	;XOR with final address
+   220  038C  1903               	btfsc	3,2	;have we reached the end yet?
+   221  038D  3400               	retlw	0	;all done for this memory range, return
+   222  038E  0604               	xorwf	4,w	;XOR again to restore value
+   223  038F  2B89               	goto	clrloop0	;do the next byte
+   224                           
+   225                           	psect	inittext
+   226  0344                     init_fetch0:	
+   227                           ;	Called with low address in FSR and high address in W
+   228                           
+   229  0344  087E               	movf	126,w
+   230  0345  008A               	movwf	10
+   231  0346  087F               	movf	127,w
+   232  0347  0082               	movwf	2
+   233  0348                     init_ram0:	
+   234                           ;Called with:
+   235                           ;	high address of idata address in btemp 
+   236                           ;	low address of idata address in btemp+1 
+   237                           ;	low address of data in FSR
+   238                           ;	high address + 1 of data in btemp-1
+   239                           
+   240  0348  2344  118A         	fcall	init_fetch0
+   241  034A  0080               	movwf	0
+   242  034B  0A84               	incf	4,f
+   243  034C  0804               	movf	4,w
+   244  034D  067D               	xorwf	125,w
+   245  034E  1903               	btfsc	3,2
+   246  034F  3400               	retlw	0
+   247  0350  0AFF               	incf	127,f
+   248  0351  1903               	btfsc	3,2
+   249  0352  0AFE               	incf	126,f
+   250  0353  2B48               	goto	init_ram0
+   251                           
+   252                           	psect	cstackCOMMON
+   253  0000                     __pcstackCOMMON:	
+   254  0000                     ??_InitPorts:	
+   255  0000                     ??_InitTimer:	
+   256                           ; 0 bytes @ 0x0
+   257                           
+   258  0000                     ??_Init_UART:	
+   259                           ; 0 bytes @ 0x0
+   260                           
+   261  0000                     ??_TestRelays:	
+   262                           ; 0 bytes @ 0x0
+   263                           
+   264  0000                     ??_PollSensor:	
+   265                           ; 0 bytes @ 0x0
+   266                           
+   267  0000                     ??_UART_putc:	
+   268                           ; 0 bytes @ 0x0
+   269                           
+   270  0000                     ??_TurnOffRelays:	
+   271                           ; 0 bytes @ 0x0
+   272                           
+   273                           
+   274                           	psect	cstackBANK0
+   275  0049                     __pcstackBANK0:	
+   276                           ; 0 bytes @ 0x0
+   277                           
+   278  0049                     ?_InitPorts:	
+   279  0049                     ?_InitTimer:	
+   280                           ; 0 bytes @ 0x0
+   281                           
+   282  0049                     ?_Init_UART:	
+   283                           ; 0 bytes @ 0x0
+   284                           
+   285  0049                     ?_TestRelays:	
+   286                           ; 0 bytes @ 0x0
+   287                           
+   288  0049                     ?_Read_UART:	
+   289                           ; 0 bytes @ 0x0
+   290                           
+   291  0049                     ?_Pr_UART_Data:	
+   292                           ; 0 bytes @ 0x0
+   293                           
+   294  0049                     ?_PollSensor:	
+   295                           ; 0 bytes @ 0x0
+   296                           
+   297  0049                     ?_UART_putc:	
+   298                           ; 0 bytes @ 0x0
+   299                           
+   300  0049                     ?_main:	
+   301                           ; 0 bytes @ 0x0
+   302                           
+   303  0049                     ?_isr:	
+   304                           ; 0 bytes @ 0x0
+   305                           
+   306  0049                     ??_isr:	
+   307                           ; 0 bytes @ 0x0
+   308                           
+   309  0049                     ?_TurnOffRelays:	
+   310                           ; 0 bytes @ 0x0
+   311                           
+   312                           
+   313                           ; 0 bytes @ 0x0
+   314  0049                     	ds	4
+   315  004D                     ??_Read_UART:	
+   316  004D                     ?_calc_crc:	
+   317                           ; 0 bytes @ 0x4
+   318                           
+   319  004D                     UART_putc@c:	
+   320                           ; 2 bytes @ 0x4
+   321                           
+   322  004D                     calc_crc@crc_buff:	
+   323                           ; 1 bytes @ 0x4
+   324                           
+   325  004D                     TestRelays@i:	
+   326                           ; 2 bytes @ 0x4
+   327                           
+   328                           
+   329                           ; 2 bytes @ 0x4
+   330  004D                     	ds	1
+   331  004E                     Read_UART@c:	
+   332  004E                     PollSensor@i:	
+   333                           ; 1 bytes @ 0x5
+   334                           
+   335                           
+   336                           ; 2 bytes @ 0x5
+   337  004E                     	ds	1
+   338  004F                     calc_crc@input:	
+   339                           
+   340                           ; 1 bytes @ 0x6
+   341  004F                     	ds	1
+   342  0050                     ??_calc_crc:	
+   343                           
+   344                           ; 0 bytes @ 0x7
+   345  0050                     	ds	6
+   346  0056                     calc_crc@x16:	
+   347                           
+   348                           ; 2 bytes @ 0xD
+   349  0056                     	ds	2
+   350  0058                     calc_crc@i:	
+   351                           
+   352                           ; 1 bytes @ 0xF
+   353  0058                     	ds	1
+   354  0059                     ?_generateCRC:	
+   355  0059                     generateCRC@len:	
+   356                           ; 2 bytes @ 0x10
+   357                           
+   358                           
+   359                           ; 2 bytes @ 0x10
+   360  0059                     	ds	2
+   361  005B                     ??_generateCRC:	
+   362                           
+   363                           ; 0 bytes @ 0x12
+   364  005B                     	ds	3
+   365  005E                     generateCRC@buf:	
+   366                           
+   367                           ; 1 bytes @ 0x15
+   368  005E                     	ds	1
+   369  005F                     generateCRC@crc:	
+   370                           
+   371                           ; 2 bytes @ 0x16
+   372  005F                     	ds	2
+   373  0061                     generateCRC@i:	
+   374                           
+   375                           ; 2 bytes @ 0x18
+   376  0061                     	ds	2
+   377  0063                     ??_Pr_UART_Data:	
+   378                           
+   379                           ; 0 bytes @ 0x1A
+   380  0063                     	ds	4
+   381  0067                     Pr_UART_Data@sensorVal:	
+   382                           
+   383                           ; 2 bytes @ 0x1E
+   384  0067                     	ds	2
+   385  0069                     Pr_UART_Data@status:	
+   386                           
+   387                           ; 1 bytes @ 0x20
+   388  0069                     	ds	1
+   389  006A                     Pr_UART_Data@crc:	
+   390                           
+   391                           ; 2 bytes @ 0x21
+   392  006A                     	ds	2
+   393  006C                     ??_main:	
+   394                           
+   395                           ; 0 bytes @ 0x23
+   396  006C                     	ds	1
+   397                           
+   398                           	psect	maintext
+   399  02C2                     __pmaintext:	
+   400 ;;
+   401 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   402 ;;
+   403 ;; *************** function _main *****************
+   404 ;; Defined at:
+   405 ;;		line 131 in file "main.c"
+   406 ;; Parameters:    Size  Location     Type
+   407 ;;		None
+   408 ;; Auto vars:     Size  Location     Type
+   409 ;;		None
+   410 ;; Return value:  Size  Location     Type
+   411 ;;		None               void
+   412 ;; Registers used:
+   413 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   414 ;; Tracked objects:
+   415 ;;		On entry : B00/0
+   416 ;;		On exit  : 0/0
+   417 ;;		Unchanged: 0/0
+   418 ;; Data sizes:     COMMON   BANK0   BANK1
+   419 ;;      Params:         0       0       0
+   420 ;;      Locals:         0       0       0
+   421 ;;      Temps:          0       1       0
+   422 ;;      Totals:         0       1       0
+   423 ;;Total ram usage:        1 bytes
+   424 ;; Hardware stack levels required when called:    4
+   425 ;; This function calls:
+   426 ;;		_InitPorts
+   427 ;;		_InitTimer
+   428 ;;		_Init_UART
+   429 ;;		_PollSensor
+   430 ;;		_Pr_UART_Data
+   431 ;;		_Read_UART
+   432 ;;		_TestRelays
+   433 ;; This function is called by:
+   434 ;;		Startup code after reset
+   435 ;; This function uses a non-reentrant model
+   436 ;;
+   437                           
+   438                           
+   439                           ;psect for function _main
+   440  02C2                     _main:	
+   441                           
+   442                           ;main.c: 134: OPTION_REGbits.PSA = 1;
+   443                           
+   444                           ;incstack = 0
+   445                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   446  02C2  1683               	bsf	3,5	;RP0=1, select bank1
+   447  02C3  1303               	bcf	3,6	;RP1=0, select bank1
+   448  02C4  1581               	bsf	1,3	;volatile
+   449                           
+   450                           ;main.c: 135: OPTION_REGbits.PS2 = 0;
+   451  02C5  1101               	bcf	1,2	;volatile
+   452                           
+   453                           ;main.c: 137: InitPorts();
+   454  02C6  118A  20EF  118A   	fcall	_InitPorts
+   455                           
+   456                           ;main.c: 138: InitTimer();
+   457  02C9  118A  2331  118A   	fcall	_InitTimer
+   458                           
+   459                           ;main.c: 139: Init_UART();
+   460  02CC  118A  2364  118A   	fcall	_Init_UART
+   461                           
+   462                           ;main.c: 141: if(PORTEbits.RE1 == 1)
+   463  02CF  1283               	bcf	3,5	;RP0=0, select bank0
+   464  02D0  1303               	bcf	3,6	;RP1=0, select bank0
+   465  02D1  1C89               	btfss	9,1	;volatile
+   466  02D2  2AD6               	goto	l1066
+   467                           
+   468                           ;main.c: 142: TestRelays();
+   469  02D3  118A  21C9  118A   	fcall	_TestRelays
+   470  02D6                     l1066:	
+   471                           
+   472                           ;main.c: 144: if(PORTEbits.RE2 == 1){
+   473  02D6  1283               	bcf	3,5	;RP0=0, select bank0
+   474  02D7  1303               	bcf	3,6	;RP1=0, select bank0
+   475  02D8  1909               	btfsc	9,2	;volatile
+   476  02D9                     l91:	
+   477                           ;main.c: 145: for (;;){}
+   478                           
+   479  02D9  2AD9               	goto	l91
+   480  02DA                     l93:	
+   481                           ;main.c: 146: }
+   482                           ;main.c: 148: for (;;)
+   483                           
+   484  02DA  0064               	clrwdt	;# 
+   485                           
+   486                           ;main.c: 151: Read_UART();
+   487  02DB  118A  22F4  118A   	fcall	_Read_UART
+   488                           
+   489                           ;main.c: 152: Pr_UART_Data();
+   490  02DE  118A  202B  118A   	fcall	_Pr_UART_Data
+   491                           
+   492                           ;main.c: 154: if (SecondInterrupt)
+   493  02E1  1283               	bcf	3,5	;RP0=0, select bank0
+   494  02E2  1303               	bcf	3,6	;RP1=0, select bank0
+   495  02E3  082B               	movf	_SecondInterrupt,w
+   496  02E4  1903               	btfsc	3,2
+   497  02E5  2ADA               	goto	l93
+   498                           
+   499                           ;main.c: 155: {
+   500                           ;main.c: 156: SecondInterrupt = 0;
+   501  02E6  01AB               	clrf	_SecondInterrupt
+   502                           
+   503                           ;main.c: 158: if (++PollTimer > 2)
+   504  02E7  3001               	movlw	1
+   505  02E8  00EC               	movwf	??_main
+   506  02E9  086C               	movf	??_main,w
+   507  02EA  07ED               	addwf	_PollTimer,f
+   508  02EB  3003               	movlw	3
+   509  02EC  026D               	subwf	_PollTimer,w
+   510  02ED  1C03               	skipc
+   511  02EE  2ADA               	goto	l93
+   512                           
+   513                           ;main.c: 159: {
+   514                           ;main.c: 160: PollTimer = 0;
+   515  02EF  01ED               	clrf	_PollTimer
+   516                           
+   517                           ;main.c: 161: PollSensor();
+   518  02F0  118A  228E  118A   	fcall	_PollSensor
+   519                           
+   520                           ;main.c: 162: }
+   521                           ;main.c: 163: }
+   522                           ;main.c: 164: }
+   523  02F3  2ADA               	goto	l93
+   524  02F4                     __end_of_main:	
+   525                           
+   526                           	psect	text1
+   527  01C9                     __ptext1:	
+   528 ;; *************** function _TestRelays *****************
+   529 ;; Defined at:
+   530 ;;		line 547 in file "main.c"
+   531 ;; Parameters:    Size  Location     Type
+   532 ;;		None
+   533 ;; Auto vars:     Size  Location     Type
+   534 ;;  i               2    4[BANK0 ] int 
+   535 ;; Return value:  Size  Location     Type
+   536 ;;		None               void
+   537 ;; Registers used:
+   538 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   539 ;; Tracked objects:
+   540 ;;		On entry : 0/0
+   541 ;;		On exit  : 0/0
+   542 ;;		Unchanged: 0/0
+   543 ;; Data sizes:     COMMON   BANK0   BANK1
+   544 ;;      Params:         0       0       0
+   545 ;;      Locals:         0       2       0
+   546 ;;      Temps:          0       0       0
+   547 ;;      Totals:         0       2       0
+   548 ;;Total ram usage:        2 bytes
+   549 ;; Hardware stack levels used:    1
+   550 ;; Hardware stack levels required when called:    2
+   551 ;; This function calls:
+   552 ;;		_TurnOffRelays
+   553 ;; This function is called by:
+   554 ;;		_main
+   555 ;; This function uses a non-reentrant model
+   556 ;;
+   557                           
+   558                           
+   559                           ;psect for function _TestRelays
+   560  01C9                     _TestRelays:	
+   561                           
+   562                           ;main.c: 548: int i = 0;
+   563                           
+   564                           ;incstack = 0
+   565                           ; Regs used in _TestRelays: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   566  01C9  1283               	bcf	3,5	;RP0=0, select bank0
+   567  01CA  1303               	bcf	3,6	;RP1=0, select bank0
+   568  01CB  01CD               	clrf	TestRelays@i
+   569  01CC  01CE               	clrf	TestRelays@i+1
+   570  01CD                     l172:	
+   571                           ;main.c: 549: for (;;)
+   572                           
+   573  01CD  0064               	clrwdt	;# 
+   574                           
+   575                           ;main.c: 553: if (SecondInterrupt)
+   576  01CE  1283               	bcf	3,5	;RP0=0, select bank0
+   577  01CF  1303               	bcf	3,6	;RP1=0, select bank0
+   578  01D0  082B               	movf	_SecondInterrupt,w
+   579  01D1  1903               	btfsc	3,2
+   580  01D2  29CD               	goto	l172
+   581                           
+   582                           ;main.c: 554: {
+   583                           ;main.c: 555: TurnOffRelays();
+   584  01D3  118A  237D  118A   	fcall	_TurnOffRelays
+   585                           
+   586                           ;main.c: 556: SecondInterrupt = 0;
+   587  01D6  1283               	bcf	3,5	;RP0=0, select bank0
+   588  01D7  1303               	bcf	3,6	;RP1=0, select bank0
+   589  01D8  01AB               	clrf	_SecondInterrupt
+   590                           
+   591                           ;main.c: 558: switch(i){
+   592  01D9  29EA               	goto	l978
+   593  01DA                     l175:	
+   594                           ;main.c: 559: case 0:
+   595                           
+   596                           
+   597                           ;main.c: 560: PORTDbits.RD3 = 1;
+   598  01DA  1588               	bsf	8,3	;volatile
+   599                           
+   600                           ;main.c: 561: break;
+   601  01DB  29FB               	goto	l980
+   602  01DC                     l177:	
+   603                           ;main.c: 562: case 1:
+   604                           
+   605                           
+   606                           ;main.c: 563: PORTBbits.RB0 = 1;
+   607  01DC  1406               	bsf	6,0	;volatile
+   608                           
+   609                           ;main.c: 564: break;
+   610  01DD  29FB               	goto	l980
+   611  01DE                     l178:	
+   612                           ;main.c: 565: case 2:
+   613                           
+   614                           
+   615                           ;main.c: 566: PORTBbits.RB1 = 1;
+   616  01DE  1486               	bsf	6,1	;volatile
+   617                           
+   618                           ;main.c: 567: break;
+   619  01DF  29FB               	goto	l980
+   620  01E0                     l179:	
+   621                           ;main.c: 568: case 3:
+   622                           
+   623                           
+   624                           ;main.c: 569: PORTBbits.RB2 = 1;
+   625  01E0  1506               	bsf	6,2	;volatile
+   626                           
+   627                           ;main.c: 570: break;
+   628  01E1  29FB               	goto	l980
+   629  01E2                     l180:	
+   630                           ;main.c: 571: case 4:
+   631                           
+   632                           
+   633                           ;main.c: 572: PORTBbits.RB3 = 1;
+   634  01E2  1586               	bsf	6,3	;volatile
+   635                           
+   636                           ;main.c: 573: break;
+   637  01E3  29FB               	goto	l980
+   638  01E4                     l181:	
+   639                           ;main.c: 574: case 5:
+   640                           
+   641                           
+   642                           ;main.c: 575: PORTBbits.RB4 = 1;
+   643  01E4  1606               	bsf	6,4	;volatile
+   644                           
+   645                           ;main.c: 576: break;
+   646  01E5  29FB               	goto	l980
+   647  01E6                     l182:	
+   648                           ;main.c: 577: case 6:
+   649                           
+   650                           
+   651                           ;main.c: 578: PORTDbits.RD2 = 1;
+   652  01E6  1508               	bsf	8,2	;volatile
+   653                           
+   654                           ;main.c: 579: break;
+   655  01E7  29FB               	goto	l980
+   656  01E8                     l183:	
+   657                           ;main.c: 580: case 7:
+   658                           
+   659                           
+   660                           ;main.c: 581: PORTBbits.RB5 = 1;
+   661  01E8  1686               	bsf	6,5	;volatile
+   662                           
+   663                           ;main.c: 583: }
+   664                           
+   665                           ;main.c: 582: break;
+   666  01E9  29FB               	goto	l980
+   667  01EA                     l978:	
+   668                           
+   669                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   670                           ; Switch size 1, requested type "space"
+   671                           ; Number of cases is 1, Range of values is 0 to 0
+   672                           ; switch strategies available:
+   673                           ; Name         Instructions Cycles
+   674                           ; simple_byte            4     3 (average)
+   675                           ; direct_byte            9     7 (fixed)
+   676                           ; jumptable            260     6 (fixed)
+   677                           ;	Chosen strategy is simple_byte
+   678  01EA  084E               	movf	TestRelays@i+1,w
+   679  01EB  3A00               	xorlw	0	; case 0
+   680  01EC  1903               	skipnz
+   681  01ED  29EF               	goto	l1162
+   682  01EE  29FB               	goto	l980
+   683  01EF                     l1162:	
+   684                           
+   685                           ; Switch size 1, requested type "space"
+   686                           ; Number of cases is 8, Range of values is 0 to 7
+   687                           ; switch strategies available:
+   688                           ; Name         Instructions Cycles
+   689                           ; direct_byte           23     7 (fixed)
+   690                           ; simple_byte           25    13 (average)
+   691                           ; jumptable            260     6 (fixed)
+   692                           ;	Chosen strategy is direct_byte
+   693  01EF  084D               	movf	TestRelays@i,w
+   694  01F0  0084               	movwf	4
+   695  01F1  3008               	movlw	8
+   696  01F2  0204               	subwf	4,w
+   697  01F3  1803               	skipnc
+   698  01F4  29FB               	goto	l980
+   699  01F5  3003               	movlw	high S1164
+   700  01F6  008A               	movwf	10
+   701  01F7  1003               	clrc
+   702  01F8  0D04               	rlf	4,w
+   703  01F9  3E54               	addlw	low S1164
+   704  01FA  0082               	movwf	2
+   705  01FB                     l980:	
+   706                           
+   707                           ;main.c: 584: if(++i>8)
+   708  01FB  3001               	movlw	1
+   709  01FC  07CD               	addwf	TestRelays@i,f
+   710  01FD  1803               	skipnc
+   711  01FE  0ACE               	incf	TestRelays@i+1,f
+   712  01FF  3000               	movlw	0
+   713  0200  07CE               	addwf	TestRelays@i+1,f
+   714  0201  084E               	movf	TestRelays@i+1,w
+   715  0202  3A80               	xorlw	128
+   716  0203  00FF               	movwf	127
+   717  0204  3080               	movlw	128
+   718  0205  027F               	subwf	127,w
+   719  0206  1D03               	skipz
+   720  0207  2A0A               	goto	u365
+   721  0208  3009               	movlw	9
+   722  0209  024D               	subwf	TestRelays@i,w
+   723  020A                     u365:	
+   724  020A  1803               	btfsc	3,0
+   725  020B  0008               	return
+   726  020C  29CD               	goto	l172
+   727  020D                     __end_of_TestRelays:	
+   728                           ;main.c: 586: }
+   729                           ;main.c: 587: }
+   730                           
+   731                           ;main.c: 585: break;
+   732                           
+   733                           
+   734                           	psect	swtext1
+   735  0354                     __pswtext1:	
+   736  0354                     S1164:	
+   737  0354  118A  29DA         	ljmp	l175
+   738  0356  118A  29DC         	ljmp	l177
+   739  0358  118A  29DE         	ljmp	l178
+   740  035A  118A  29E0         	ljmp	l179
+   741  035C  118A  29E2         	ljmp	l180
+   742  035E  118A  29E4         	ljmp	l181
+   743  0360  118A  29E6         	ljmp	l182
+   744  0362  118A  29E8         	ljmp	l183
+   745                           
+   746                           	psect	text2
+   747  02F4                     __ptext2:	
+   748 ;; *************** function _Read_UART *****************
+   749 ;; Defined at:
+   750 ;;		line 419 in file "main.c"
+   751 ;; Parameters:    Size  Location     Type
+   752 ;;		None
+   753 ;; Auto vars:     Size  Location     Type
+   754 ;;  c               1    5[BANK0 ] unsigned char 
+   755 ;; Return value:  Size  Location     Type
+   756 ;;		None               void
+   757 ;; Registers used:
+   758 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   759 ;; Tracked objects:
+   760 ;;		On entry : 0/0
+   761 ;;		On exit  : 0/0
+   762 ;;		Unchanged: 0/0
+   763 ;; Data sizes:     COMMON   BANK0   BANK1
+   764 ;;      Params:         0       0       0
+   765 ;;      Locals:         0       1       0
+   766 ;;      Temps:          0       1       0
+   767 ;;      Totals:         0       2       0
+   768 ;;Total ram usage:        2 bytes
+   769 ;; Hardware stack levels used:    1
+   770 ;; Hardware stack levels required when called:    1
+   771 ;; This function calls:
+   772 ;;		Nothing
+   773 ;; This function is called by:
+   774 ;;		_main
+   775 ;; This function uses a non-reentrant model
+   776 ;;
+   777                           
+   778                           
+   779                           ;psect for function _Read_UART
+   780  02F4                     _Read_UART:	
+   781                           
+   782                           ;main.c: 421: unsigned char c;
+   783                           ;main.c: 423: if (RCSTAbits.FERR || RCSTAbits.OERR)
+   784                           
+   785                           ;incstack = 0
+   786                           ; Regs used in _Read_UART: [wreg-fsr0h+status,2+status,0]
+   787  02F4  1283               	bcf	3,5	;RP0=0, select bank0
+   788  02F5  1303               	bcf	3,6	;RP1=0, select bank0
+   789  02F6  1918               	btfsc	24,2	;volatile
+   790  02F7  2AFA               	goto	l996
+   791  02F8  1C98               	btfss	24,1	;volatile
+   792  02F9  2B03               	goto	l1004
+   793  02FA                     l996:	
+   794                           
+   795                           ;main.c: 424: {
+   796                           ;main.c: 425: c = RCREG;
+   797  02FA  081A               	movf	26,w	;volatile
+   798  02FB  00CD               	movwf	??_Read_UART
+   799  02FC  084D               	movf	??_Read_UART,w
+   800  02FD  00CE               	movwf	Read_UART@c
+   801                           
+   802                           ;main.c: 426: RCSTAbits.CREN = 0;
+   803  02FE  1218               	bcf	24,4	;volatile
+   804                           
+   805                           ;main.c: 427: __nop();
+   806  02FF  0000               	nop
+   807                           
+   808                           ;main.c: 428: RCSTAbits.CREN = 1;
+   809  0300  1283               	bcf	3,5	;RP0=0, select bank0
+   810  0301  1303               	bcf	3,6	;RP1=0, select bank0
+   811  0302  1618               	bsf	24,4	;volatile
+   812  0303                     l1004:	
+   813                           
+   814                           ;main.c: 429: }
+   815                           ;main.c: 432: if (PIR1bits.RCIF)
+   816  0303  1E8C               	btfss	12,5	;volatile
+   817  0304  0008               	return
+   818                           
+   819                           ;main.c: 433: {
+   820                           ;main.c: 434: c = RCREG;
+   821  0305  081A               	movf	26,w	;volatile
+   822  0306  00CD               	movwf	??_Read_UART
+   823  0307  084D               	movf	??_Read_UART,w
+   824  0308  00CE               	movwf	Read_UART@c
+   825                           
+   826                           ;main.c: 435: if (RxPtr < 29)
+   827  0309  301D               	movlw	29
+   828  030A  0229               	subwf	_RxPtr,w
+   829  030B  1803               	skipnc
+   830  030C  0008               	return
+   831                           
+   832                           ;main.c: 436: {
+   833                           ;main.c: 437: RxBuf[RxPtr++] = c;
+   834  030D  084E               	movf	Read_UART@c,w
+   835  030E  00CD               	movwf	??_Read_UART
+   836  030F  0829               	movf	_RxPtr,w
+   837  0310  3E2C               	addlw	(low (_RxBuf| 0))& (0+255)
+   838  0311  0084               	movwf	4
+   839  0312  084D               	movf	??_Read_UART,w
+   840  0313  1383               	bcf	3,7	;select IRP bank0
+   841  0314  0080               	movwf	0
+   842  0315  3001               	movlw	1
+   843  0316  00CD               	movwf	??_Read_UART
+   844  0317  084D               	movf	??_Read_UART,w
+   845  0318  07A9               	addwf	_RxPtr,f
+   846                           
+   847                           ;main.c: 438: RxTimer = 50;
+   848  0319  3032               	movlw	50
+   849  031A  00CD               	movwf	??_Read_UART
+   850  031B  084D               	movf	??_Read_UART,w
+   851  031C  00AA               	movwf	_RxTimer
+   852  031D  0008               	return
+   853  031E                     __end_of_Read_UART:	
+   854                           
+   855                           	psect	text3
+   856  002B                     __ptext3:	
+   857 ;; *************** function _Pr_UART_Data *****************
+   858 ;; Defined at:
+   859 ;;		line 483 in file "main.c"
+   860 ;; Parameters:    Size  Location     Type
+   861 ;;		None
+   862 ;; Auto vars:     Size  Location     Type
+   863 ;;  crc             2   33[BANK0 ] unsigned short 
+   864 ;;  sensorVal       2   30[BANK0 ] unsigned int 
+   865 ;;  status          1   32[BANK0 ] unsigned char 
+   866 ;; Return value:  Size  Location     Type
+   867 ;;		None               void
+   868 ;; Registers used:
+   869 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   870 ;; Tracked objects:
+   871 ;;		On entry : 0/0
+   872 ;;		On exit  : 0/0
+   873 ;;		Unchanged: 0/0
+   874 ;; Data sizes:     COMMON   BANK0   BANK1
+   875 ;;      Params:         0       0       0
+   876 ;;      Locals:         0       5       0
+   877 ;;      Temps:          0       4       0
+   878 ;;      Totals:         0       9       0
+   879 ;;Total ram usage:        9 bytes
+   880 ;; Hardware stack levels used:    1
+   881 ;; Hardware stack levels required when called:    3
+   882 ;; This function calls:
+   883 ;;		_TurnOffRelays
+   884 ;;		_generateCRC
+   885 ;; This function is called by:
+   886 ;;		_main
+   887 ;; This function uses a non-reentrant model
+   888 ;;
+   889                           
+   890                           
+   891                           ;psect for function _Pr_UART_Data
+   892  002B                     _Pr_UART_Data:	
+   893                           
+   894                           ;main.c: 485: unsigned int sensorVal;
+   895                           ;main.c: 486: unsigned short crc;
+   896                           ;main.c: 487: unsigned char status;
+   897                           ;main.c: 489: if (PrRxMsg)
+   898                           
+   899                           ;incstack = 0
+   900                           ; Regs used in _Pr_UART_Data: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   901  002B  1283               	bcf	3,5	;RP0=0, select bank0
+   902  002C  1303               	bcf	3,6	;RP1=0, select bank0
+   903  002D  0828               	movf	_PrRxMsg,w
+   904  002E  1903               	btfsc	3,2
+   905  002F  0008               	return
+   906                           
+   907                           ;main.c: 490: {
+   908                           ;main.c: 491: PrRxMsg = 0;
+   909  0030  01A8               	clrf	_PrRxMsg
+   910                           
+   911                           ;main.c: 492: RxPtr = 0;
+   912  0031  01A9               	clrf	_RxPtr
+   913                           
+   914                           ;main.c: 494: crc = generateCRC(RxBuf, 29);
+   915  0032  301D               	movlw	29
+   916  0033  00D9               	movwf	generateCRC@len
+   917  0034  3000               	movlw	0
+   918  0035  00DA               	movwf	generateCRC@len+1
+   919  0036  302C               	movlw	(low (_RxBuf| 0))& (0+255)
+   920  0037  118A  220D  118A   	fcall	_generateCRC
+   921  003A  1283               	bcf	3,5	;RP0=0, select bank0
+   922  003B  1303               	bcf	3,6	;RP1=0, select bank0
+   923  003C  085A               	movf	?_generateCRC+1,w
+   924  003D  00EB               	movwf	Pr_UART_Data@crc+1
+   925  003E  0859               	movf	?_generateCRC,w
+   926  003F  00EA               	movwf	Pr_UART_Data@crc
+   927                           
+   928                           ;main.c: 496: if ((RxBuf[26] == (crc&0xff)) && (RxBuf[27] == (crc>>8))){
+   929  0040  30FF               	movlw	255
+   930  0041  056A               	andwf	Pr_UART_Data@crc,w
+   931  0042  00E3               	movwf	??_Pr_UART_Data
+   932  0043  3000               	movlw	0
+   933  0044  056B               	andwf	Pr_UART_Data@crc+1,w
+   934  0045  00E4               	movwf	??_Pr_UART_Data+1
+   935  0046  0846               	movf	_RxBuf+26,w
+   936  0047  00E5               	movwf	??_Pr_UART_Data+2
+   937  0048  01E6               	clrf	??_Pr_UART_Data+3
+   938  0049  0864               	movf	??_Pr_UART_Data+1,w
+   939  004A  0666               	xorwf	??_Pr_UART_Data+3,w
+   940  004B  1D03               	skipz
+   941  004C  284F               	goto	u425
+   942  004D  0863               	movf	??_Pr_UART_Data,w
+   943  004E  0665               	xorwf	??_Pr_UART_Data+2,w
+   944  004F                     u425:	
+   945  004F  1D03               	skipz
+   946  0050  0008               	return
+   947  0051  086B               	movf	Pr_UART_Data@crc+1,w
+   948  0052  00E4               	movwf	??_Pr_UART_Data+1
+   949  0053  086A               	movf	Pr_UART_Data@crc,w
+   950  0054  00E3               	movwf	??_Pr_UART_Data
+   951  0055  0864               	movf	??_Pr_UART_Data+1,w
+   952  0056  00E3               	movwf	??_Pr_UART_Data
+   953  0057  01E4               	clrf	??_Pr_UART_Data+1
+   954  0058  0847               	movf	_RxBuf+27,w
+   955  0059  00E5               	movwf	??_Pr_UART_Data+2
+   956  005A  01E6               	clrf	??_Pr_UART_Data+3
+   957  005B  0864               	movf	??_Pr_UART_Data+1,w
+   958  005C  0666               	xorwf	??_Pr_UART_Data+3,w
+   959  005D  1D03               	skipz
+   960  005E  2861               	goto	u435
+   961  005F  0863               	movf	??_Pr_UART_Data,w
+   962  0060  0665               	xorwf	??_Pr_UART_Data+2,w
+   963  0061                     u435:	
+   964  0061  1D03               	skipz
+   965  0062  0008               	return
+   966                           
+   967                           ;main.c: 497: status = RxBuf[17];
+   968  0063  083D               	movf	_RxBuf+17,w
+   969  0064  00E3               	movwf	??_Pr_UART_Data
+   970  0065  0863               	movf	??_Pr_UART_Data,w
+   971  0066  00E9               	movwf	Pr_UART_Data@status
+   972                           
+   973                           ;main.c: 500: TurnOffRelays();
+   974  0067  118A  237D  118A   	fcall	_TurnOffRelays
+   975                           
+   976                           ;main.c: 502: switch(status){
+   977  006A  28D8               	goto	l1042
+   978  006B                     l161:	
+   979                           ;main.c: 503: case 0x00:
+   980                           
+   981                           
+   982                           ;main.c: 504: PORTDbits.RD2 = 1;
+   983  006B  1508               	bsf	8,2	;volatile
+   984                           
+   985                           ;main.c: 505: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+   986  006C  0843               	movf	_RxBuf+23,w
+   987  006D  00E3               	movwf	??_Pr_UART_Data
+   988  006E  01E4               	clrf	??_Pr_UART_Data+1
+   989  006F  0844               	movf	_RxBuf+24,w
+   990  0070  00E5               	movwf	??_Pr_UART_Data+2
+   991  0071  01E6               	clrf	??_Pr_UART_Data+3
+   992  0072  0865               	movf	??_Pr_UART_Data+2,w
+   993  0073  00E6               	movwf	??_Pr_UART_Data+3
+   994  0074  01E5               	clrf	??_Pr_UART_Data+2
+   995  0075  0863               	movf	??_Pr_UART_Data,w
+   996  0076  0465               	iorwf	??_Pr_UART_Data+2,w
+   997  0077  00E7               	movwf	Pr_UART_Data@sensorVal
+   998  0078  0864               	movf	??_Pr_UART_Data+1,w
+   999  0079  0466               	iorwf	??_Pr_UART_Data+3,w
+  1000  007A  00E8               	movwf	Pr_UART_Data@sensorVal+1
+  1001                           
+  1002                           ;main.c: 506: break;
+  1003  007B  0008               	return
+  1004  007C                     l163:	
+  1005                           ;main.c: 507: case 0x01:
+  1006                           
+  1007                           
+  1008                           ;main.c: 508: PORTBbits.RB0 = 1;
+  1009  007C  1406               	bsf	6,0	;volatile
+  1010                           
+  1011                           ;main.c: 509: PORTDbits.RD3 = 1;
+  1012  007D  1588               	bsf	8,3	;volatile
+  1013                           
+  1014                           ;main.c: 510: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+  1015  007E  0843               	movf	_RxBuf+23,w
+  1016  007F  00E3               	movwf	??_Pr_UART_Data
+  1017  0080  01E4               	clrf	??_Pr_UART_Data+1
+  1018  0081  0844               	movf	_RxBuf+24,w
+  1019  0082  00E5               	movwf	??_Pr_UART_Data+2
+  1020  0083  01E6               	clrf	??_Pr_UART_Data+3
+  1021  0084  0865               	movf	??_Pr_UART_Data+2,w
+  1022  0085  00E6               	movwf	??_Pr_UART_Data+3
+  1023  0086  01E5               	clrf	??_Pr_UART_Data+2
+  1024  0087  0863               	movf	??_Pr_UART_Data,w
+  1025  0088  0465               	iorwf	??_Pr_UART_Data+2,w
+  1026  0089  00E7               	movwf	Pr_UART_Data@sensorVal
+  1027  008A  0864               	movf	??_Pr_UART_Data+1,w
+  1028  008B  0466               	iorwf	??_Pr_UART_Data+3,w
+  1029  008C  00E8               	movwf	Pr_UART_Data@sensorVal+1
+  1030                           
+  1031                           ;main.c: 511: break;
+  1032  008D  0008               	return
+  1033  008E                     l164:	
+  1034                           ;main.c: 512: case 0x02:
+  1035                           
+  1036                           
+  1037                           ;main.c: 513: PORTBbits.RB1 = 1;
+  1038  008E  1486               	bsf	6,1	;volatile
+  1039                           
+  1040                           ;main.c: 514: PORTDbits.RD3 = 1;
+  1041  008F  1588               	bsf	8,3	;volatile
+  1042                           
+  1043                           ;main.c: 515: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+  1044  0090  0843               	movf	_RxBuf+23,w
+  1045  0091  00E3               	movwf	??_Pr_UART_Data
+  1046  0092  01E4               	clrf	??_Pr_UART_Data+1
+  1047  0093  0844               	movf	_RxBuf+24,w
+  1048  0094  00E5               	movwf	??_Pr_UART_Data+2
+  1049  0095  01E6               	clrf	??_Pr_UART_Data+3
+  1050  0096  0865               	movf	??_Pr_UART_Data+2,w
+  1051  0097  00E6               	movwf	??_Pr_UART_Data+3
+  1052  0098  01E5               	clrf	??_Pr_UART_Data+2
+  1053  0099  0863               	movf	??_Pr_UART_Data,w
+  1054  009A  0465               	iorwf	??_Pr_UART_Data+2,w
+  1055  009B  00E7               	movwf	Pr_UART_Data@sensorVal
+  1056  009C  0864               	movf	??_Pr_UART_Data+1,w
+  1057  009D  0466               	iorwf	??_Pr_UART_Data+3,w
+  1058  009E  00E8               	movwf	Pr_UART_Data@sensorVal+1
+  1059                           
+  1060                           ;main.c: 516: break;
+  1061  009F  0008               	return
+  1062  00A0                     l165:	
+  1063                           ;main.c: 517: case 0x05:
+  1064                           
+  1065                           
+  1066                           ;main.c: 518: PORTBbits.RB2 = 1;
+  1067  00A0  1506               	bsf	6,2	;volatile
+  1068                           
+  1069                           ;main.c: 519: PORTDbits.RD3 = 1;
+  1070  00A1  1588               	bsf	8,3	;volatile
+  1071                           
+  1072                           ;main.c: 520: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+  1073  00A2  0843               	movf	_RxBuf+23,w
+  1074  00A3  00E3               	movwf	??_Pr_UART_Data
+  1075  00A4  01E4               	clrf	??_Pr_UART_Data+1
+  1076  00A5  0844               	movf	_RxBuf+24,w
+  1077  00A6  00E5               	movwf	??_Pr_UART_Data+2
+  1078  00A7  01E6               	clrf	??_Pr_UART_Data+3
+  1079  00A8  0865               	movf	??_Pr_UART_Data+2,w
+  1080  00A9  00E6               	movwf	??_Pr_UART_Data+3
+  1081  00AA  01E5               	clrf	??_Pr_UART_Data+2
+  1082  00AB  0863               	movf	??_Pr_UART_Data,w
+  1083  00AC  0465               	iorwf	??_Pr_UART_Data+2,w
+  1084  00AD  00E7               	movwf	Pr_UART_Data@sensorVal
+  1085  00AE  0864               	movf	??_Pr_UART_Data+1,w
+  1086  00AF  0466               	iorwf	??_Pr_UART_Data+3,w
+  1087  00B0  00E8               	movwf	Pr_UART_Data@sensorVal+1
+  1088                           
+  1089                           ;main.c: 521: break;
+  1090  00B1  0008               	return
+  1091  00B2                     l166:	
+  1092                           ;main.c: 522: case 0x06:
+  1093                           
+  1094                           
+  1095                           ;main.c: 523: PORTBbits.RB3 = 1;
+  1096  00B2  1586               	bsf	6,3	;volatile
+  1097                           
+  1098                           ;main.c: 524: PORTDbits.RD3 = 1;
+  1099  00B3  1588               	bsf	8,3	;volatile
+  1100                           
+  1101                           ;main.c: 525: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+  1102  00B4  0843               	movf	_RxBuf+23,w
+  1103  00B5  00E3               	movwf	??_Pr_UART_Data
+  1104  00B6  01E4               	clrf	??_Pr_UART_Data+1
+  1105  00B7  0844               	movf	_RxBuf+24,w
+  1106  00B8  00E5               	movwf	??_Pr_UART_Data+2
+  1107  00B9  01E6               	clrf	??_Pr_UART_Data+3
+  1108  00BA  0865               	movf	??_Pr_UART_Data+2,w
+  1109  00BB  00E6               	movwf	??_Pr_UART_Data+3
+  1110  00BC  01E5               	clrf	??_Pr_UART_Data+2
+  1111  00BD  0863               	movf	??_Pr_UART_Data,w
+  1112  00BE  0465               	iorwf	??_Pr_UART_Data+2,w
+  1113  00BF  00E7               	movwf	Pr_UART_Data@sensorVal
+  1114  00C0  0864               	movf	??_Pr_UART_Data+1,w
+  1115  00C1  0466               	iorwf	??_Pr_UART_Data+3,w
+  1116  00C2  00E8               	movwf	Pr_UART_Data@sensorVal+1
+  1117                           
+  1118                           ;main.c: 526: break;
+  1119  00C3  0008               	return
+  1120  00C4                     l167:	
+  1121                           ;main.c: 527: case 0x07:
+  1122                           
+  1123                           
+  1124                           ;main.c: 528: PORTBbits.RB4 = 1;
+  1125  00C4  1606               	bsf	6,4	;volatile
+  1126                           
+  1127                           ;main.c: 529: PORTDbits.RD3 = 1;
+  1128  00C5  1588               	bsf	8,3	;volatile
+  1129                           
+  1130                           ;main.c: 530: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+  1131  00C6  0843               	movf	_RxBuf+23,w
+  1132  00C7  00E3               	movwf	??_Pr_UART_Data
+  1133  00C8  01E4               	clrf	??_Pr_UART_Data+1
+  1134  00C9  0844               	movf	_RxBuf+24,w
+  1135  00CA  00E5               	movwf	??_Pr_UART_Data+2
+  1136  00CB  01E6               	clrf	??_Pr_UART_Data+3
+  1137  00CC  0865               	movf	??_Pr_UART_Data+2,w
+  1138  00CD  00E6               	movwf	??_Pr_UART_Data+3
+  1139  00CE  01E5               	clrf	??_Pr_UART_Data+2
+  1140  00CF  0863               	movf	??_Pr_UART_Data,w
+  1141  00D0  0465               	iorwf	??_Pr_UART_Data+2,w
+  1142  00D1  00E7               	movwf	Pr_UART_Data@sensorVal
+  1143  00D2  0864               	movf	??_Pr_UART_Data+1,w
+  1144  00D3  0466               	iorwf	??_Pr_UART_Data+3,w
+  1145  00D4  00E8               	movwf	Pr_UART_Data@sensorVal+1
+  1146                           
+  1147                           ;main.c: 531: break;
+  1148  00D5  0008               	return
+  1149  00D6                     l168:	
+  1150                           ;main.c: 532: default:
+  1151                           
+  1152                           
+  1153                           ;main.c: 533: PORTBbits.RB5 = 1;
+  1154  00D6  1686               	bsf	6,5	;volatile
+  1155                           
+  1156                           ;main.c: 535: }
+  1157                           
+  1158                           ;main.c: 534: break;
+  1159  00D7  0008               	return
+  1160  00D8                     l1042:	
+  1161  00D8  1283               	bcf	3,5	;RP0=0, select bank0
+  1162  00D9  1303               	bcf	3,6	;RP1=0, select bank0
+  1163  00DA  0869               	movf	Pr_UART_Data@status,w
+  1164                           
+  1165                           ; Switch size 1, requested type "space"
+  1166                           ; Number of cases is 6, Range of values is 0 to 7
+  1167                           ; switch strategies available:
+  1168                           ; Name         Instructions Cycles
+  1169                           ; simple_byte           19    10 (average)
+  1170                           ; direct_byte           23     7 (fixed)
+  1171                           ; jumptable            260     6 (fixed)
+  1172                           ;	Chosen strategy is simple_byte
+  1173  00DB  3A00               	xorlw	0	; case 0
+  1174  00DC  1903               	skipnz
+  1175  00DD  286B               	goto	l161
+  1176  00DE  3A01               	xorlw	1	; case 1
+  1177  00DF  1903               	skipnz
+  1178  00E0  287C               	goto	l163
+  1179  00E1  3A03               	xorlw	3	; case 2
+  1180  00E2  1903               	skipnz
+  1181  00E3  288E               	goto	l164
+  1182  00E4  3A07               	xorlw	7	; case 5
+  1183  00E5  1903               	skipnz
+  1184  00E6  28A0               	goto	l165
+  1185  00E7  3A03               	xorlw	3	; case 6
+  1186  00E8  1903               	skipnz
+  1187  00E9  28B2               	goto	l166
+  1188  00EA  3A01               	xorlw	1	; case 7
+  1189  00EB  1903               	skipnz
+  1190  00EC  28C4               	goto	l167
+  1191  00ED  28D6               	goto	l168
+  1192  00EE  0008               	return
+  1193  00EF                     __end_of_Pr_UART_Data:	
+  1194                           
+  1195                           	psect	text4
+  1196  020D                     __ptext4:	
+  1197 ;; *************** function _generateCRC *****************
+  1198 ;; Defined at:
+  1199 ;;		line 197 in file "main.c"
+  1200 ;; Parameters:    Size  Location     Type
+  1201 ;;  buf             1    wreg     PTR unsigned char 
+  1202 ;;		 -> RxBuf(29), 
+  1203 ;;  len             2   16[BANK0 ] int 
+  1204 ;; Auto vars:     Size  Location     Type
+  1205 ;;  buf             1   21[BANK0 ] PTR unsigned char 
+  1206 ;;		 -> RxBuf(29), 
+  1207 ;;  i               2   24[BANK0 ] int 
+  1208 ;;  crc             2   22[BANK0 ] unsigned short 
+  1209 ;; Return value:  Size  Location     Type
+  1210 ;;                  2   16[BANK0 ] unsigned short 
+  1211 ;; Registers used:
+  1212 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1213 ;; Tracked objects:
+  1214 ;;		On entry : 0/0
+  1215 ;;		On exit  : 0/0
+  1216 ;;		Unchanged: 0/0
+  1217 ;; Data sizes:     COMMON   BANK0   BANK1
+  1218 ;;      Params:         0       2       0
+  1219 ;;      Locals:         0       5       0
+  1220 ;;      Temps:          0       3       0
+  1221 ;;      Totals:         0      10       0
+  1222 ;;Total ram usage:       10 bytes
+  1223 ;; Hardware stack levels used:    1
+  1224 ;; Hardware stack levels required when called:    2
+  1225 ;; This function calls:
+  1226 ;;		_calc_crc
+  1227 ;; This function is called by:
+  1228 ;;		_Pr_UART_Data
+  1229 ;; This function uses a non-reentrant model
+  1230 ;;
+  1231                           
+  1232                           
+  1233                           ;psect for function _generateCRC
+  1234  020D                     _generateCRC:	
+  1235                           
+  1236                           ;incstack = 0
+  1237                           ; Regs used in _generateCRC: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1238                           ;generateCRC@buf stored from wreg
+  1239  020D  1283               	bcf	3,5	;RP0=0, select bank0
+  1240  020E  1303               	bcf	3,6	;RP1=0, select bank0
+  1241  020F  00DE               	movwf	generateCRC@buf
+  1242                           
+  1243                           ;main.c: 199: unsigned short crc;
+  1244                           ;main.c: 201: crc = 0xFFFF;
+  1245  0210  30FF               	movlw	255
+  1246  0211  00DF               	movwf	generateCRC@crc
+  1247  0212  30FF               	movlw	255
+  1248  0213  00E0               	movwf	generateCRC@crc+1
+  1249                           
+  1250                           ;main.c: 202: for(int i = 0; i<len-3; i++){
+  1251  0214  01E1               	clrf	generateCRC@i
+  1252  0215  01E2               	clrf	generateCRC@i+1
+  1253  0216                     l934:	
+  1254  0216  0859               	movf	generateCRC@len,w
+  1255  0217  3EFD               	addlw	253
+  1256  0218  00DB               	movwf	??_generateCRC
+  1257  0219  085A               	movf	generateCRC@len+1,w
+  1258  021A  1803               	skipnc
+  1259  021B  3E01               	addlw	1
+  1260  021C  3EFF               	addlw	255
+  1261  021D  00DC               	movwf	??_generateCRC+1
+  1262  021E  0862               	movf	generateCRC@i+1,w
+  1263  021F  3A80               	xorlw	128
+  1264  0220  00DD               	movwf	??_generateCRC+2
+  1265  0221  085C               	movf	??_generateCRC+1,w
+  1266  0222  3A80               	xorlw	128
+  1267  0223  025D               	subwf	??_generateCRC+2,w
+  1268  0224  1D03               	skipz
+  1269  0225  2A28               	goto	u335
+  1270  0226  085B               	movf	??_generateCRC,w
+  1271  0227  0261               	subwf	generateCRC@i,w
+  1272  0228                     u335:	
+  1273  0228  1803               	btfsc	3,0
+  1274  0229  2A4A               	goto	l936
+  1275                           
+  1276                           ;main.c: 203: crc = calc_crc(crc, buf[i]);
+  1277  022A  1283               	bcf	3,5	;RP0=0, select bank0
+  1278  022B  1303               	bcf	3,6	;RP1=0, select bank0
+  1279  022C  0860               	movf	generateCRC@crc+1,w
+  1280  022D  00CE               	movwf	calc_crc@crc_buff+1
+  1281  022E  085F               	movf	generateCRC@crc,w
+  1282  022F  00CD               	movwf	calc_crc@crc_buff
+  1283  0230  0861               	movf	generateCRC@i,w
+  1284  0231  075E               	addwf	generateCRC@buf,w
+  1285  0232  00DB               	movwf	??_generateCRC
+  1286  0233  085B               	movf	??_generateCRC,w
+  1287  0234  0084               	movwf	4
+  1288  0235  1383               	bcf	3,7	;select IRP bank0
+  1289  0236  0800               	movf	0,w
+  1290  0237  00DC               	movwf	??_generateCRC+1
+  1291  0238  085C               	movf	??_generateCRC+1,w
+  1292  0239  00CF               	movwf	calc_crc@input
+  1293  023A  118A  2251  118A   	fcall	_calc_crc
+  1294  023D  1283               	bcf	3,5	;RP0=0, select bank0
+  1295  023E  1303               	bcf	3,6	;RP1=0, select bank0
+  1296  023F  084E               	movf	?_calc_crc+1,w
+  1297  0240  00E0               	movwf	generateCRC@crc+1
+  1298  0241  084D               	movf	?_calc_crc,w
+  1299  0242  00DF               	movwf	generateCRC@crc
+  1300  0243  3001               	movlw	1
+  1301  0244  07E1               	addwf	generateCRC@i,f
+  1302  0245  1803               	skipnc
+  1303  0246  0AE2               	incf	generateCRC@i+1,f
+  1304  0247  3000               	movlw	0
+  1305  0248  07E2               	addwf	generateCRC@i+1,f
+  1306  0249  2A16               	goto	l934
+  1307  024A                     l936:	
+  1308                           
+  1309                           ;main.c: 204: }
+  1310                           ;main.c: 205: return crc;
+  1311  024A  1283               	bcf	3,5	;RP0=0, select bank0
+  1312  024B  1303               	bcf	3,6	;RP1=0, select bank0
+  1313  024C  0860               	movf	generateCRC@crc+1,w
+  1314  024D  00DA               	movwf	?_generateCRC+1
+  1315  024E  085F               	movf	generateCRC@crc,w
+  1316  024F  00D9               	movwf	?_generateCRC
+  1317  0250  0008               	return
+  1318  0251                     __end_of_generateCRC:	
+  1319                           
+  1320                           	psect	text5
+  1321  0251                     __ptext5:	
+  1322 ;; *************** function _calc_crc *****************
+  1323 ;; Defined at:
+  1324 ;;		line 174 in file "main.c"
+  1325 ;; Parameters:    Size  Location     Type
+  1326 ;;  crc_buff        2    4[BANK0 ] unsigned short 
+  1327 ;;  input           1    6[BANK0 ] unsigned char 
+  1328 ;; Auto vars:     Size  Location     Type
+  1329 ;;  x16             2   13[BANK0 ] unsigned short 
+  1330 ;;  i               1   15[BANK0 ] unsigned char 
+  1331 ;; Return value:  Size  Location     Type
+  1332 ;;                  2    4[BANK0 ] unsigned short 
+  1333 ;; Registers used:
+  1334 ;;		wreg, status,2, status,0
+  1335 ;; Tracked objects:
+  1336 ;;		On entry : 0/0
+  1337 ;;		On exit  : 0/0
+  1338 ;;		Unchanged: 0/0
+  1339 ;; Data sizes:     COMMON   BANK0   BANK1
+  1340 ;;      Params:         0       3       0
+  1341 ;;      Locals:         0       3       0
+  1342 ;;      Temps:          0       6       0
+  1343 ;;      Totals:         0      12       0
+  1344 ;;Total ram usage:       12 bytes
+  1345 ;; Hardware stack levels used:    1
+  1346 ;; Hardware stack levels required when called:    1
+  1347 ;; This function calls:
+  1348 ;;		Nothing
+  1349 ;; This function is called by:
+  1350 ;;		_generateCRC
+  1351 ;; This function uses a non-reentrant model
+  1352 ;;
+  1353                           
+  1354                           
+  1355                           ;psect for function _calc_crc
+  1356  0251                     _calc_crc:	
+  1357                           
+  1358                           ;main.c: 176: unsigned char i;
+  1359                           ;main.c: 177: unsigned short x16;
+  1360                           ;main.c: 178: for (i=0; i<8; i++) {
+  1361                           
+  1362                           ;incstack = 0
+  1363                           ; Regs used in _calc_crc: [wreg+status,2+status,0]
+  1364  0251  1283               	bcf	3,5	;RP0=0, select bank0
+  1365  0252  1303               	bcf	3,6	;RP1=0, select bank0
+  1366  0253  01D8               	clrf	calc_crc@i
+  1367  0254                     L1:	
+  1368  0254  3008               	movlw	8
+  1369  0255  0258               	subwf	calc_crc@i,w
+  1370  0256  1803               	btfsc	3,0
+  1371  0257  0008               	return
+  1372                           
+  1373                           ;main.c: 179: if( (crc_buff & 0x0001) ^ (input & 0x01) )
+  1374  0258  084F               	movf	calc_crc@input,w
+  1375  0259  3901               	andlw	1
+  1376  025A  00D0               	movwf	??_calc_crc
+  1377  025B  01D1               	clrf	??_calc_crc+1
+  1378  025C  3001               	movlw	1
+  1379  025D  054D               	andwf	calc_crc@crc_buff,w
+  1380  025E  00D2               	movwf	??_calc_crc+2
+  1381  025F  3000               	movlw	0
+  1382  0260  054E               	andwf	calc_crc@crc_buff+1,w
+  1383  0261  00D3               	movwf	??_calc_crc+3
+  1384  0262  0850               	movf	??_calc_crc,w
+  1385  0263  0652               	xorwf	??_calc_crc+2,w
+  1386  0264  00D4               	movwf	??_calc_crc+4
+  1387  0265  0851               	movf	??_calc_crc+1,w
+  1388  0266  0653               	xorwf	??_calc_crc+3,w
+  1389  0267  00D5               	movwf	??_calc_crc+5
+  1390  0268  0854               	movf	??_calc_crc+4,w
+  1391  0269  0455               	iorwf	??_calc_crc+5,w
+  1392  026A  1903               	btfsc	3,2
+  1393  026B  2A71               	goto	l914
+  1394                           
+  1395                           ;main.c: 180: x16 = 0x8408;
+  1396  026C  3008               	movlw	8
+  1397  026D  00D6               	movwf	calc_crc@x16
+  1398  026E  3084               	movlw	132
+  1399  026F  00D7               	movwf	calc_crc@x16+1
+  1400  0270  2A73               	goto	l916
+  1401  0271                     l914:	
+  1402                           
+  1403                           ;main.c: 181: else
+  1404                           ;main.c: 182: x16 = 0x0000;
+  1405  0271  01D6               	clrf	calc_crc@x16
+  1406  0272  01D7               	clrf	calc_crc@x16+1
+  1407  0273                     l916:	
+  1408                           
+  1409                           ;main.c: 183: crc_buff = crc_buff >> 1;
+  1410  0273  084E               	movf	calc_crc@crc_buff+1,w
+  1411  0274  00D1               	movwf	??_calc_crc+1
+  1412  0275  084D               	movf	calc_crc@crc_buff,w
+  1413  0276  00D0               	movwf	??_calc_crc
+  1414  0277  1003               	clrc
+  1415  0278  0CD1               	rrf	??_calc_crc+1,f
+  1416  0279  0CD0               	rrf	??_calc_crc,f
+  1417  027A  0850               	movf	??_calc_crc,w
+  1418  027B  00CD               	movwf	calc_crc@crc_buff
+  1419  027C  0851               	movf	??_calc_crc+1,w
+  1420  027D  00CE               	movwf	calc_crc@crc_buff+1
+  1421                           
+  1422                           ;main.c: 184: crc_buff ^= x16;
+  1423  027E  0856               	movf	calc_crc@x16,w
+  1424  027F  06CD               	xorwf	calc_crc@crc_buff,f
+  1425  0280  0857               	movf	calc_crc@x16+1,w
+  1426  0281  06CE               	xorwf	calc_crc@crc_buff+1,f
+  1427                           
+  1428                           ;main.c: 185: input = input >> 1;
+  1429  0282  084F               	movf	calc_crc@input,w
+  1430  0283  00D0               	movwf	??_calc_crc
+  1431  0284  1003               	clrc
+  1432  0285  0C50               	rrf	??_calc_crc,w
+  1433  0286  00D1               	movwf	??_calc_crc+1
+  1434  0287  0851               	movf	??_calc_crc+1,w
+  1435  0288  00CF               	movwf	calc_crc@input
+  1436  0289  3001               	movlw	1
+  1437  028A  00D0               	movwf	??_calc_crc
+  1438  028B  0850               	movf	??_calc_crc,w
+  1439  028C  07D8               	addwf	calc_crc@i,f
+  1440  028D  2A54               	goto	L1
+  1441  028E                     __end_of_calc_crc:	
+  1442                           ;main.c: 186: }
+  1443                           ;main.c: 187: return(crc_buff);
+  1444                           
+  1445                           
+  1446                           	psect	text6
+  1447  037D                     __ptext6:	
+  1448 ;; *************** function _TurnOffRelays *****************
+  1449 ;; Defined at:
+  1450 ;;		line 450 in file "main.c"
+  1451 ;; Parameters:    Size  Location     Type
+  1452 ;;		None
+  1453 ;; Auto vars:     Size  Location     Type
+  1454 ;;		None
+  1455 ;; Return value:  Size  Location     Type
+  1456 ;;		None               void
+  1457 ;; Registers used:
+  1458 ;;		None
+  1459 ;; Tracked objects:
+  1460 ;;		On entry : 0/0
+  1461 ;;		On exit  : 0/0
+  1462 ;;		Unchanged: 0/0
+  1463 ;; Data sizes:     COMMON   BANK0   BANK1
+  1464 ;;      Params:         0       0       0
+  1465 ;;      Locals:         0       0       0
+  1466 ;;      Temps:          0       0       0
+  1467 ;;      Totals:         0       0       0
+  1468 ;;Total ram usage:        0 bytes
+  1469 ;; Hardware stack levels used:    1
+  1470 ;; Hardware stack levels required when called:    1
+  1471 ;; This function calls:
+  1472 ;;		Nothing
+  1473 ;; This function is called by:
+  1474 ;;		_Pr_UART_Data
+  1475 ;;		_TestRelays
+  1476 ;; This function uses a non-reentrant model
+  1477 ;;
+  1478                           
+  1479                           
+  1480                           ;psect for function _TurnOffRelays
+  1481  037D                     _TurnOffRelays:	
+  1482                           
+  1483                           ;main.c: 451: PORTDbits.RD3 = 0;
+  1484                           
+  1485                           ;incstack = 0
+  1486                           ; Regs used in _TurnOffRelays: []
+  1487  037D  1283               	bcf	3,5	;RP0=0, select bank0
+  1488  037E  1303               	bcf	3,6	;RP1=0, select bank0
+  1489  037F  1188               	bcf	8,3	;volatile
+  1490                           
+  1491                           ;main.c: 452: PORTBbits.RB0 = 0;
+  1492  0380  1006               	bcf	6,0	;volatile
+  1493                           
+  1494                           ;main.c: 453: PORTBbits.RB1 = 0;
+  1495  0381  1086               	bcf	6,1	;volatile
+  1496                           
+  1497                           ;main.c: 454: PORTBbits.RB2 = 0;
+  1498  0382  1106               	bcf	6,2	;volatile
+  1499                           
+  1500                           ;main.c: 455: PORTBbits.RB3 = 0;
+  1501  0383  1186               	bcf	6,3	;volatile
+  1502                           
+  1503                           ;main.c: 456: PORTBbits.RB4 = 0;
+  1504  0384  1206               	bcf	6,4	;volatile
+  1505                           
+  1506                           ;main.c: 457: PORTDbits.RD2 = 0;
+  1507  0385  1108               	bcf	8,2	;volatile
+  1508                           
+  1509                           ;main.c: 458: PORTBbits.RB5 = 0;
+  1510  0386  1286               	bcf	6,5	;volatile
+  1511  0387  0008               	return
+  1512  0388                     __end_of_TurnOffRelays:	
+  1513                           
+  1514                           	psect	text7
+  1515  028E                     __ptext7:	
+  1516 ;; *************** function _PollSensor *****************
+  1517 ;; Defined at:
+  1518 ;;		line 315 in file "main.c"
+  1519 ;; Parameters:    Size  Location     Type
+  1520 ;;		None
+  1521 ;; Auto vars:     Size  Location     Type
+  1522 ;;  i               2    5[BANK0 ] int 
+  1523 ;; Return value:  Size  Location     Type
+  1524 ;;		None               void
+  1525 ;; Registers used:
+  1526 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1527 ;; Tracked objects:
+  1528 ;;		On entry : 0/0
+  1529 ;;		On exit  : 0/0
+  1530 ;;		Unchanged: 0/0
+  1531 ;; Data sizes:     COMMON   BANK0   BANK1
+  1532 ;;      Params:         0       0       0
+  1533 ;;      Locals:         0       2       0
+  1534 ;;      Temps:          0       0       0
+  1535 ;;      Totals:         0       2       0
+  1536 ;;Total ram usage:        2 bytes
+  1537 ;; Hardware stack levels used:    1
+  1538 ;; Hardware stack levels required when called:    2
+  1539 ;; This function calls:
+  1540 ;;		_UART_putc
+  1541 ;; This function is called by:
+  1542 ;;		_main
+  1543 ;; This function uses a non-reentrant model
+  1544 ;;
+  1545                           
+  1546                           
+  1547                           ;psect for function _PollSensor
+  1548  028E                     _PollSensor:	
+  1549                           
+  1550                           ;main.c: 317: for(int i = 0; i<19; i++){
+  1551                           
+  1552                           ;incstack = 0
+  1553                           ; Regs used in _PollSensor: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1554  028E  1283               	bcf	3,5	;RP0=0, select bank0
+  1555  028F  1303               	bcf	3,6	;RP1=0, select bank0
+  1556  0290  01CE               	clrf	PollSensor@i
+  1557  0291  01CF               	clrf	PollSensor@i+1
+  1558  0292  084F               	movf	PollSensor@i+1,w
+  1559  0293  3A80               	xorlw	128
+  1560  0294  00FF               	movwf	127
+  1561  0295  3080               	movlw	128
+  1562  0296  027F               	subwf	127,w
+  1563  0297  1D03               	skipz
+  1564  0298  2A9B               	goto	u445
+  1565  0299  3013               	movlw	19
+  1566  029A  024E               	subwf	PollSensor@i,w
+  1567  029B                     u445:	
+  1568  029B  1803               	btfsc	3,0
+  1569  029C  2ABA               	goto	l134
+  1570  029D                     l1050:	
+  1571                           
+  1572                           ;main.c: 318: UART_putc(TxBuf[i]);
+  1573  029D  1283               	bcf	3,5	;RP0=0, select bank0
+  1574  029E  1303               	bcf	3,6	;RP1=0, select bank0
+  1575  029F  084E               	movf	PollSensor@i,w
+  1576  02A0  3EA0               	addlw	(low (_TxBuf| 0))& (0+255)
+  1577  02A1  0084               	movwf	4
+  1578  02A2  1383               	bcf	3,7	;select IRP bank1
+  1579  02A3  0800               	movf	0,w
+  1580  02A4  118A  2371  118A   	fcall	_UART_putc
+  1581  02A7  3001               	movlw	1
+  1582  02A8  1283               	bcf	3,5	;RP0=0, select bank0
+  1583  02A9  1303               	bcf	3,6	;RP1=0, select bank0
+  1584  02AA  07CE               	addwf	PollSensor@i,f
+  1585  02AB  1803               	skipnc
+  1586  02AC  0ACF               	incf	PollSensor@i+1,f
+  1587  02AD  3000               	movlw	0
+  1588  02AE  07CF               	addwf	PollSensor@i+1,f
+  1589  02AF  084F               	movf	PollSensor@i+1,w
+  1590  02B0  3A80               	xorlw	128
+  1591  02B1  00FF               	movwf	127
+  1592  02B2  3080               	movlw	128
+  1593  02B3  027F               	subwf	127,w
+  1594  02B4  1D03               	skipz
+  1595  02B5  2AB8               	goto	u455
+  1596  02B6  3013               	movlw	19
+  1597  02B7  024E               	subwf	PollSensor@i,w
+  1598  02B8                     u455:	
+  1599  02B8  1C03               	skipc
+  1600  02B9  2A9D               	goto	l1050
+  1601  02BA                     l134:	
+  1602                           
+  1603                           ;main.c: 319: }
+  1604                           ;main.c: 320: PORTCbits.RC1 = 1;
+  1605  02BA  1283               	bcf	3,5	;RP0=0, select bank0
+  1606  02BB  1303               	bcf	3,6	;RP1=0, select bank0
+  1607  02BC  1487               	bsf	7,1	;volatile
+  1608                           
+  1609                           ;main.c: 321: RedLED_timer = 100;
+  1610  02BD  3064               	movlw	100
+  1611  02BE  00A2               	movwf	_RedLED_timer
+  1612  02BF  3000               	movlw	0
+  1613  02C0  00A3               	movwf	_RedLED_timer+1
+  1614  02C1  0008               	return
+  1615  02C2                     __end_of_PollSensor:	
+  1616                           
+  1617                           	psect	text8
+  1618  0371                     __ptext8:	
+  1619 ;; *************** function _UART_putc *****************
+  1620 ;; Defined at:
+  1621 ;;		line 331 in file "main.c"
+  1622 ;; Parameters:    Size  Location     Type
+  1623 ;;  c               1    wreg     unsigned char 
+  1624 ;; Auto vars:     Size  Location     Type
+  1625 ;;  c               1    4[BANK0 ] unsigned char 
+  1626 ;; Return value:  Size  Location     Type
+  1627 ;;		None               void
+  1628 ;; Registers used:
+  1629 ;;		wreg
+  1630 ;; Tracked objects:
+  1631 ;;		On entry : 0/0
+  1632 ;;		On exit  : 0/0
+  1633 ;;		Unchanged: 0/0
+  1634 ;; Data sizes:     COMMON   BANK0   BANK1
+  1635 ;;      Params:         0       0       0
+  1636 ;;      Locals:         0       1       0
+  1637 ;;      Temps:          0       0       0
+  1638 ;;      Totals:         0       1       0
+  1639 ;;Total ram usage:        1 bytes
+  1640 ;; Hardware stack levels used:    1
+  1641 ;; Hardware stack levels required when called:    1
+  1642 ;; This function calls:
+  1643 ;;		Nothing
+  1644 ;; This function is called by:
+  1645 ;;		_PollSensor
+  1646 ;; This function uses a non-reentrant model
+  1647 ;;
+  1648                           
+  1649                           
+  1650                           ;psect for function _UART_putc
+  1651  0371                     _UART_putc:	
+  1652                           
+  1653                           ;incstack = 0
+  1654                           ; Regs used in _UART_putc: [wreg]
+  1655                           ;UART_putc@c stored from wreg
+  1656  0371  1283               	bcf	3,5	;RP0=0, select bank0
+  1657  0372  1303               	bcf	3,6	;RP1=0, select bank0
+  1658  0373  00CD               	movwf	UART_putc@c
+  1659  0374                     l138:	
+  1660                           ;main.c: 334: while (TXSTAbits.TRMT == 0);
+  1661                           
+  1662  0374  1683               	bsf	3,5	;RP0=1, select bank1
+  1663  0375  1303               	bcf	3,6	;RP1=0, select bank1
+  1664  0376  1C98               	btfss	24,1	;volatile
+  1665  0377  2B74               	goto	l138
+  1666                           
+  1667                           ;main.c: 336: TXREG = c;
+  1668  0378  1283               	bcf	3,5	;RP0=0, select bank0
+  1669  0379  1303               	bcf	3,6	;RP1=0, select bank0
+  1670  037A  084D               	movf	UART_putc@c,w
+  1671  037B  0099               	movwf	25	;volatile
+  1672  037C  0008               	return
+  1673  037D                     __end_of_UART_putc:	
+  1674                           
+  1675                           	psect	text9
+  1676  0364                     __ptext9:	
+  1677 ;; *************** function _Init_UART *****************
+  1678 ;; Defined at:
+  1679 ;;		line 215 in file "main.c"
+  1680 ;; Parameters:    Size  Location     Type
+  1681 ;;		None
+  1682 ;; Auto vars:     Size  Location     Type
+  1683 ;;		None
+  1684 ;; Return value:  Size  Location     Type
+  1685 ;;		None               void
+  1686 ;; Registers used:
+  1687 ;;		wreg
+  1688 ;; Tracked objects:
+  1689 ;;		On entry : 0/0
+  1690 ;;		On exit  : 0/0
+  1691 ;;		Unchanged: 0/0
+  1692 ;; Data sizes:     COMMON   BANK0   BANK1
+  1693 ;;      Params:         0       0       0
+  1694 ;;      Locals:         0       0       0
+  1695 ;;      Temps:          0       0       0
+  1696 ;;      Totals:         0       0       0
+  1697 ;;Total ram usage:        0 bytes
+  1698 ;; Hardware stack levels used:    1
+  1699 ;; Hardware stack levels required when called:    1
+  1700 ;; This function calls:
+  1701 ;;		Nothing
+  1702 ;; This function is called by:
+  1703 ;;		_main
+  1704 ;; This function uses a non-reentrant model
+  1705 ;;
+  1706                           
+  1707                           
+  1708                           ;psect for function _Init_UART
+  1709  0364                     _Init_UART:	
+  1710                           
+  1711                           ;main.c: 217: TXSTAbits.BRGH = 1;
+  1712                           
+  1713                           ;incstack = 0
+  1714                           ; Regs used in _Init_UART: [wreg]
+  1715  0364  1683               	bsf	3,5	;RP0=1, select bank1
+  1716  0365  1303               	bcf	3,6	;RP1=0, select bank1
+  1717  0366  1518               	bsf	24,2	;volatile
+  1718                           
+  1719                           ;main.c: 218: TXSTAbits.TXEN = 1;
+  1720  0367  1698               	bsf	24,5	;volatile
+  1721                           
+  1722                           ;main.c: 220: RCSTAbits.SPEN = 1;
+  1723  0368  1283               	bcf	3,5	;RP0=0, select bank0
+  1724  0369  1303               	bcf	3,6	;RP1=0, select bank0
+  1725  036A  1798               	bsf	24,7	;volatile
+  1726                           
+  1727                           ;main.c: 221: RCSTAbits.CREN = 1;
+  1728  036B  1618               	bsf	24,4	;volatile
+  1729                           
+  1730                           ;main.c: 223: SPBRG = 47;
+  1731  036C  302F               	movlw	47
+  1732  036D  1683               	bsf	3,5	;RP0=1, select bank1
+  1733  036E  1303               	bcf	3,6	;RP1=0, select bank1
+  1734  036F  0099               	movwf	25	;volatile
+  1735  0370  0008               	return
+  1736  0371                     __end_of_Init_UART:	
+  1737                           
+  1738                           	psect	text10
+  1739  0331                     __ptext10:	
+  1740 ;; *************** function _InitTimer *****************
+  1741 ;; Defined at:
+  1742 ;;		line 239 in file "main.c"
+  1743 ;; Parameters:    Size  Location     Type
+  1744 ;;		None
+  1745 ;; Auto vars:     Size  Location     Type
+  1746 ;;		None
+  1747 ;; Return value:  Size  Location     Type
+  1748 ;;		None               void
+  1749 ;; Registers used:
+  1750 ;;		wreg
+  1751 ;; Tracked objects:
+  1752 ;;		On entry : 0/0
+  1753 ;;		On exit  : 0/0
+  1754 ;;		Unchanged: 0/0
+  1755 ;; Data sizes:     COMMON   BANK0   BANK1
+  1756 ;;      Params:         0       0       0
+  1757 ;;      Locals:         0       0       0
+  1758 ;;      Temps:          0       0       0
+  1759 ;;      Totals:         0       0       0
+  1760 ;;Total ram usage:        0 bytes
+  1761 ;; Hardware stack levels used:    1
+  1762 ;; Hardware stack levels required when called:    1
+  1763 ;; This function calls:
+  1764 ;;		Nothing
+  1765 ;; This function is called by:
+  1766 ;;		_main
+  1767 ;; This function uses a non-reentrant model
+  1768 ;;
+  1769                           
+  1770                           
+  1771                           ;psect for function _InitTimer
+  1772  0331                     _InitTimer:	
+  1773                           
+  1774                           ;main.c: 241: T1CON = 0x01;
+  1775                           
+  1776                           ;incstack = 0
+  1777                           ; Regs used in _InitTimer: [wreg]
+  1778  0331  3001               	movlw	1
+  1779  0332  1283               	bcf	3,5	;RP0=0, select bank0
+  1780  0333  1303               	bcf	3,6	;RP1=0, select bank0
+  1781  0334  0090               	movwf	16	;volatile
+  1782                           
+  1783                           ;main.c: 242: TMR1L = 0x099;
+  1784  0335  3099               	movlw	153
+  1785  0336  008E               	movwf	14	;volatile
+  1786                           
+  1787                           ;main.c: 243: TMR1H = 0x0F1;
+  1788  0337  30F1               	movlw	241
+  1789  0338  008F               	movwf	15	;volatile
+  1790                           
+  1791                           ;main.c: 245: PIE1bits.TMR1IE = 1;
+  1792  0339  1683               	bsf	3,5	;RP0=1, select bank1
+  1793  033A  1303               	bcf	3,6	;RP1=0, select bank1
+  1794  033B  140C               	bsf	12,0	;volatile
+  1795                           
+  1796                           ;main.c: 246: INTCONbits.PEIE = 1;
+  1797  033C  170B               	bsf	11,6	;volatile
+  1798                           
+  1799                           ;main.c: 247: INTCONbits.GIE = 1;
+  1800  033D  178B               	bsf	11,7	;volatile
+  1801                           
+  1802                           ;main.c: 248: T1CONbits.TMR1ON = 1;
+  1803  033E  1283               	bcf	3,5	;RP0=0, select bank0
+  1804  033F  1303               	bcf	3,6	;RP1=0, select bank0
+  1805  0340  1410               	bsf	16,0	;volatile
+  1806                           
+  1807                           ;main.c: 249: T1CONbits.T1CKPS0 = 0;
+  1808  0341  1210               	bcf	16,4	;volatile
+  1809                           
+  1810                           ;main.c: 250: T1CONbits.T1CKPS1 = 0;
+  1811  0342  1290               	bcf	16,5	;volatile
+  1812  0343  0008               	return
+  1813  0344                     __end_of_InitTimer:	
+  1814                           
+  1815                           	psect	text11
+  1816  00EF                     __ptext11:	
+  1817 ;; *************** function _InitPorts *****************
+  1818 ;; Defined at:
+  1819 ;;		line 346 in file "main.c"
+  1820 ;; Parameters:    Size  Location     Type
+  1821 ;;		None
+  1822 ;; Auto vars:     Size  Location     Type
+  1823 ;;		None
+  1824 ;; Return value:  Size  Location     Type
+  1825 ;;		None               void
+  1826 ;; Registers used:
+  1827 ;;		wreg
+  1828 ;; Tracked objects:
+  1829 ;;		On entry : 0/0
+  1830 ;;		On exit  : 0/0
+  1831 ;;		Unchanged: 0/0
+  1832 ;; Data sizes:     COMMON   BANK0   BANK1
+  1833 ;;      Params:         0       0       0
+  1834 ;;      Locals:         0       0       0
+  1835 ;;      Temps:          0       0       0
+  1836 ;;      Totals:         0       0       0
+  1837 ;;Total ram usage:        0 bytes
+  1838 ;; Hardware stack levels used:    1
+  1839 ;; Hardware stack levels required when called:    1
+  1840 ;; This function calls:
+  1841 ;;		Nothing
+  1842 ;; This function is called by:
+  1843 ;;		_main
+  1844 ;; This function uses a non-reentrant model
+  1845 ;;
+  1846                           
+  1847                           
+  1848                           ;psect for function _InitPorts
+  1849  00EF                     _InitPorts:	
+  1850                           
+  1851                           ;main.c: 348: TRISCbits.TRISC0 = 0;
+  1852                           
+  1853                           ;incstack = 0
+  1854                           ; Regs used in _InitPorts: [wreg]
+  1855  00EF  1683               	bsf	3,5	;RP0=1, select bank1
+  1856  00F0  1303               	bcf	3,6	;RP1=0, select bank1
+  1857  00F1  1007               	bcf	7,0	;volatile
+  1858                           
+  1859                           ;main.c: 349: PORTCbits.RC0 = 0;
+  1860  00F2  1283               	bcf	3,5	;RP0=0, select bank0
+  1861  00F3  1303               	bcf	3,6	;RP1=0, select bank0
+  1862  00F4  1007               	bcf	7,0	;volatile
+  1863                           
+  1864                           ;main.c: 351: TRISCbits.TRISC1 = 0;
+  1865  00F5  1683               	bsf	3,5	;RP0=1, select bank1
+  1866  00F6  1303               	bcf	3,6	;RP1=0, select bank1
+  1867  00F7  1087               	bcf	7,1	;volatile
+  1868                           
+  1869                           ;main.c: 352: PORTCbits.RC1 = 0;
+  1870  00F8  1283               	bcf	3,5	;RP0=0, select bank0
+  1871  00F9  1303               	bcf	3,6	;RP1=0, select bank0
+  1872  00FA  1087               	bcf	7,1	;volatile
+  1873                           
+  1874                           ;main.c: 355: TRISDbits.TRISD2 = 0;
+  1875  00FB  1683               	bsf	3,5	;RP0=1, select bank1
+  1876  00FC  1303               	bcf	3,6	;RP1=0, select bank1
+  1877  00FD  1108               	bcf	8,2	;volatile
+  1878                           
+  1879                           ;main.c: 356: PORTDbits.RD2 = 0;
+  1880  00FE  1283               	bcf	3,5	;RP0=0, select bank0
+  1881  00FF  1303               	bcf	3,6	;RP1=0, select bank0
+  1882  0100  1108               	bcf	8,2	;volatile
+  1883                           
+  1884                           ;main.c: 357: TRISBbits.TRISB0 = 0;
+  1885  0101  1683               	bsf	3,5	;RP0=1, select bank1
+  1886  0102  1303               	bcf	3,6	;RP1=0, select bank1
+  1887  0103  1006               	bcf	6,0	;volatile
+  1888                           
+  1889                           ;main.c: 358: PORTBbits.RB0 = 0;
+  1890  0104  1283               	bcf	3,5	;RP0=0, select bank0
+  1891  0105  1303               	bcf	3,6	;RP1=0, select bank0
+  1892  0106  1006               	bcf	6,0	;volatile
+  1893                           
+  1894                           ;main.c: 359: TRISBbits.TRISB1 = 0;
+  1895  0107  1683               	bsf	3,5	;RP0=1, select bank1
+  1896  0108  1303               	bcf	3,6	;RP1=0, select bank1
+  1897  0109  1086               	bcf	6,1	;volatile
+  1898                           
+  1899                           ;main.c: 360: PORTBbits.RB1 = 0;
+  1900  010A  1283               	bcf	3,5	;RP0=0, select bank0
+  1901  010B  1303               	bcf	3,6	;RP1=0, select bank0
+  1902  010C  1086               	bcf	6,1	;volatile
+  1903                           
+  1904                           ;main.c: 361: TRISBbits.TRISB2 = 0;
+  1905  010D  1683               	bsf	3,5	;RP0=1, select bank1
+  1906  010E  1303               	bcf	3,6	;RP1=0, select bank1
+  1907  010F  1106               	bcf	6,2	;volatile
+  1908                           
+  1909                           ;main.c: 362: PORTBbits.RB2 = 0;
+  1910  0110  1283               	bcf	3,5	;RP0=0, select bank0
+  1911  0111  1303               	bcf	3,6	;RP1=0, select bank0
+  1912  0112  1106               	bcf	6,2	;volatile
+  1913                           
+  1914                           ;main.c: 363: TRISBbits.TRISB3 = 0;
+  1915  0113  1683               	bsf	3,5	;RP0=1, select bank1
+  1916  0114  1303               	bcf	3,6	;RP1=0, select bank1
+  1917  0115  1186               	bcf	6,3	;volatile
+  1918                           
+  1919                           ;main.c: 364: PORTBbits.RB3 = 0;
+  1920  0116  1283               	bcf	3,5	;RP0=0, select bank0
+  1921  0117  1303               	bcf	3,6	;RP1=0, select bank0
+  1922  0118  1186               	bcf	6,3	;volatile
+  1923                           
+  1924                           ;main.c: 365: TRISBbits.TRISB4 = 0;
+  1925  0119  1683               	bsf	3,5	;RP0=1, select bank1
+  1926  011A  1303               	bcf	3,6	;RP1=0, select bank1
+  1927  011B  1206               	bcf	6,4	;volatile
+  1928                           
+  1929                           ;main.c: 366: PORTBbits.RB4 = 0;
+  1930  011C  1283               	bcf	3,5	;RP0=0, select bank0
+  1931  011D  1303               	bcf	3,6	;RP1=0, select bank0
+  1932  011E  1206               	bcf	6,4	;volatile
+  1933                           
+  1934                           ;main.c: 367: TRISDbits.TRISD3 = 0;
+  1935  011F  1683               	bsf	3,5	;RP0=1, select bank1
+  1936  0120  1303               	bcf	3,6	;RP1=0, select bank1
+  1937  0121  1188               	bcf	8,3	;volatile
+  1938                           
+  1939                           ;main.c: 368: PORTDbits.RD3 = 0;
+  1940  0122  1283               	bcf	3,5	;RP0=0, select bank0
+  1941  0123  1303               	bcf	3,6	;RP1=0, select bank0
+  1942  0124  1188               	bcf	8,3	;volatile
+  1943                           
+  1944                           ;main.c: 369: TRISBbits.TRISB5 = 0;
+  1945  0125  1683               	bsf	3,5	;RP0=1, select bank1
+  1946  0126  1303               	bcf	3,6	;RP1=0, select bank1
+  1947  0127  1286               	bcf	6,5	;volatile
+  1948                           
+  1949                           ;main.c: 370: PORTBbits.RB5 = 0;
+  1950  0128  1283               	bcf	3,5	;RP0=0, select bank0
+  1951  0129  1303               	bcf	3,6	;RP1=0, select bank0
+  1952  012A  1286               	bcf	6,5	;volatile
+  1953                           
+  1954                           ;main.c: 372: PORTCbits.RC3 = 0;
+  1955  012B  1187               	bcf	7,3	;volatile
+  1956                           
+  1957                           ;main.c: 373: TRISCbits.TRISC3 = 0;
+  1958  012C  1683               	bsf	3,5	;RP0=1, select bank1
+  1959  012D  1303               	bcf	3,6	;RP1=0, select bank1
+  1960  012E  1187               	bcf	7,3	;volatile
+  1961                           
+  1962                           ;main.c: 375: PORTCbits.RC5 = 0;
+  1963  012F  1283               	bcf	3,5	;RP0=0, select bank0
+  1964  0130  1303               	bcf	3,6	;RP1=0, select bank0
+  1965  0131  1287               	bcf	7,5	;volatile
+  1966                           
+  1967                           ;main.c: 376: TRISCbits.TRISC5 = 0;
+  1968  0132  1683               	bsf	3,5	;RP0=1, select bank1
+  1969  0133  1303               	bcf	3,6	;RP1=0, select bank1
+  1970  0134  1287               	bcf	7,5	;volatile
+  1971                           
+  1972                           ;main.c: 378: PORTAbits.RA0 = 1;
+  1973  0135  1283               	bcf	3,5	;RP0=0, select bank0
+  1974  0136  1303               	bcf	3,6	;RP1=0, select bank0
+  1975  0137  1405               	bsf	5,0	;volatile
+  1976                           
+  1977                           ;main.c: 379: TRISAbits.TRISA0 = 0;
+  1978  0138  1683               	bsf	3,5	;RP0=1, select bank1
+  1979  0139  1303               	bcf	3,6	;RP1=0, select bank1
+  1980  013A  1005               	bcf	5,0	;volatile
+  1981                           
+  1982                           ;main.c: 381: PORTAbits.RA2 = 1;
+  1983  013B  1283               	bcf	3,5	;RP0=0, select bank0
+  1984  013C  1303               	bcf	3,6	;RP1=0, select bank0
+  1985  013D  1505               	bsf	5,2	;volatile
+  1986                           
+  1987                           ;main.c: 382: TRISAbits.TRISA2 = 0;
+  1988  013E  1683               	bsf	3,5	;RP0=1, select bank1
+  1989  013F  1303               	bcf	3,6	;RP1=0, select bank1
+  1990  0140  1105               	bcf	5,2	;volatile
+  1991                           
+  1992                           ;main.c: 385: TRISEbits.TRISE1 = 0;
+  1993  0141  1089               	bcf	9,1	;volatile
+  1994                           
+  1995                           ;main.c: 386: PORTEbits.RE1 = 0;
+  1996  0142  1283               	bcf	3,5	;RP0=0, select bank0
+  1997  0143  1303               	bcf	3,6	;RP1=0, select bank0
+  1998  0144  1089               	bcf	9,1	;volatile
+  1999                           
+  2000                           ;main.c: 388: TRISEbits.TRISE2 = 0;
+  2001  0145  1683               	bsf	3,5	;RP0=1, select bank1
+  2002  0146  1303               	bcf	3,6	;RP1=0, select bank1
+  2003  0147  1109               	bcf	9,2	;volatile
+  2004                           
+  2005                           ;main.c: 389: PORTEbits.RE2 = 0;
+  2006  0148  1283               	bcf	3,5	;RP0=0, select bank0
+  2007  0149  1303               	bcf	3,6	;RP1=0, select bank0
+  2008  014A  1109               	bcf	9,2	;volatile
+  2009                           
+  2010                           ;main.c: 392: TRISCbits.TRISC5 = 0;
+  2011  014B  1683               	bsf	3,5	;RP0=1, select bank1
+  2012  014C  1303               	bcf	3,6	;RP1=0, select bank1
+  2013  014D  1287               	bcf	7,5	;volatile
+  2014                           
+  2015                           ;main.c: 393: PORTCbits.RC5 = 0;
+  2016  014E  1283               	bcf	3,5	;RP0=0, select bank0
+  2017  014F  1303               	bcf	3,6	;RP1=0, select bank0
+  2018  0150  1287               	bcf	7,5	;volatile
+  2019                           
+  2020                           ;main.c: 395: TRISCbits.TRISC3 = 0;
+  2021  0151  1683               	bsf	3,5	;RP0=1, select bank1
+  2022  0152  1303               	bcf	3,6	;RP1=0, select bank1
+  2023  0153  1187               	bcf	7,3	;volatile
+  2024                           
+  2025                           ;main.c: 396: PORTCbits.RC3 = 0;
+  2026  0154  1283               	bcf	3,5	;RP0=0, select bank0
+  2027  0155  1303               	bcf	3,6	;RP1=0, select bank0
+  2028  0156  1187               	bcf	7,3	;volatile
+  2029                           
+  2030                           ;main.c: 398: TRISAbits.TRISA0 = 0;
+  2031  0157  1683               	bsf	3,5	;RP0=1, select bank1
+  2032  0158  1303               	bcf	3,6	;RP1=0, select bank1
+  2033  0159  1005               	bcf	5,0	;volatile
+  2034                           
+  2035                           ;main.c: 399: PORTAbits.RA0 = 1;
+  2036  015A  1283               	bcf	3,5	;RP0=0, select bank0
+  2037  015B  1303               	bcf	3,6	;RP1=0, select bank0
+  2038  015C  1405               	bsf	5,0	;volatile
+  2039                           
+  2040                           ;main.c: 401: TRISAbits.TRISA5 = 0;
+  2041  015D  1683               	bsf	3,5	;RP0=1, select bank1
+  2042  015E  1303               	bcf	3,6	;RP1=0, select bank1
+  2043  015F  1285               	bcf	5,5	;volatile
+  2044                           
+  2045                           ;main.c: 402: PORTAbits.RA5 = 1;
+  2046  0160  1283               	bcf	3,5	;RP0=0, select bank0
+  2047  0161  1303               	bcf	3,6	;RP1=0, select bank0
+  2048  0162  1685               	bsf	5,5	;volatile
+  2049                           
+  2050                           ;main.c: 407: ADCON1 = 6;
+  2051  0163  3006               	movlw	6
+  2052  0164  1683               	bsf	3,5	;RP0=1, select bank1
+  2053  0165  1303               	bcf	3,6	;RP1=0, select bank1
+  2054  0166  009F               	movwf	31	;volatile
+  2055  0167  0008               	return
+  2056  0168                     __end_of_InitPorts:	
+  2057                           
+  2058                           	psect	text12
+  2059  0168                     __ptext12:	
+  2060 ;; *************** function _isr *****************
+  2061 ;; Defined at:
+  2062 ;;		line 260 in file "main.c"
+  2063 ;; Parameters:    Size  Location     Type
+  2064 ;;		None
+  2065 ;; Auto vars:     Size  Location     Type
+  2066 ;;		None
+  2067 ;; Return value:  Size  Location     Type
+  2068 ;;		None               void
+  2069 ;; Registers used:
+  2070 ;;		wreg, status,2, status,0, btemp+1
+  2071 ;; Tracked objects:
+  2072 ;;		On entry : 0/0
+  2073 ;;		On exit  : 0/0
+  2074 ;;		Unchanged: 0/0
+  2075 ;; Data sizes:     COMMON   BANK0   BANK1
+  2076 ;;      Params:         0       0       0
+  2077 ;;      Locals:         0       0       0
+  2078 ;;      Temps:          0       4       0
+  2079 ;;      Totals:         0       4       0
+  2080 ;;Total ram usage:        4 bytes
+  2081 ;; Hardware stack levels used:    1
+  2082 ;; This function calls:
+  2083 ;;		Nothing
+  2084 ;; This function is called by:
+  2085 ;;		Interrupt level 1
+  2086 ;; This function uses a non-reentrant model
+  2087 ;;
+  2088                           
+  2089                           
+  2090                           ;psect for function _isr
+  2091  0168                     _isr:	
+  2092                           
+  2093                           ;main.c: 262: static int Count=0;
+  2094                           ;main.c: 265: if (PIR1bits.TMR1IF)
+  2095  0168  1C0C               	btfss	12,0	;volatile
+  2096  0169  29BE               	goto	i1l130
+  2097                           
+  2098                           ;main.c: 266: {
+  2099                           ;main.c: 267: PIR1bits.TMR1IF = 0;
+  2100  016A  100C               	bcf	12,0	;volatile
+  2101                           
+  2102                           ;main.c: 268: TMR1L = 0x099;
+  2103  016B  3099               	movlw	153
+  2104  016C  008E               	movwf	14	;volatile
+  2105                           
+  2106                           ;main.c: 269: TMR1H = 0x0F1;
+  2107  016D  30F1               	movlw	241
+  2108  016E  008F               	movwf	15	;volatile
+  2109                           
+  2110                           ;main.c: 271: if (++Count > 999)
+  2111  016F  3001               	movlw	1
+  2112  0170  07A6               	addwf	isr@Count,f
+  2113  0171  1803               	skipnc
+  2114  0172  0AA7               	incf	isr@Count+1,f
+  2115  0173  3000               	movlw	0
+  2116  0174  07A7               	addwf	isr@Count+1,f
+  2117  0175  0827               	movf	isr@Count+1,w
+  2118  0176  3A80               	xorlw	128
+  2119  0177  00FF               	movwf	127
+  2120  0178  3083               	movlw	131
+  2121  0179  027F               	subwf	127,w
+  2122  017A  1D03               	skipz
+  2123  017B  297E               	goto	u51_25
+  2124  017C  30E8               	movlw	232
+  2125  017D  0226               	subwf	isr@Count,w
+  2126  017E                     u51_25:	
+  2127  017E  1C03               	skipc
+  2128  017F  2986               	goto	i1l1094
+  2129                           
+  2130                           ;main.c: 272: {
+  2131                           ;main.c: 273: Count = 0;
+  2132  0180  1283               	bcf	3,5	;RP0=0, select bank0
+  2133  0181  1303               	bcf	3,6	;RP1=0, select bank0
+  2134  0182  01A6               	clrf	isr@Count
+  2135  0183  01A7               	clrf	isr@Count+1
+  2136                           
+  2137                           ;main.c: 274: SecondInterrupt = 1;
+  2138  0184  01AB               	clrf	_SecondInterrupt
+  2139  0185  0AAB               	incf	_SecondInterrupt,f
+  2140  0186                     i1l1094:	
+  2141                           
+  2142                           ;main.c: 275: }
+  2143                           ;main.c: 278: if (RxTimer)
+  2144  0186  1283               	bcf	3,5	;RP0=0, select bank0
+  2145  0187  1303               	bcf	3,6	;RP1=0, select bank0
+  2146  0188  082A               	movf	_RxTimer,w
+  2147  0189  1903               	btfsc	3,2
+  2148  018A  2995               	goto	i1l1102
+  2149                           
+  2150                           ;main.c: 279: {
+  2151                           ;main.c: 280: if (!--RxTimer){
+  2152  018B  3001               	movlw	1
+  2153  018C  02AA               	subwf	_RxTimer,f
+  2154  018D  1D03               	btfss	3,2
+  2155  018E  2995               	goto	i1l1102
+  2156                           
+  2157                           ;main.c: 281: PrRxMsg = 1;
+  2158  018F  01A8               	clrf	_PrRxMsg
+  2159  0190  0AA8               	incf	_PrRxMsg,f
+  2160                           
+  2161                           ;main.c: 282: Rx_OK = 1;
+  2162  0191  3001               	movlw	1
+  2163  0192  00A4               	movwf	_Rx_OK
+  2164  0193  3000               	movlw	0
+  2165  0194  00A5               	movwf	_Rx_OK+1
+  2166  0195                     i1l1102:	
+  2167                           
+  2168                           ;main.c: 283: }
+  2169                           ;main.c: 284: }
+  2170                           ;main.c: 286: if (RedLED_timer)
+  2171  0195  0822               	movf	_RedLED_timer,w
+  2172  0196  0423               	iorwf	_RedLED_timer+1,w
+  2173  0197  1903               	btfsc	3,2
+  2174  0198  29B0               	goto	i1l1116
+  2175                           
+  2176                           ;main.c: 287: {
+  2177                           ;main.c: 288: if (!--RedLED_timer){
+  2178  0199  3001               	movlw	1
+  2179  019A  02A2               	subwf	_RedLED_timer,f
+  2180  019B  3000               	movlw	0
+  2181  019C  1C03               	skipc
+  2182  019D  03A3               	decf	_RedLED_timer+1,f
+  2183  019E  02A3               	subwf	_RedLED_timer+1,f
+  2184  019F  0822               	movf	_RedLED_timer,w
+  2185  01A0  0423               	iorwf	_RedLED_timer+1,w
+  2186  01A1  1D03               	btfss	3,2
+  2187  01A2  29B0               	goto	i1l1116
+  2188                           
+  2189                           ;main.c: 289: PORTCbits.RC1 = 0;
+  2190  01A3  1087               	bcf	7,1	;volatile
+  2191                           
+  2192                           ;main.c: 290: PORTCbits.RC0 = 0;
+  2193  01A4  1007               	bcf	7,0	;volatile
+  2194                           
+  2195                           ;main.c: 291: if(Rx_OK){
+  2196  01A5  0824               	movf	_Rx_OK,w
+  2197  01A6  0425               	iorwf	_Rx_OK+1,w
+  2198  01A7  1903               	btfsc	3,2
+  2199  01A8  29B0               	goto	i1l1116
+  2200                           
+  2201                           ;main.c: 292: Rx_OK = 0;
+  2202  01A9  01A4               	clrf	_Rx_OK
+  2203  01AA  01A5               	clrf	_Rx_OK+1
+  2204                           
+  2205                           ;main.c: 293: PORTCbits.RC0 = 1;
+  2206  01AB  1407               	bsf	7,0	;volatile
+  2207                           
+  2208                           ;main.c: 294: GreenLED_timer = 100;
+  2209  01AC  3064               	movlw	100
+  2210  01AD  00A0               	movwf	_GreenLED_timer
+  2211  01AE  3000               	movlw	0
+  2212  01AF  00A1               	movwf	_GreenLED_timer+1
+  2213  01B0                     i1l1116:	
+  2214                           
+  2215                           ;main.c: 295: }
+  2216                           ;main.c: 296: }
+  2217                           ;main.c: 297: }
+  2218                           ;main.c: 299: if (GreenLED_timer)
+  2219  01B0  0820               	movf	_GreenLED_timer,w
+  2220  01B1  0421               	iorwf	_GreenLED_timer+1,w
+  2221  01B2  1903               	btfsc	3,2
+  2222  01B3  29BE               	goto	i1l130
+  2223                           
+  2224                           ;main.c: 300: {
+  2225                           ;main.c: 301: if (!--GreenLED_timer){
+  2226  01B4  3001               	movlw	1
+  2227  01B5  02A0               	subwf	_GreenLED_timer,f
+  2228  01B6  3000               	movlw	0
+  2229  01B7  1C03               	skipc
+  2230  01B8  03A1               	decf	_GreenLED_timer+1,f
+  2231  01B9  02A1               	subwf	_GreenLED_timer+1,f
+  2232  01BA  0820               	movf	_GreenLED_timer,w
+  2233  01BB  0421               	iorwf	_GreenLED_timer+1,w
+  2234  01BC  1903               	btfsc	3,2
+  2235                           
+  2236                           ;main.c: 302: PORTCbits.RC0 = 0;
+  2237  01BD  1007               	bcf	7,0	;volatile
+  2238  01BE                     i1l130:	
+  2239  01BE  084C               	movf	??_isr+3,w
+  2240  01BF  00FF               	movwf	127
+  2241  01C0  084B               	movf	??_isr+2,w
+  2242  01C1  008A               	movwf	10
+  2243  01C2  084A               	movf	??_isr+1,w
+  2244  01C3  0084               	movwf	4
+  2245  01C4  0E49               	swapf	??_isr^0,w
+  2246  01C5  0083               	movwf	3
+  2247  01C6  0EFE               	swapf	126,f
+  2248  01C7  0E7E               	swapf	126,w
+  2249  01C8  0009               	retfie
+  2250  01C9                     __end_of_isr:	
+  2251  007E                     btemp	set	126	;btemp
+  2252  007E                     wtemp	set	126
+  2253  007E                     wtemp0	set	126
+  2254  0080                     wtemp1	set	128
+  2255  0082                     wtemp2	set	130
+  2256  0084                     wtemp3	set	132
+  2257  0086                     wtemp4	set	134
+  2258  0088                     wtemp5	set	136
+  2259  007F                     wtemp6	set	127
+  2260  007E                     ttemp	set	126
+  2261  007E                     ttemp0	set	126
+  2262  0081                     ttemp1	set	129
+  2263  0084                     ttemp2	set	132
+  2264  0087                     ttemp3	set	135
+  2265  007F                     ttemp4	set	127
+  2266  007E                     ltemp	set	126
+  2267  007E                     ltemp0	set	126
+  2268  0082                     ltemp1	set	130
+  2269  0086                     ltemp2	set	134
+  2270  0080                     ltemp3	set	128
+  2271                           
+  2272                           	psect	intentry
+  2273  0004                     __pintentry:	
+  2274                           ;incstack = 0
+  2275                           ; Regs used in _isr: [wreg+status,2+status,0+btemp+1]
+  2276                           
+  2277  0004                     interrupt_function:	
+  2278  007E                     saved_w	set	btemp
+  2279  0004  00FE               	movwf	btemp
+  2280  0005  0E03               	swapf	3,w
+  2281  0006  1283               	bcf	3,5	;RP0=0, select bank0
+  2282  0007  1303               	bcf	3,6	;RP1=0, select bank0
+  2283  0008  00C9               	movwf	??_isr
+  2284  0009  0804               	movf	4,w
+  2285  000A  00CA               	movwf	??_isr+1
+  2286  000B  080A               	movf	10,w
+  2287  000C  00CB               	movwf	??_isr+2
+  2288  000D  087F               	movf	btemp+1,w
+  2289  000E  00CC               	movwf	??_isr+3
+  2290  000F  118A  2968         	ljmp	_isr
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        20
+    BSS         41
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            94     36      78
+    BANK1            94      0      19
+
+Pointer List with Targets:
+
+    generateCRC@buf	PTR unsigned char  size(1) Largest target is 29
+		 -> RxBuf(BANK0[29]), 
+
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _isr in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_Pr_UART_Data
+    _Pr_UART_Data->_generateCRC
+    _generateCRC->_calc_crc
+    _PollSensor->_UART_putc
+
+Critical Paths under _isr in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _isr in BANK1
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 1     1      0     738
+                                             35 BANK0      1     1      0
+                          _InitPorts
+                          _InitTimer
+                          _Init_UART
+                         _PollSensor
+                       _Pr_UART_Data
+                          _Read_UART
+                         _TestRelays
+ ---------------------------------------------------------------------------------
+ (1) _TestRelays                                           2     2      0      45
+                                              4 BANK0      2     2      0
+                      _TurnOffRelays
+ ---------------------------------------------------------------------------------
+ (1) _Read_UART                                            2     2      0      24
+                                              4 BANK0      2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _Pr_UART_Data                                         9     9      0     579
+                                             26 BANK0      9     9      0
+                      _TurnOffRelays
+                        _generateCRC
+ ---------------------------------------------------------------------------------
+ (2) _generateCRC                                         10     8      2     505
+                                             16 BANK0     10     8      2
+                           _calc_crc
+ ---------------------------------------------------------------------------------
+ (3) _calc_crc                                            12     9      3     289
+                                              4 BANK0     12     9      3
+ ---------------------------------------------------------------------------------
+ (2) _TurnOffRelays                                        0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _PollSensor                                           2     2      0      90
+                                              5 BANK0      2     2      0
+                          _UART_putc
+ ---------------------------------------------------------------------------------
+ (2) _UART_putc                                            1     1      0      22
+                                              4 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _Init_UART                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _InitTimer                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _InitPorts                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (4) _isr                                                  4     4      0       0
+                                              0 BANK0      4     4      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _InitPorts
+   _InitTimer
+   _Init_UART
+   _PollSensor
+     _UART_putc
+   _Pr_UART_Data
+     _TurnOffRelays
+     _generateCRC
+       _calc_crc
+   _Read_UART
+   _TestRelays
+     _TurnOffRelays
+
+ _isr (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+SFR3                 0      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR2                 0      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+BANK1               5E      0      13       6       20.2%
+BITBANK1            5E      0       0       5        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR1              0      0       0       2        0.0%
+BANK0               5E     24      4E       4       83.0%
+BITBANK0            5E      0       0       3        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITCOMMON            0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+DATA                 0      0      61       8        0.0%
+ABS                  0      0      61       7        0.0%
+NULL                 0      0       0       0        0.0%
+STACK                0      0       0       2        0.0%
+EEDATA              80      0       0       0        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.35 build -356382666 
+Symbol Table                                                                                   Mon Aug 24 14:06:41 2015
+
+                      pc 0002              __CFG_CP$OFF 0000                       l91 02D9  
+                     l93 02DA             generateCRC@i 0061                       fsr 0004  
+                    l134 02BA                      l161 006B                      l138 0374  
+                    l163 007C                      l164 008E                      l180 01E2  
+                    l172 01CD                      l165 00A0                      l181 01E4  
+                    l166 00B2                      l182 01E6                      l167 00C4  
+                    l183 01E8                      l175 01DA                      l168 00D6  
+                    l177 01DC                      l178 01DE                      l179 01E0  
+                    l914 0271                      l916 0273                      l934 0216  
+                    l936 024A                      l980 01FB                      l978 01EA  
+                    l996 02FA                      u335 0228                      u425 004F  
+                    u435 0061                      u445 029B                      u365 020A  
+                    u455 02B8                      _isr 0168                      fsr0 0004  
+                    indf 0000             __CFG_FOSC$HS 0000   __size_of_TurnOffRelays 000B  
+                   S1164 0354             __CFG_LVP$OFF 0000                     l1004 0303  
+                   l1050 029D                     l1042 00D8                     l1162 01EF  
+                   l1066 02D6                     ?_isr 0049             __CFG_WDTE$ON 0000  
+             Read_UART@c 004E           generateCRC@crc 005F           generateCRC@buf 005E  
+         generateCRC@len 0059                     _main 02C2                     btemp 007E  
+          __CFG_BOREN$ON 0000                     ltemp 007E                     start 0011  
+                   ttemp 007E                     wtemp 007E                    ??_isr 0049  
+          ?_Pr_UART_Data 0049                    ?_main 0049                    _T1CON 0010  
+         __CFG_DEBUG$OFF 0000                    i1l130 01BE                    _RCREG 001A  
+                  _TMR1H 000F                    _TMR1L 000E                    _SPBRG 0099  
+                  u51_25 017E                    _TXREG 0019            __CFG_PWRTE$ON 0000  
+                  _RxBuf 002C                    _Rx_OK 0024                    _TxBuf 00A0  
+                  _RxPtr 0029       __size_of_UART_putc 000C                    pclath 000A  
+                  ltemp0 007E                    ltemp1 0082                    ltemp2 0086  
+                  ltemp3 0080       Pr_UART_Data@status 0069                    ttemp0 007E  
+                  ttemp1 0081                    ttemp2 0084                    ttemp3 0087  
+                  ttemp4 007F                    status 0003                    wtemp0 007E  
+                  wtemp1 0080                    wtemp2 0082                    wtemp3 0084  
+                  wtemp4 0086                    wtemp5 0088                    wtemp6 007F  
+          _TurnOffRelays 037D          __initialization 0013             __end_of_main 02F4  
+         ??_Pr_UART_Data 0063                   ??_main 006C                   _ADCON1 009F  
+                 i1l1102 0195                   i1l1116 01B0                   i1l1094 0186  
+     __size_of_Init_UART 000D         __end_of_calc_crc 028E       __size_of_Read_UART 002A  
+     __size_of_InitTimer 0013       __size_of_InitPorts 0079           ?_TurnOffRelays 0049  
+   __size_of_generateCRC 0044               _PollSensor 028E        __end_of_UART_putc 037D  
+             _TestRelays 01C9                   saved_w 007E  __end_of__initialization 0028  
+         __pcstackCOMMON 0000             __pidataBANK0 0390             __pidataBANK1 031E  
+      __end_of_Init_UART 0371        __end_of_Read_UART 031E        __end_of_InitTimer 0344  
+      __end_of_InitPorts 0168           _OPTION_REGbits 0081               __pbssBANK0 0020  
+   __end_of_Pr_UART_Data 00EF          ??_TurnOffRelays 0000              ?_PollSensor 0049  
+             __pmaintext 02C2               __pintentry 0004              ?_TestRelays 0049  
+              ?_calc_crc 004D              PollSensor@i 004E                  _PrRxMsg 0028  
+                _RxTimer 002A              TestRelays@i 004D             _RedLED_timer 0022  
+                __ptext1 01C9                  __ptext2 02F4                  __ptext3 002B  
+                __ptext4 020D                  __ptext5 0251                  __ptext6 037D  
+                __ptext7 028E                  __ptext8 0371                  __ptext9 0364  
+             ??_calc_crc 0050                _T1CONbits 0010             __size_of_isr 0061  
+    __size_of_PollSensor 0034                  clrloop0 0389     end_of_initialization 0028  
+    __size_of_TestRelays 0044                _RCSTAbits 0018                _PORTAbits 0005  
+              _PORTBbits 0006                _PORTCbits 0007                _PORTDbits 0008  
+              _PORTEbits 0009                _UART_putc 0371                _TRISAbits 0085  
+              _TRISBbits 0086                _TRISCbits 0087                _TRISDbits 0088  
+              _TRISEbits 0089    __size_of_Pr_UART_Data 00C4            ??_generateCRC 005B  
+              _TXSTAbits 0098             _Pr_UART_Data 002B               ?_UART_putc 0049  
+    start_initialization 0013                _Init_UART 0364          _SecondInterrupt 002B  
+              _Read_UART 02F4                _InitTimer 0331                _InitPorts 00EF  
+            __end_of_isr 01C9             ??_PollSensor 0000                _PollTimer 006D  
+    __end_of_generateCRC 0251               init_fetch0 0344             ??_TestRelays 0000  
+            __pdataBANK0 006D              __pdataBANK1 00A0                ___latbits 0001  
+             ?_Init_UART 0049            __pcstackBANK0 0049        __size_of_calc_crc 003D  
+             ?_Read_UART 0049               ?_InitTimer 0049               ?_InitPorts 0049  
+     __end_of_PollSensor 02C2       __end_of_TestRelays 020D    __end_of_TurnOffRelays 0388  
+              calc_crc@i 0058                __pswtext1 0354              ??_UART_putc 0000  
+       calc_crc@crc_buff 004D        interrupt_function 0004              _generateCRC 020D  
+              clear_ram0 0388                 _PIE1bits 008C               UART_putc@c 004D  
+               _PIR1bits 000C              calc_crc@x16 0056              ??_Init_UART 0000  
+            ??_Read_UART 004D              ??_InitTimer 0000              ??_InitPorts 0000  
+         _GreenLED_timer 0020                 _calc_crc 0251                 __ptext10 0331  
+               __ptext11 00EF                 __ptext12 0168            __size_of_main 0032  
+        Pr_UART_Data@crc 006A                 isr@Count 0026               _INTCONbits 000B  
+  Pr_UART_Data@sensorVal 0067                 init_ram0 0348                 intlevel1 0000  
+          calc_crc@input 004F             ?_generateCRC 0059  
