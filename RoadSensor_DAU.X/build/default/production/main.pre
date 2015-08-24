@@ -1507,7 +1507,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 extern char * ftoa(float f, int * status);
 
 
-# 26 "main.c"
+# 24 "main.c"
 #pragma config DEBUG = OFF
 #pragma config LVP = OFF
 #pragma config FOSC = HS
@@ -1516,7 +1516,7 @@ extern char * ftoa(float f, int * status);
 #pragma config BOREN = ON
 #pragma config CP = OFF
 
-# 99
+# 97
 unsigned char RxPtr = 0;
 unsigned char RxBuf[29];
 unsigned char RxTimer = 0;
@@ -1530,7 +1530,7 @@ unsigned char PollTimer = 58;
 unsigned int RedLED_timer = 0;
 unsigned int GreenLED_timer = 0;
 
-# 115
+# 113
 static void InitPorts(void);
 static void InitTimer(void);
 static void Init_UART(void);
@@ -1543,7 +1543,7 @@ unsigned short calc_crc(unsigned short crc_buff, unsigned char input);
 static void TurnOffRelays(void);
 static void TestRelays(void);
 
-# 131
+# 129
 void main()
 {
 
@@ -1580,7 +1580,7 @@ PollSensor();
 }
 }
 
-# 174
+# 172
 unsigned short calc_crc(unsigned short crc_buff, unsigned char input)
 {
 unsigned char i;
@@ -1597,7 +1597,7 @@ input = input >> 1;
 return(crc_buff);
 }
 
-# 197
+# 195
 unsigned short generateCRC(unsigned char *buf, int len)
 {
 unsigned short crc;
@@ -1609,7 +1609,7 @@ crc = calc_crc(crc, buf[i]);
 return crc;
 }
 
-# 215
+# 213
 static void Init_UART(void)
 {
 TXSTAbits.BRGH = 1;
@@ -1621,7 +1621,7 @@ RCSTAbits.CREN = 1;
 SPBRG = 47;
 }
 
-# 239
+# 237
 static void InitTimer(void)
 {
 T1CON = 0x01;
@@ -1636,7 +1636,7 @@ T1CONbits.T1CKPS0 = 0;
 T1CONbits.T1CKPS1 = 0;
 }
 
-# 260
+# 258
 void interrupt isr(void)
 {
 static int Count=0;
@@ -1685,7 +1685,7 @@ PORTCbits.RC0 = 0;
 }
 }
 
-# 315
+# 313
 static void PollSensor(void)
 {
 for(int i = 0; i<19; i++){
@@ -1695,7 +1695,7 @@ PORTCbits.RC1 = 1;
 RedLED_timer = 100;
 }
 
-# 331
+# 329
 static void UART_putc(char c)
 {
 
@@ -1704,7 +1704,7 @@ while (TXSTAbits.TRMT == 0);
 TXREG = c;
 }
 
-# 346
+# 344
 static void InitPorts(void)
 {
 TRISCbits.TRISC0 = 0;
@@ -1769,7 +1769,7 @@ PORTAbits.RA5 = 1;
 ADCON1 = 6;
 }
 
-# 419
+# 417
 static void Read_UART(void)
 {
 unsigned char c;
@@ -1794,7 +1794,7 @@ RxTimer = 50;
 }
 }
 
-# 450
+# 448
 static void TurnOffRelays(void){
 PORTDbits.RD3 = 0;
 PORTBbits.RB0 = 0;
@@ -1806,7 +1806,7 @@ PORTDbits.RD2 = 0;
 PORTBbits.RB5 = 0;
 }
 
-# 483
+# 481
 static void Pr_UART_Data(void)
 {
 unsigned int sensorVal;
@@ -1864,7 +1864,7 @@ break;
 }
 }
 
-# 547
+# 545
 static void TestRelays(void){
 int i = 0;
 for (;;)

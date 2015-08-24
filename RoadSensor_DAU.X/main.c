@@ -139,9 +139,6 @@ static void TestRelays(void);
     if(SWITCH == 1)         //If switch RE1 is on test relays
         TestRelays();
 
-    if(SWITCH2 == 1){
-        for (;;){}
-    }
      // Main loop
      for (;;)
      {

@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.35 build -356382666 
-                                                                                               Mon Aug 24 14:06:41 2015
+                                                                                               Mon Aug 24 16:51:31 2015
 
 Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
      1                           	processor	16F874A
@@ -408,7 +408,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    402 ;;
    403 ;; *************** function _main *****************
    404 ;; Defined at:
-   405 ;;		line 131 in file "main.c"
+   405 ;;		line 129 in file "main.c"
    406 ;; Parameters:    Size  Location     Type
    407 ;;		None
    408 ;; Auto vars:     Size  Location     Type
@@ -445,7 +445,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    439                           ;psect for function _main
    440  02C2                     _main:	
    441                           
-   442                           ;main.c: 134: OPTION_REGbits.PSA = 1;
+   442                           ;main.c: 132: OPTION_REGbits.PSA = 1;
    443                           
    444                           ;incstack = 0
    445                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
@@ -453,60 +453,60 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    447  02C3  1303               	bcf	3,6	;RP1=0, select bank1
    448  02C4  1581               	bsf	1,3	;volatile
    449                           
-   450                           ;main.c: 135: OPTION_REGbits.PS2 = 0;
+   450                           ;main.c: 133: OPTION_REGbits.PS2 = 0;
    451  02C5  1101               	bcf	1,2	;volatile
    452                           
-   453                           ;main.c: 137: InitPorts();
+   453                           ;main.c: 135: InitPorts();
    454  02C6  118A  20EF  118A   	fcall	_InitPorts
    455                           
-   456                           ;main.c: 138: InitTimer();
+   456                           ;main.c: 136: InitTimer();
    457  02C9  118A  2331  118A   	fcall	_InitTimer
    458                           
-   459                           ;main.c: 139: Init_UART();
+   459                           ;main.c: 137: Init_UART();
    460  02CC  118A  2364  118A   	fcall	_Init_UART
    461                           
-   462                           ;main.c: 141: if(PORTEbits.RE1 == 1)
+   462                           ;main.c: 139: if(PORTEbits.RE1 == 1)
    463  02CF  1283               	bcf	3,5	;RP0=0, select bank0
    464  02D0  1303               	bcf	3,6	;RP1=0, select bank0
    465  02D1  1C89               	btfss	9,1	;volatile
    466  02D2  2AD6               	goto	l1066
    467                           
-   468                           ;main.c: 142: TestRelays();
+   468                           ;main.c: 140: TestRelays();
    469  02D3  118A  21C9  118A   	fcall	_TestRelays
    470  02D6                     l1066:	
    471                           
-   472                           ;main.c: 144: if(PORTEbits.RE2 == 1){
+   472                           ;main.c: 142: if(PORTEbits.RE2 == 1){
    473  02D6  1283               	bcf	3,5	;RP0=0, select bank0
    474  02D7  1303               	bcf	3,6	;RP1=0, select bank0
    475  02D8  1909               	btfsc	9,2	;volatile
    476  02D9                     l91:	
-   477                           ;main.c: 145: for (;;){}
+   477                           ;main.c: 143: for (;;){}
    478                           
    479  02D9  2AD9               	goto	l91
    480  02DA                     l93:	
-   481                           ;main.c: 146: }
-   482                           ;main.c: 148: for (;;)
+   481                           ;main.c: 144: }
+   482                           ;main.c: 146: for (;;)
    483                           
    484  02DA  0064               	clrwdt	;# 
    485                           
-   486                           ;main.c: 151: Read_UART();
+   486                           ;main.c: 149: Read_UART();
    487  02DB  118A  22F4  118A   	fcall	_Read_UART
    488                           
-   489                           ;main.c: 152: Pr_UART_Data();
+   489                           ;main.c: 150: Pr_UART_Data();
    490  02DE  118A  202B  118A   	fcall	_Pr_UART_Data
    491                           
-   492                           ;main.c: 154: if (SecondInterrupt)
+   492                           ;main.c: 152: if (SecondInterrupt)
    493  02E1  1283               	bcf	3,5	;RP0=0, select bank0
    494  02E2  1303               	bcf	3,6	;RP1=0, select bank0
    495  02E3  082B               	movf	_SecondInterrupt,w
    496  02E4  1903               	btfsc	3,2
    497  02E5  2ADA               	goto	l93
    498                           
-   499                           ;main.c: 155: {
-   500                           ;main.c: 156: SecondInterrupt = 0;
+   499                           ;main.c: 153: {
+   500                           ;main.c: 154: SecondInterrupt = 0;
    501  02E6  01AB               	clrf	_SecondInterrupt
    502                           
-   503                           ;main.c: 158: if (++PollTimer > 2)
+   503                           ;main.c: 156: if (++PollTimer > 2)
    504  02E7  3001               	movlw	1
    505  02E8  00EC               	movwf	??_main
    506  02E9  086C               	movf	??_main,w
@@ -516,16 +516,16 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    510  02ED  1C03               	skipc
    511  02EE  2ADA               	goto	l93
    512                           
-   513                           ;main.c: 159: {
-   514                           ;main.c: 160: PollTimer = 0;
+   513                           ;main.c: 157: {
+   514                           ;main.c: 158: PollTimer = 0;
    515  02EF  01ED               	clrf	_PollTimer
    516                           
-   517                           ;main.c: 161: PollSensor();
+   517                           ;main.c: 159: PollSensor();
    518  02F0  118A  228E  118A   	fcall	_PollSensor
    519                           
-   520                           ;main.c: 162: }
-   521                           ;main.c: 163: }
-   522                           ;main.c: 164: }
+   520                           ;main.c: 160: }
+   521                           ;main.c: 161: }
+   522                           ;main.c: 162: }
    523  02F3  2ADA               	goto	l93
    524  02F4                     __end_of_main:	
    525                           
@@ -533,7 +533,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    527  01C9                     __ptext1:	
    528 ;; *************** function _TestRelays *****************
    529 ;; Defined at:
-   530 ;;		line 547 in file "main.c"
+   530 ;;		line 545 in file "main.c"
    531 ;; Parameters:    Size  Location     Type
    532 ;;		None
    533 ;; Auto vars:     Size  Location     Type
@@ -565,7 +565,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    559                           ;psect for function _TestRelays
    560  01C9                     _TestRelays:	
    561                           
-   562                           ;main.c: 548: int i = 0;
+   562                           ;main.c: 546: int i = 0;
    563                           
    564                           ;incstack = 0
    565                           ; Regs used in _TestRelays: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
@@ -574,101 +574,101 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    568  01CB  01CD               	clrf	TestRelays@i
    569  01CC  01CE               	clrf	TestRelays@i+1
    570  01CD                     l172:	
-   571                           ;main.c: 549: for (;;)
+   571                           ;main.c: 547: for (;;)
    572                           
    573  01CD  0064               	clrwdt	;# 
    574                           
-   575                           ;main.c: 553: if (SecondInterrupt)
+   575                           ;main.c: 551: if (SecondInterrupt)
    576  01CE  1283               	bcf	3,5	;RP0=0, select bank0
    577  01CF  1303               	bcf	3,6	;RP1=0, select bank0
    578  01D0  082B               	movf	_SecondInterrupt,w
    579  01D1  1903               	btfsc	3,2
    580  01D2  29CD               	goto	l172
    581                           
-   582                           ;main.c: 554: {
-   583                           ;main.c: 555: TurnOffRelays();
+   582                           ;main.c: 552: {
+   583                           ;main.c: 553: TurnOffRelays();
    584  01D3  118A  237D  118A   	fcall	_TurnOffRelays
    585                           
-   586                           ;main.c: 556: SecondInterrupt = 0;
+   586                           ;main.c: 554: SecondInterrupt = 0;
    587  01D6  1283               	bcf	3,5	;RP0=0, select bank0
    588  01D7  1303               	bcf	3,6	;RP1=0, select bank0
    589  01D8  01AB               	clrf	_SecondInterrupt
    590                           
-   591                           ;main.c: 558: switch(i){
+   591                           ;main.c: 556: switch(i){
    592  01D9  29EA               	goto	l978
    593  01DA                     l175:	
-   594                           ;main.c: 559: case 0:
+   594                           ;main.c: 557: case 0:
    595                           
    596                           
-   597                           ;main.c: 560: PORTDbits.RD3 = 1;
+   597                           ;main.c: 558: PORTDbits.RD3 = 1;
    598  01DA  1588               	bsf	8,3	;volatile
    599                           
-   600                           ;main.c: 561: break;
+   600                           ;main.c: 559: break;
    601  01DB  29FB               	goto	l980
    602  01DC                     l177:	
-   603                           ;main.c: 562: case 1:
+   603                           ;main.c: 560: case 1:
    604                           
    605                           
-   606                           ;main.c: 563: PORTBbits.RB0 = 1;
+   606                           ;main.c: 561: PORTBbits.RB0 = 1;
    607  01DC  1406               	bsf	6,0	;volatile
    608                           
-   609                           ;main.c: 564: break;
+   609                           ;main.c: 562: break;
    610  01DD  29FB               	goto	l980
    611  01DE                     l178:	
-   612                           ;main.c: 565: case 2:
+   612                           ;main.c: 563: case 2:
    613                           
    614                           
-   615                           ;main.c: 566: PORTBbits.RB1 = 1;
+   615                           ;main.c: 564: PORTBbits.RB1 = 1;
    616  01DE  1486               	bsf	6,1	;volatile
    617                           
-   618                           ;main.c: 567: break;
+   618                           ;main.c: 565: break;
    619  01DF  29FB               	goto	l980
    620  01E0                     l179:	
-   621                           ;main.c: 568: case 3:
+   621                           ;main.c: 566: case 3:
    622                           
    623                           
-   624                           ;main.c: 569: PORTBbits.RB2 = 1;
+   624                           ;main.c: 567: PORTBbits.RB2 = 1;
    625  01E0  1506               	bsf	6,2	;volatile
    626                           
-   627                           ;main.c: 570: break;
+   627                           ;main.c: 568: break;
    628  01E1  29FB               	goto	l980
    629  01E2                     l180:	
-   630                           ;main.c: 571: case 4:
+   630                           ;main.c: 569: case 4:
    631                           
    632                           
-   633                           ;main.c: 572: PORTBbits.RB3 = 1;
+   633                           ;main.c: 570: PORTBbits.RB3 = 1;
    634  01E2  1586               	bsf	6,3	;volatile
    635                           
-   636                           ;main.c: 573: break;
+   636                           ;main.c: 571: break;
    637  01E3  29FB               	goto	l980
    638  01E4                     l181:	
-   639                           ;main.c: 574: case 5:
+   639                           ;main.c: 572: case 5:
    640                           
    641                           
-   642                           ;main.c: 575: PORTBbits.RB4 = 1;
+   642                           ;main.c: 573: PORTBbits.RB4 = 1;
    643  01E4  1606               	bsf	6,4	;volatile
    644                           
-   645                           ;main.c: 576: break;
+   645                           ;main.c: 574: break;
    646  01E5  29FB               	goto	l980
    647  01E6                     l182:	
-   648                           ;main.c: 577: case 6:
+   648                           ;main.c: 575: case 6:
    649                           
    650                           
-   651                           ;main.c: 578: PORTDbits.RD2 = 1;
+   651                           ;main.c: 576: PORTDbits.RD2 = 1;
    652  01E6  1508               	bsf	8,2	;volatile
    653                           
-   654                           ;main.c: 579: break;
+   654                           ;main.c: 577: break;
    655  01E7  29FB               	goto	l980
    656  01E8                     l183:	
-   657                           ;main.c: 580: case 7:
+   657                           ;main.c: 578: case 7:
    658                           
    659                           
-   660                           ;main.c: 581: PORTBbits.RB5 = 1;
+   660                           ;main.c: 579: PORTBbits.RB5 = 1;
    661  01E8  1686               	bsf	6,5	;volatile
    662                           
-   663                           ;main.c: 583: }
+   663                           ;main.c: 581: }
    664                           
-   665                           ;main.c: 582: break;
+   665                           ;main.c: 580: break;
    666  01E9  29FB               	goto	l980
    667  01EA                     l978:	
    668                           
@@ -711,7 +711,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    704  01FA  0082               	movwf	2
    705  01FB                     l980:	
    706                           
-   707                           ;main.c: 584: if(++i>8)
+   707                           ;main.c: 582: if(++i>8)
    708  01FB  3001               	movlw	1
    709  01FC  07CD               	addwf	TestRelays@i,f
    710  01FD  1803               	skipnc
@@ -732,10 +732,10 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    725  020B  0008               	return
    726  020C  29CD               	goto	l172
    727  020D                     __end_of_TestRelays:	
-   728                           ;main.c: 586: }
-   729                           ;main.c: 587: }
+   728                           ;main.c: 584: }
+   729                           ;main.c: 585: }
    730                           
-   731                           ;main.c: 585: break;
+   731                           ;main.c: 583: break;
    732                           
    733                           
    734                           	psect	swtext1
@@ -754,7 +754,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    747  02F4                     __ptext2:	
    748 ;; *************** function _Read_UART *****************
    749 ;; Defined at:
-   750 ;;		line 419 in file "main.c"
+   750 ;;		line 417 in file "main.c"
    751 ;; Parameters:    Size  Location     Type
    752 ;;		None
    753 ;; Auto vars:     Size  Location     Type
@@ -786,8 +786,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    779                           ;psect for function _Read_UART
    780  02F4                     _Read_UART:	
    781                           
-   782                           ;main.c: 421: unsigned char c;
-   783                           ;main.c: 423: if (RCSTAbits.FERR || RCSTAbits.OERR)
+   782                           ;main.c: 419: unsigned char c;
+   783                           ;main.c: 421: if (RCSTAbits.FERR || RCSTAbits.OERR)
    784                           
    785                           ;incstack = 0
    786                           ; Regs used in _Read_UART: [wreg-fsr0h+status,2+status,0]
@@ -799,45 +799,45 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    792  02F9  2B03               	goto	l1004
    793  02FA                     l996:	
    794                           
-   795                           ;main.c: 424: {
-   796                           ;main.c: 425: c = RCREG;
+   795                           ;main.c: 422: {
+   796                           ;main.c: 423: c = RCREG;
    797  02FA  081A               	movf	26,w	;volatile
    798  02FB  00CD               	movwf	??_Read_UART
    799  02FC  084D               	movf	??_Read_UART,w
    800  02FD  00CE               	movwf	Read_UART@c
    801                           
-   802                           ;main.c: 426: RCSTAbits.CREN = 0;
+   802                           ;main.c: 424: RCSTAbits.CREN = 0;
    803  02FE  1218               	bcf	24,4	;volatile
    804                           
-   805                           ;main.c: 427: __nop();
+   805                           ;main.c: 425: __nop();
    806  02FF  0000               	nop
    807                           
-   808                           ;main.c: 428: RCSTAbits.CREN = 1;
+   808                           ;main.c: 426: RCSTAbits.CREN = 1;
    809  0300  1283               	bcf	3,5	;RP0=0, select bank0
    810  0301  1303               	bcf	3,6	;RP1=0, select bank0
    811  0302  1618               	bsf	24,4	;volatile
    812  0303                     l1004:	
    813                           
-   814                           ;main.c: 429: }
-   815                           ;main.c: 432: if (PIR1bits.RCIF)
+   814                           ;main.c: 427: }
+   815                           ;main.c: 430: if (PIR1bits.RCIF)
    816  0303  1E8C               	btfss	12,5	;volatile
    817  0304  0008               	return
    818                           
-   819                           ;main.c: 433: {
-   820                           ;main.c: 434: c = RCREG;
+   819                           ;main.c: 431: {
+   820                           ;main.c: 432: c = RCREG;
    821  0305  081A               	movf	26,w	;volatile
    822  0306  00CD               	movwf	??_Read_UART
    823  0307  084D               	movf	??_Read_UART,w
    824  0308  00CE               	movwf	Read_UART@c
    825                           
-   826                           ;main.c: 435: if (RxPtr < 29)
+   826                           ;main.c: 433: if (RxPtr < 29)
    827  0309  301D               	movlw	29
    828  030A  0229               	subwf	_RxPtr,w
    829  030B  1803               	skipnc
    830  030C  0008               	return
    831                           
-   832                           ;main.c: 436: {
-   833                           ;main.c: 437: RxBuf[RxPtr++] = c;
+   832                           ;main.c: 434: {
+   833                           ;main.c: 435: RxBuf[RxPtr++] = c;
    834  030D  084E               	movf	Read_UART@c,w
    835  030E  00CD               	movwf	??_Read_UART
    836  030F  0829               	movf	_RxPtr,w
@@ -851,7 +851,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    844  0317  084D               	movf	??_Read_UART,w
    845  0318  07A9               	addwf	_RxPtr,f
    846                           
-   847                           ;main.c: 438: RxTimer = 50;
+   847                           ;main.c: 436: RxTimer = 50;
    848  0319  3032               	movlw	50
    849  031A  00CD               	movwf	??_Read_UART
    850  031B  084D               	movf	??_Read_UART,w
@@ -863,7 +863,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    856  002B                     __ptext3:	
    857 ;; *************** function _Pr_UART_Data *****************
    858 ;; Defined at:
-   859 ;;		line 483 in file "main.c"
+   859 ;;		line 481 in file "main.c"
    860 ;; Parameters:    Size  Location     Type
    861 ;;		None
    862 ;; Auto vars:     Size  Location     Type
@@ -898,10 +898,10 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    891                           ;psect for function _Pr_UART_Data
    892  002B                     _Pr_UART_Data:	
    893                           
-   894                           ;main.c: 485: unsigned int sensorVal;
-   895                           ;main.c: 486: unsigned short crc;
-   896                           ;main.c: 487: unsigned char status;
-   897                           ;main.c: 489: if (PrRxMsg)
+   894                           ;main.c: 483: unsigned int sensorVal;
+   895                           ;main.c: 484: unsigned short crc;
+   896                           ;main.c: 485: unsigned char status;
+   897                           ;main.c: 487: if (PrRxMsg)
    898                           
    899                           ;incstack = 0
    900                           ; Regs used in _Pr_UART_Data: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
@@ -911,14 +911,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    904  002E  1903               	btfsc	3,2
    905  002F  0008               	return
    906                           
-   907                           ;main.c: 490: {
-   908                           ;main.c: 491: PrRxMsg = 0;
+   907                           ;main.c: 488: {
+   908                           ;main.c: 489: PrRxMsg = 0;
    909  0030  01A8               	clrf	_PrRxMsg
    910                           
-   911                           ;main.c: 492: RxPtr = 0;
+   911                           ;main.c: 490: RxPtr = 0;
    912  0031  01A9               	clrf	_RxPtr
    913                           
-   914                           ;main.c: 494: crc = generateCRC(RxBuf, 29);
+   914                           ;main.c: 492: crc = generateCRC(RxBuf, 29);
    915  0032  301D               	movlw	29
    916  0033  00D9               	movwf	generateCRC@len
    917  0034  3000               	movlw	0
@@ -932,7 +932,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    925  003E  0859               	movf	?_generateCRC,w
    926  003F  00EA               	movwf	Pr_UART_Data@crc
    927                           
-   928                           ;main.c: 496: if ((RxBuf[26] == (crc&0xff)) && (RxBuf[27] == (crc>>8))){
+   928                           ;main.c: 494: if ((RxBuf[26] == (crc&0xff)) && (RxBuf[27] == (crc>>8))){
    929  0040  30FF               	movlw	255
    930  0041  056A               	andwf	Pr_UART_Data@crc,w
    931  0042  00E3               	movwf	??_Pr_UART_Data
@@ -971,25 +971,25 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    964  0061  1D03               	skipz
    965  0062  0008               	return
    966                           
-   967                           ;main.c: 497: status = RxBuf[17];
+   967                           ;main.c: 495: status = RxBuf[17];
    968  0063  083D               	movf	_RxBuf+17,w
    969  0064  00E3               	movwf	??_Pr_UART_Data
    970  0065  0863               	movf	??_Pr_UART_Data,w
    971  0066  00E9               	movwf	Pr_UART_Data@status
    972                           
-   973                           ;main.c: 500: TurnOffRelays();
+   973                           ;main.c: 498: TurnOffRelays();
    974  0067  118A  237D  118A   	fcall	_TurnOffRelays
    975                           
-   976                           ;main.c: 502: switch(status){
+   976                           ;main.c: 500: switch(status){
    977  006A  28D8               	goto	l1042
    978  006B                     l161:	
-   979                           ;main.c: 503: case 0x00:
+   979                           ;main.c: 501: case 0x00:
    980                           
    981                           
-   982                           ;main.c: 504: PORTDbits.RD2 = 1;
+   982                           ;main.c: 502: PORTDbits.RD2 = 1;
    983  006B  1508               	bsf	8,2	;volatile
    984                           
-   985                           ;main.c: 505: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+   985                           ;main.c: 503: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
    986  006C  0843               	movf	_RxBuf+23,w
    987  006D  00E3               	movwf	??_Pr_UART_Data
    988  006E  01E4               	clrf	??_Pr_UART_Data+1
@@ -1006,19 +1006,19 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
    999  0079  0466               	iorwf	??_Pr_UART_Data+3,w
   1000  007A  00E8               	movwf	Pr_UART_Data@sensorVal+1
   1001                           
-  1002                           ;main.c: 506: break;
+  1002                           ;main.c: 504: break;
   1003  007B  0008               	return
   1004  007C                     l163:	
-  1005                           ;main.c: 507: case 0x01:
+  1005                           ;main.c: 505: case 0x01:
   1006                           
   1007                           
-  1008                           ;main.c: 508: PORTBbits.RB0 = 1;
+  1008                           ;main.c: 506: PORTBbits.RB0 = 1;
   1009  007C  1406               	bsf	6,0	;volatile
   1010                           
-  1011                           ;main.c: 509: PORTDbits.RD3 = 1;
+  1011                           ;main.c: 507: PORTDbits.RD3 = 1;
   1012  007D  1588               	bsf	8,3	;volatile
   1013                           
-  1014                           ;main.c: 510: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+  1014                           ;main.c: 508: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
   1015  007E  0843               	movf	_RxBuf+23,w
   1016  007F  00E3               	movwf	??_Pr_UART_Data
   1017  0080  01E4               	clrf	??_Pr_UART_Data+1
@@ -1035,19 +1035,19 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1028  008B  0466               	iorwf	??_Pr_UART_Data+3,w
   1029  008C  00E8               	movwf	Pr_UART_Data@sensorVal+1
   1030                           
-  1031                           ;main.c: 511: break;
+  1031                           ;main.c: 509: break;
   1032  008D  0008               	return
   1033  008E                     l164:	
-  1034                           ;main.c: 512: case 0x02:
+  1034                           ;main.c: 510: case 0x02:
   1035                           
   1036                           
-  1037                           ;main.c: 513: PORTBbits.RB1 = 1;
+  1037                           ;main.c: 511: PORTBbits.RB1 = 1;
   1038  008E  1486               	bsf	6,1	;volatile
   1039                           
-  1040                           ;main.c: 514: PORTDbits.RD3 = 1;
+  1040                           ;main.c: 512: PORTDbits.RD3 = 1;
   1041  008F  1588               	bsf	8,3	;volatile
   1042                           
-  1043                           ;main.c: 515: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+  1043                           ;main.c: 513: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
   1044  0090  0843               	movf	_RxBuf+23,w
   1045  0091  00E3               	movwf	??_Pr_UART_Data
   1046  0092  01E4               	clrf	??_Pr_UART_Data+1
@@ -1064,19 +1064,19 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1057  009D  0466               	iorwf	??_Pr_UART_Data+3,w
   1058  009E  00E8               	movwf	Pr_UART_Data@sensorVal+1
   1059                           
-  1060                           ;main.c: 516: break;
+  1060                           ;main.c: 514: break;
   1061  009F  0008               	return
   1062  00A0                     l165:	
-  1063                           ;main.c: 517: case 0x05:
+  1063                           ;main.c: 515: case 0x05:
   1064                           
   1065                           
-  1066                           ;main.c: 518: PORTBbits.RB2 = 1;
+  1066                           ;main.c: 516: PORTBbits.RB2 = 1;
   1067  00A0  1506               	bsf	6,2	;volatile
   1068                           
-  1069                           ;main.c: 519: PORTDbits.RD3 = 1;
+  1069                           ;main.c: 517: PORTDbits.RD3 = 1;
   1070  00A1  1588               	bsf	8,3	;volatile
   1071                           
-  1072                           ;main.c: 520: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+  1072                           ;main.c: 518: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
   1073  00A2  0843               	movf	_RxBuf+23,w
   1074  00A3  00E3               	movwf	??_Pr_UART_Data
   1075  00A4  01E4               	clrf	??_Pr_UART_Data+1
@@ -1093,19 +1093,19 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1086  00AF  0466               	iorwf	??_Pr_UART_Data+3,w
   1087  00B0  00E8               	movwf	Pr_UART_Data@sensorVal+1
   1088                           
-  1089                           ;main.c: 521: break;
+  1089                           ;main.c: 519: break;
   1090  00B1  0008               	return
   1091  00B2                     l166:	
-  1092                           ;main.c: 522: case 0x06:
+  1092                           ;main.c: 520: case 0x06:
   1093                           
   1094                           
-  1095                           ;main.c: 523: PORTBbits.RB3 = 1;
+  1095                           ;main.c: 521: PORTBbits.RB3 = 1;
   1096  00B2  1586               	bsf	6,3	;volatile
   1097                           
-  1098                           ;main.c: 524: PORTDbits.RD3 = 1;
+  1098                           ;main.c: 522: PORTDbits.RD3 = 1;
   1099  00B3  1588               	bsf	8,3	;volatile
   1100                           
-  1101                           ;main.c: 525: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+  1101                           ;main.c: 523: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
   1102  00B4  0843               	movf	_RxBuf+23,w
   1103  00B5  00E3               	movwf	??_Pr_UART_Data
   1104  00B6  01E4               	clrf	??_Pr_UART_Data+1
@@ -1122,19 +1122,19 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1115  00C1  0466               	iorwf	??_Pr_UART_Data+3,w
   1116  00C2  00E8               	movwf	Pr_UART_Data@sensorVal+1
   1117                           
-  1118                           ;main.c: 526: break;
+  1118                           ;main.c: 524: break;
   1119  00C3  0008               	return
   1120  00C4                     l167:	
-  1121                           ;main.c: 527: case 0x07:
+  1121                           ;main.c: 525: case 0x07:
   1122                           
   1123                           
-  1124                           ;main.c: 528: PORTBbits.RB4 = 1;
+  1124                           ;main.c: 526: PORTBbits.RB4 = 1;
   1125  00C4  1606               	bsf	6,4	;volatile
   1126                           
-  1127                           ;main.c: 529: PORTDbits.RD3 = 1;
+  1127                           ;main.c: 527: PORTDbits.RD3 = 1;
   1128  00C5  1588               	bsf	8,3	;volatile
   1129                           
-  1130                           ;main.c: 530: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
+  1130                           ;main.c: 528: sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
   1131  00C6  0843               	movf	_RxBuf+23,w
   1132  00C7  00E3               	movwf	??_Pr_UART_Data
   1133  00C8  01E4               	clrf	??_Pr_UART_Data+1
@@ -1151,18 +1151,18 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1144  00D3  0466               	iorwf	??_Pr_UART_Data+3,w
   1145  00D4  00E8               	movwf	Pr_UART_Data@sensorVal+1
   1146                           
-  1147                           ;main.c: 531: break;
+  1147                           ;main.c: 529: break;
   1148  00D5  0008               	return
   1149  00D6                     l168:	
-  1150                           ;main.c: 532: default:
+  1150                           ;main.c: 530: default:
   1151                           
   1152                           
-  1153                           ;main.c: 533: PORTBbits.RB5 = 1;
+  1153                           ;main.c: 531: PORTBbits.RB5 = 1;
   1154  00D6  1686               	bsf	6,5	;volatile
   1155                           
-  1156                           ;main.c: 535: }
+  1156                           ;main.c: 533: }
   1157                           
-  1158                           ;main.c: 534: break;
+  1158                           ;main.c: 532: break;
   1159  00D7  0008               	return
   1160  00D8                     l1042:	
   1161  00D8  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1203,7 +1203,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1196  020D                     __ptext4:	
   1197 ;; *************** function _generateCRC *****************
   1198 ;; Defined at:
-  1199 ;;		line 197 in file "main.c"
+  1199 ;;		line 195 in file "main.c"
   1200 ;; Parameters:    Size  Location     Type
   1201 ;;  buf             1    wreg     PTR unsigned char 
   1202 ;;		 -> RxBuf(29), 
@@ -1247,14 +1247,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1240  020E  1303               	bcf	3,6	;RP1=0, select bank0
   1241  020F  00DE               	movwf	generateCRC@buf
   1242                           
-  1243                           ;main.c: 199: unsigned short crc;
-  1244                           ;main.c: 201: crc = 0xFFFF;
+  1243                           ;main.c: 197: unsigned short crc;
+  1244                           ;main.c: 199: crc = 0xFFFF;
   1245  0210  30FF               	movlw	255
   1246  0211  00DF               	movwf	generateCRC@crc
   1247  0212  30FF               	movlw	255
   1248  0213  00E0               	movwf	generateCRC@crc+1
   1249                           
-  1250                           ;main.c: 202: for(int i = 0; i<len-3; i++){
+  1250                           ;main.c: 200: for(int i = 0; i<len-3; i++){
   1251  0214  01E1               	clrf	generateCRC@i
   1252  0215  01E2               	clrf	generateCRC@i+1
   1253  0216                     l934:	
@@ -1280,7 +1280,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1273  0228  1803               	btfsc	3,0
   1274  0229  2A4A               	goto	l936
   1275                           
-  1276                           ;main.c: 203: crc = calc_crc(crc, buf[i]);
+  1276                           ;main.c: 201: crc = calc_crc(crc, buf[i]);
   1277  022A  1283               	bcf	3,5	;RP0=0, select bank0
   1278  022B  1303               	bcf	3,6	;RP1=0, select bank0
   1279  022C  0860               	movf	generateCRC@crc+1,w
@@ -1313,8 +1313,8 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1306  0249  2A16               	goto	l934
   1307  024A                     l936:	
   1308                           
-  1309                           ;main.c: 204: }
-  1310                           ;main.c: 205: return crc;
+  1309                           ;main.c: 202: }
+  1310                           ;main.c: 203: return crc;
   1311  024A  1283               	bcf	3,5	;RP0=0, select bank0
   1312  024B  1303               	bcf	3,6	;RP1=0, select bank0
   1313  024C  0860               	movf	generateCRC@crc+1,w
@@ -1328,7 +1328,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1321  0251                     __ptext5:	
   1322 ;; *************** function _calc_crc *****************
   1323 ;; Defined at:
-  1324 ;;		line 174 in file "main.c"
+  1324 ;;		line 172 in file "main.c"
   1325 ;; Parameters:    Size  Location     Type
   1326 ;;  crc_buff        2    4[BANK0 ] unsigned short 
   1327 ;;  input           1    6[BANK0 ] unsigned char 
@@ -1362,9 +1362,9 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1355                           ;psect for function _calc_crc
   1356  0251                     _calc_crc:	
   1357                           
-  1358                           ;main.c: 176: unsigned char i;
-  1359                           ;main.c: 177: unsigned short x16;
-  1360                           ;main.c: 178: for (i=0; i<8; i++) {
+  1358                           ;main.c: 174: unsigned char i;
+  1359                           ;main.c: 175: unsigned short x16;
+  1360                           ;main.c: 176: for (i=0; i<8; i++) {
   1361                           
   1362                           ;incstack = 0
   1363                           ; Regs used in _calc_crc: [wreg+status,2+status,0]
@@ -1377,7 +1377,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1370  0256  1803               	btfsc	3,0
   1371  0257  0008               	return
   1372                           
-  1373                           ;main.c: 179: if( (crc_buff & 0x0001) ^ (input & 0x01) )
+  1373                           ;main.c: 177: if( (crc_buff & 0x0001) ^ (input & 0x01) )
   1374  0258  084F               	movf	calc_crc@input,w
   1375  0259  3901               	andlw	1
   1376  025A  00D0               	movwf	??_calc_crc
@@ -1399,7 +1399,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1392  026A  1903               	btfsc	3,2
   1393  026B  2A71               	goto	l914
   1394                           
-  1395                           ;main.c: 180: x16 = 0x8408;
+  1395                           ;main.c: 178: x16 = 0x8408;
   1396  026C  3008               	movlw	8
   1397  026D  00D6               	movwf	calc_crc@x16
   1398  026E  3084               	movlw	132
@@ -1407,13 +1407,13 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1400  0270  2A73               	goto	l916
   1401  0271                     l914:	
   1402                           
-  1403                           ;main.c: 181: else
-  1404                           ;main.c: 182: x16 = 0x0000;
+  1403                           ;main.c: 179: else
+  1404                           ;main.c: 180: x16 = 0x0000;
   1405  0271  01D6               	clrf	calc_crc@x16
   1406  0272  01D7               	clrf	calc_crc@x16+1
   1407  0273                     l916:	
   1408                           
-  1409                           ;main.c: 183: crc_buff = crc_buff >> 1;
+  1409                           ;main.c: 181: crc_buff = crc_buff >> 1;
   1410  0273  084E               	movf	calc_crc@crc_buff+1,w
   1411  0274  00D1               	movwf	??_calc_crc+1
   1412  0275  084D               	movf	calc_crc@crc_buff,w
@@ -1426,13 +1426,13 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1419  027C  0851               	movf	??_calc_crc+1,w
   1420  027D  00CE               	movwf	calc_crc@crc_buff+1
   1421                           
-  1422                           ;main.c: 184: crc_buff ^= x16;
+  1422                           ;main.c: 182: crc_buff ^= x16;
   1423  027E  0856               	movf	calc_crc@x16,w
   1424  027F  06CD               	xorwf	calc_crc@crc_buff,f
   1425  0280  0857               	movf	calc_crc@x16+1,w
   1426  0281  06CE               	xorwf	calc_crc@crc_buff+1,f
   1427                           
-  1428                           ;main.c: 185: input = input >> 1;
+  1428                           ;main.c: 183: input = input >> 1;
   1429  0282  084F               	movf	calc_crc@input,w
   1430  0283  00D0               	movwf	??_calc_crc
   1431  0284  1003               	clrc
@@ -1446,15 +1446,15 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1439  028C  07D8               	addwf	calc_crc@i,f
   1440  028D  2A54               	goto	L1
   1441  028E                     __end_of_calc_crc:	
-  1442                           ;main.c: 186: }
-  1443                           ;main.c: 187: return(crc_buff);
+  1442                           ;main.c: 184: }
+  1443                           ;main.c: 185: return(crc_buff);
   1444                           
   1445                           
   1446                           	psect	text6
   1447  037D                     __ptext6:	
   1448 ;; *************** function _TurnOffRelays *****************
   1449 ;; Defined at:
-  1450 ;;		line 450 in file "main.c"
+  1450 ;;		line 448 in file "main.c"
   1451 ;; Parameters:    Size  Location     Type
   1452 ;;		None
   1453 ;; Auto vars:     Size  Location     Type
@@ -1487,7 +1487,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1480                           ;psect for function _TurnOffRelays
   1481  037D                     _TurnOffRelays:	
   1482                           
-  1483                           ;main.c: 451: PORTDbits.RD3 = 0;
+  1483                           ;main.c: 449: PORTDbits.RD3 = 0;
   1484                           
   1485                           ;incstack = 0
   1486                           ; Regs used in _TurnOffRelays: []
@@ -1495,25 +1495,25 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1488  037E  1303               	bcf	3,6	;RP1=0, select bank0
   1489  037F  1188               	bcf	8,3	;volatile
   1490                           
-  1491                           ;main.c: 452: PORTBbits.RB0 = 0;
+  1491                           ;main.c: 450: PORTBbits.RB0 = 0;
   1492  0380  1006               	bcf	6,0	;volatile
   1493                           
-  1494                           ;main.c: 453: PORTBbits.RB1 = 0;
+  1494                           ;main.c: 451: PORTBbits.RB1 = 0;
   1495  0381  1086               	bcf	6,1	;volatile
   1496                           
-  1497                           ;main.c: 454: PORTBbits.RB2 = 0;
+  1497                           ;main.c: 452: PORTBbits.RB2 = 0;
   1498  0382  1106               	bcf	6,2	;volatile
   1499                           
-  1500                           ;main.c: 455: PORTBbits.RB3 = 0;
+  1500                           ;main.c: 453: PORTBbits.RB3 = 0;
   1501  0383  1186               	bcf	6,3	;volatile
   1502                           
-  1503                           ;main.c: 456: PORTBbits.RB4 = 0;
+  1503                           ;main.c: 454: PORTBbits.RB4 = 0;
   1504  0384  1206               	bcf	6,4	;volatile
   1505                           
-  1506                           ;main.c: 457: PORTDbits.RD2 = 0;
+  1506                           ;main.c: 455: PORTDbits.RD2 = 0;
   1507  0385  1108               	bcf	8,2	;volatile
   1508                           
-  1509                           ;main.c: 458: PORTBbits.RB5 = 0;
+  1509                           ;main.c: 456: PORTBbits.RB5 = 0;
   1510  0386  1286               	bcf	6,5	;volatile
   1511  0387  0008               	return
   1512  0388                     __end_of_TurnOffRelays:	
@@ -1522,7 +1522,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1515  028E                     __ptext7:	
   1516 ;; *************** function _PollSensor *****************
   1517 ;; Defined at:
-  1518 ;;		line 315 in file "main.c"
+  1518 ;;		line 313 in file "main.c"
   1519 ;; Parameters:    Size  Location     Type
   1520 ;;		None
   1521 ;; Auto vars:     Size  Location     Type
@@ -1554,7 +1554,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1547                           ;psect for function _PollSensor
   1548  028E                     _PollSensor:	
   1549                           
-  1550                           ;main.c: 317: for(int i = 0; i<19; i++){
+  1550                           ;main.c: 315: for(int i = 0; i<19; i++){
   1551                           
   1552                           ;incstack = 0
   1553                           ; Regs used in _PollSensor: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
@@ -1576,7 +1576,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1569  029C  2ABA               	goto	l134
   1570  029D                     l1050:	
   1571                           
-  1572                           ;main.c: 318: UART_putc(TxBuf[i]);
+  1572                           ;main.c: 316: UART_putc(TxBuf[i]);
   1573  029D  1283               	bcf	3,5	;RP0=0, select bank0
   1574  029E  1303               	bcf	3,6	;RP1=0, select bank0
   1575  029F  084E               	movf	PollSensor@i,w
@@ -1607,13 +1607,13 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1600  02B9  2A9D               	goto	l1050
   1601  02BA                     l134:	
   1602                           
-  1603                           ;main.c: 319: }
-  1604                           ;main.c: 320: PORTCbits.RC1 = 1;
+  1603                           ;main.c: 317: }
+  1604                           ;main.c: 318: PORTCbits.RC1 = 1;
   1605  02BA  1283               	bcf	3,5	;RP0=0, select bank0
   1606  02BB  1303               	bcf	3,6	;RP1=0, select bank0
   1607  02BC  1487               	bsf	7,1	;volatile
   1608                           
-  1609                           ;main.c: 321: RedLED_timer = 100;
+  1609                           ;main.c: 319: RedLED_timer = 100;
   1610  02BD  3064               	movlw	100
   1611  02BE  00A2               	movwf	_RedLED_timer
   1612  02BF  3000               	movlw	0
@@ -1625,7 +1625,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1618  0371                     __ptext8:	
   1619 ;; *************** function _UART_putc *****************
   1620 ;; Defined at:
-  1621 ;;		line 331 in file "main.c"
+  1621 ;;		line 329 in file "main.c"
   1622 ;; Parameters:    Size  Location     Type
   1623 ;;  c               1    wreg     unsigned char 
   1624 ;; Auto vars:     Size  Location     Type
@@ -1664,14 +1664,14 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1657  0372  1303               	bcf	3,6	;RP1=0, select bank0
   1658  0373  00CD               	movwf	UART_putc@c
   1659  0374                     l138:	
-  1660                           ;main.c: 334: while (TXSTAbits.TRMT == 0);
+  1660                           ;main.c: 332: while (TXSTAbits.TRMT == 0);
   1661                           
   1662  0374  1683               	bsf	3,5	;RP0=1, select bank1
   1663  0375  1303               	bcf	3,6	;RP1=0, select bank1
   1664  0376  1C98               	btfss	24,1	;volatile
   1665  0377  2B74               	goto	l138
   1666                           
-  1667                           ;main.c: 336: TXREG = c;
+  1667                           ;main.c: 334: TXREG = c;
   1668  0378  1283               	bcf	3,5	;RP0=0, select bank0
   1669  0379  1303               	bcf	3,6	;RP1=0, select bank0
   1670  037A  084D               	movf	UART_putc@c,w
@@ -1683,7 +1683,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1676  0364                     __ptext9:	
   1677 ;; *************** function _Init_UART *****************
   1678 ;; Defined at:
-  1679 ;;		line 215 in file "main.c"
+  1679 ;;		line 213 in file "main.c"
   1680 ;; Parameters:    Size  Location     Type
   1681 ;;		None
   1682 ;; Auto vars:     Size  Location     Type
@@ -1715,7 +1715,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1708                           ;psect for function _Init_UART
   1709  0364                     _Init_UART:	
   1710                           
-  1711                           ;main.c: 217: TXSTAbits.BRGH = 1;
+  1711                           ;main.c: 215: TXSTAbits.BRGH = 1;
   1712                           
   1713                           ;incstack = 0
   1714                           ; Regs used in _Init_UART: [wreg]
@@ -1723,18 +1723,18 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1716  0365  1303               	bcf	3,6	;RP1=0, select bank1
   1717  0366  1518               	bsf	24,2	;volatile
   1718                           
-  1719                           ;main.c: 218: TXSTAbits.TXEN = 1;
+  1719                           ;main.c: 216: TXSTAbits.TXEN = 1;
   1720  0367  1698               	bsf	24,5	;volatile
   1721                           
-  1722                           ;main.c: 220: RCSTAbits.SPEN = 1;
+  1722                           ;main.c: 218: RCSTAbits.SPEN = 1;
   1723  0368  1283               	bcf	3,5	;RP0=0, select bank0
   1724  0369  1303               	bcf	3,6	;RP1=0, select bank0
   1725  036A  1798               	bsf	24,7	;volatile
   1726                           
-  1727                           ;main.c: 221: RCSTAbits.CREN = 1;
+  1727                           ;main.c: 219: RCSTAbits.CREN = 1;
   1728  036B  1618               	bsf	24,4	;volatile
   1729                           
-  1730                           ;main.c: 223: SPBRG = 47;
+  1730                           ;main.c: 221: SPBRG = 47;
   1731  036C  302F               	movlw	47
   1732  036D  1683               	bsf	3,5	;RP0=1, select bank1
   1733  036E  1303               	bcf	3,6	;RP1=0, select bank1
@@ -1746,7 +1746,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1739  0331                     __ptext10:	
   1740 ;; *************** function _InitTimer *****************
   1741 ;; Defined at:
-  1742 ;;		line 239 in file "main.c"
+  1742 ;;		line 237 in file "main.c"
   1743 ;; Parameters:    Size  Location     Type
   1744 ;;		None
   1745 ;; Auto vars:     Size  Location     Type
@@ -1778,7 +1778,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1771                           ;psect for function _InitTimer
   1772  0331                     _InitTimer:	
   1773                           
-  1774                           ;main.c: 241: T1CON = 0x01;
+  1774                           ;main.c: 239: T1CON = 0x01;
   1775                           
   1776                           ;incstack = 0
   1777                           ; Regs used in _InitTimer: [wreg]
@@ -1787,34 +1787,34 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1780  0333  1303               	bcf	3,6	;RP1=0, select bank0
   1781  0334  0090               	movwf	16	;volatile
   1782                           
-  1783                           ;main.c: 242: TMR1L = 0x099;
+  1783                           ;main.c: 240: TMR1L = 0x099;
   1784  0335  3099               	movlw	153
   1785  0336  008E               	movwf	14	;volatile
   1786                           
-  1787                           ;main.c: 243: TMR1H = 0x0F1;
+  1787                           ;main.c: 241: TMR1H = 0x0F1;
   1788  0337  30F1               	movlw	241
   1789  0338  008F               	movwf	15	;volatile
   1790                           
-  1791                           ;main.c: 245: PIE1bits.TMR1IE = 1;
+  1791                           ;main.c: 243: PIE1bits.TMR1IE = 1;
   1792  0339  1683               	bsf	3,5	;RP0=1, select bank1
   1793  033A  1303               	bcf	3,6	;RP1=0, select bank1
   1794  033B  140C               	bsf	12,0	;volatile
   1795                           
-  1796                           ;main.c: 246: INTCONbits.PEIE = 1;
+  1796                           ;main.c: 244: INTCONbits.PEIE = 1;
   1797  033C  170B               	bsf	11,6	;volatile
   1798                           
-  1799                           ;main.c: 247: INTCONbits.GIE = 1;
+  1799                           ;main.c: 245: INTCONbits.GIE = 1;
   1800  033D  178B               	bsf	11,7	;volatile
   1801                           
-  1802                           ;main.c: 248: T1CONbits.TMR1ON = 1;
+  1802                           ;main.c: 246: T1CONbits.TMR1ON = 1;
   1803  033E  1283               	bcf	3,5	;RP0=0, select bank0
   1804  033F  1303               	bcf	3,6	;RP1=0, select bank0
   1805  0340  1410               	bsf	16,0	;volatile
   1806                           
-  1807                           ;main.c: 249: T1CONbits.T1CKPS0 = 0;
+  1807                           ;main.c: 247: T1CONbits.T1CKPS0 = 0;
   1808  0341  1210               	bcf	16,4	;volatile
   1809                           
-  1810                           ;main.c: 250: T1CONbits.T1CKPS1 = 0;
+  1810                           ;main.c: 248: T1CONbits.T1CKPS1 = 0;
   1811  0342  1290               	bcf	16,5	;volatile
   1812  0343  0008               	return
   1813  0344                     __end_of_InitTimer:	
@@ -1823,7 +1823,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1816  00EF                     __ptext11:	
   1817 ;; *************** function _InitPorts *****************
   1818 ;; Defined at:
-  1819 ;;		line 346 in file "main.c"
+  1819 ;;		line 344 in file "main.c"
   1820 ;; Parameters:    Size  Location     Type
   1821 ;;		None
   1822 ;; Auto vars:     Size  Location     Type
@@ -1855,7 +1855,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1848                           ;psect for function _InitPorts
   1849  00EF                     _InitPorts:	
   1850                           
-  1851                           ;main.c: 348: TRISCbits.TRISC0 = 0;
+  1851                           ;main.c: 346: TRISCbits.TRISC0 = 0;
   1852                           
   1853                           ;incstack = 0
   1854                           ; Regs used in _InitPorts: [wreg]
@@ -1863,198 +1863,198 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   1856  00F0  1303               	bcf	3,6	;RP1=0, select bank1
   1857  00F1  1007               	bcf	7,0	;volatile
   1858                           
-  1859                           ;main.c: 349: PORTCbits.RC0 = 0;
+  1859                           ;main.c: 347: PORTCbits.RC0 = 0;
   1860  00F2  1283               	bcf	3,5	;RP0=0, select bank0
   1861  00F3  1303               	bcf	3,6	;RP1=0, select bank0
   1862  00F4  1007               	bcf	7,0	;volatile
   1863                           
-  1864                           ;main.c: 351: TRISCbits.TRISC1 = 0;
+  1864                           ;main.c: 349: TRISCbits.TRISC1 = 0;
   1865  00F5  1683               	bsf	3,5	;RP0=1, select bank1
   1866  00F6  1303               	bcf	3,6	;RP1=0, select bank1
   1867  00F7  1087               	bcf	7,1	;volatile
   1868                           
-  1869                           ;main.c: 352: PORTCbits.RC1 = 0;
+  1869                           ;main.c: 350: PORTCbits.RC1 = 0;
   1870  00F8  1283               	bcf	3,5	;RP0=0, select bank0
   1871  00F9  1303               	bcf	3,6	;RP1=0, select bank0
   1872  00FA  1087               	bcf	7,1	;volatile
   1873                           
-  1874                           ;main.c: 355: TRISDbits.TRISD2 = 0;
+  1874                           ;main.c: 353: TRISDbits.TRISD2 = 0;
   1875  00FB  1683               	bsf	3,5	;RP0=1, select bank1
   1876  00FC  1303               	bcf	3,6	;RP1=0, select bank1
   1877  00FD  1108               	bcf	8,2	;volatile
   1878                           
-  1879                           ;main.c: 356: PORTDbits.RD2 = 0;
+  1879                           ;main.c: 354: PORTDbits.RD2 = 0;
   1880  00FE  1283               	bcf	3,5	;RP0=0, select bank0
   1881  00FF  1303               	bcf	3,6	;RP1=0, select bank0
   1882  0100  1108               	bcf	8,2	;volatile
   1883                           
-  1884                           ;main.c: 357: TRISBbits.TRISB0 = 0;
+  1884                           ;main.c: 355: TRISBbits.TRISB0 = 0;
   1885  0101  1683               	bsf	3,5	;RP0=1, select bank1
   1886  0102  1303               	bcf	3,6	;RP1=0, select bank1
   1887  0103  1006               	bcf	6,0	;volatile
   1888                           
-  1889                           ;main.c: 358: PORTBbits.RB0 = 0;
+  1889                           ;main.c: 356: PORTBbits.RB0 = 0;
   1890  0104  1283               	bcf	3,5	;RP0=0, select bank0
   1891  0105  1303               	bcf	3,6	;RP1=0, select bank0
   1892  0106  1006               	bcf	6,0	;volatile
   1893                           
-  1894                           ;main.c: 359: TRISBbits.TRISB1 = 0;
+  1894                           ;main.c: 357: TRISBbits.TRISB1 = 0;
   1895  0107  1683               	bsf	3,5	;RP0=1, select bank1
   1896  0108  1303               	bcf	3,6	;RP1=0, select bank1
   1897  0109  1086               	bcf	6,1	;volatile
   1898                           
-  1899                           ;main.c: 360: PORTBbits.RB1 = 0;
+  1899                           ;main.c: 358: PORTBbits.RB1 = 0;
   1900  010A  1283               	bcf	3,5	;RP0=0, select bank0
   1901  010B  1303               	bcf	3,6	;RP1=0, select bank0
   1902  010C  1086               	bcf	6,1	;volatile
   1903                           
-  1904                           ;main.c: 361: TRISBbits.TRISB2 = 0;
+  1904                           ;main.c: 359: TRISBbits.TRISB2 = 0;
   1905  010D  1683               	bsf	3,5	;RP0=1, select bank1
   1906  010E  1303               	bcf	3,6	;RP1=0, select bank1
   1907  010F  1106               	bcf	6,2	;volatile
   1908                           
-  1909                           ;main.c: 362: PORTBbits.RB2 = 0;
+  1909                           ;main.c: 360: PORTBbits.RB2 = 0;
   1910  0110  1283               	bcf	3,5	;RP0=0, select bank0
   1911  0111  1303               	bcf	3,6	;RP1=0, select bank0
   1912  0112  1106               	bcf	6,2	;volatile
   1913                           
-  1914                           ;main.c: 363: TRISBbits.TRISB3 = 0;
+  1914                           ;main.c: 361: TRISBbits.TRISB3 = 0;
   1915  0113  1683               	bsf	3,5	;RP0=1, select bank1
   1916  0114  1303               	bcf	3,6	;RP1=0, select bank1
   1917  0115  1186               	bcf	6,3	;volatile
   1918                           
-  1919                           ;main.c: 364: PORTBbits.RB3 = 0;
+  1919                           ;main.c: 362: PORTBbits.RB3 = 0;
   1920  0116  1283               	bcf	3,5	;RP0=0, select bank0
   1921  0117  1303               	bcf	3,6	;RP1=0, select bank0
   1922  0118  1186               	bcf	6,3	;volatile
   1923                           
-  1924                           ;main.c: 365: TRISBbits.TRISB4 = 0;
+  1924                           ;main.c: 363: TRISBbits.TRISB4 = 0;
   1925  0119  1683               	bsf	3,5	;RP0=1, select bank1
   1926  011A  1303               	bcf	3,6	;RP1=0, select bank1
   1927  011B  1206               	bcf	6,4	;volatile
   1928                           
-  1929                           ;main.c: 366: PORTBbits.RB4 = 0;
+  1929                           ;main.c: 364: PORTBbits.RB4 = 0;
   1930  011C  1283               	bcf	3,5	;RP0=0, select bank0
   1931  011D  1303               	bcf	3,6	;RP1=0, select bank0
   1932  011E  1206               	bcf	6,4	;volatile
   1933                           
-  1934                           ;main.c: 367: TRISDbits.TRISD3 = 0;
+  1934                           ;main.c: 365: TRISDbits.TRISD3 = 0;
   1935  011F  1683               	bsf	3,5	;RP0=1, select bank1
   1936  0120  1303               	bcf	3,6	;RP1=0, select bank1
   1937  0121  1188               	bcf	8,3	;volatile
   1938                           
-  1939                           ;main.c: 368: PORTDbits.RD3 = 0;
+  1939                           ;main.c: 366: PORTDbits.RD3 = 0;
   1940  0122  1283               	bcf	3,5	;RP0=0, select bank0
   1941  0123  1303               	bcf	3,6	;RP1=0, select bank0
   1942  0124  1188               	bcf	8,3	;volatile
   1943                           
-  1944                           ;main.c: 369: TRISBbits.TRISB5 = 0;
+  1944                           ;main.c: 367: TRISBbits.TRISB5 = 0;
   1945  0125  1683               	bsf	3,5	;RP0=1, select bank1
   1946  0126  1303               	bcf	3,6	;RP1=0, select bank1
   1947  0127  1286               	bcf	6,5	;volatile
   1948                           
-  1949                           ;main.c: 370: PORTBbits.RB5 = 0;
+  1949                           ;main.c: 368: PORTBbits.RB5 = 0;
   1950  0128  1283               	bcf	3,5	;RP0=0, select bank0
   1951  0129  1303               	bcf	3,6	;RP1=0, select bank0
   1952  012A  1286               	bcf	6,5	;volatile
   1953                           
-  1954                           ;main.c: 372: PORTCbits.RC3 = 0;
+  1954                           ;main.c: 370: PORTCbits.RC3 = 0;
   1955  012B  1187               	bcf	7,3	;volatile
   1956                           
-  1957                           ;main.c: 373: TRISCbits.TRISC3 = 0;
+  1957                           ;main.c: 371: TRISCbits.TRISC3 = 0;
   1958  012C  1683               	bsf	3,5	;RP0=1, select bank1
   1959  012D  1303               	bcf	3,6	;RP1=0, select bank1
   1960  012E  1187               	bcf	7,3	;volatile
   1961                           
-  1962                           ;main.c: 375: PORTCbits.RC5 = 0;
+  1962                           ;main.c: 373: PORTCbits.RC5 = 0;
   1963  012F  1283               	bcf	3,5	;RP0=0, select bank0
   1964  0130  1303               	bcf	3,6	;RP1=0, select bank0
   1965  0131  1287               	bcf	7,5	;volatile
   1966                           
-  1967                           ;main.c: 376: TRISCbits.TRISC5 = 0;
+  1967                           ;main.c: 374: TRISCbits.TRISC5 = 0;
   1968  0132  1683               	bsf	3,5	;RP0=1, select bank1
   1969  0133  1303               	bcf	3,6	;RP1=0, select bank1
   1970  0134  1287               	bcf	7,5	;volatile
   1971                           
-  1972                           ;main.c: 378: PORTAbits.RA0 = 1;
+  1972                           ;main.c: 376: PORTAbits.RA0 = 1;
   1973  0135  1283               	bcf	3,5	;RP0=0, select bank0
   1974  0136  1303               	bcf	3,6	;RP1=0, select bank0
   1975  0137  1405               	bsf	5,0	;volatile
   1976                           
-  1977                           ;main.c: 379: TRISAbits.TRISA0 = 0;
+  1977                           ;main.c: 377: TRISAbits.TRISA0 = 0;
   1978  0138  1683               	bsf	3,5	;RP0=1, select bank1
   1979  0139  1303               	bcf	3,6	;RP1=0, select bank1
   1980  013A  1005               	bcf	5,0	;volatile
   1981                           
-  1982                           ;main.c: 381: PORTAbits.RA2 = 1;
+  1982                           ;main.c: 379: PORTAbits.RA2 = 1;
   1983  013B  1283               	bcf	3,5	;RP0=0, select bank0
   1984  013C  1303               	bcf	3,6	;RP1=0, select bank0
   1985  013D  1505               	bsf	5,2	;volatile
   1986                           
-  1987                           ;main.c: 382: TRISAbits.TRISA2 = 0;
+  1987                           ;main.c: 380: TRISAbits.TRISA2 = 0;
   1988  013E  1683               	bsf	3,5	;RP0=1, select bank1
   1989  013F  1303               	bcf	3,6	;RP1=0, select bank1
   1990  0140  1105               	bcf	5,2	;volatile
   1991                           
-  1992                           ;main.c: 385: TRISEbits.TRISE1 = 0;
+  1992                           ;main.c: 383: TRISEbits.TRISE1 = 0;
   1993  0141  1089               	bcf	9,1	;volatile
   1994                           
-  1995                           ;main.c: 386: PORTEbits.RE1 = 0;
+  1995                           ;main.c: 384: PORTEbits.RE1 = 0;
   1996  0142  1283               	bcf	3,5	;RP0=0, select bank0
   1997  0143  1303               	bcf	3,6	;RP1=0, select bank0
   1998  0144  1089               	bcf	9,1	;volatile
   1999                           
-  2000                           ;main.c: 388: TRISEbits.TRISE2 = 0;
+  2000                           ;main.c: 386: TRISEbits.TRISE2 = 0;
   2001  0145  1683               	bsf	3,5	;RP0=1, select bank1
   2002  0146  1303               	bcf	3,6	;RP1=0, select bank1
   2003  0147  1109               	bcf	9,2	;volatile
   2004                           
-  2005                           ;main.c: 389: PORTEbits.RE2 = 0;
+  2005                           ;main.c: 387: PORTEbits.RE2 = 0;
   2006  0148  1283               	bcf	3,5	;RP0=0, select bank0
   2007  0149  1303               	bcf	3,6	;RP1=0, select bank0
   2008  014A  1109               	bcf	9,2	;volatile
   2009                           
-  2010                           ;main.c: 392: TRISCbits.TRISC5 = 0;
+  2010                           ;main.c: 390: TRISCbits.TRISC5 = 0;
   2011  014B  1683               	bsf	3,5	;RP0=1, select bank1
   2012  014C  1303               	bcf	3,6	;RP1=0, select bank1
   2013  014D  1287               	bcf	7,5	;volatile
   2014                           
-  2015                           ;main.c: 393: PORTCbits.RC5 = 0;
+  2015                           ;main.c: 391: PORTCbits.RC5 = 0;
   2016  014E  1283               	bcf	3,5	;RP0=0, select bank0
   2017  014F  1303               	bcf	3,6	;RP1=0, select bank0
   2018  0150  1287               	bcf	7,5	;volatile
   2019                           
-  2020                           ;main.c: 395: TRISCbits.TRISC3 = 0;
+  2020                           ;main.c: 393: TRISCbits.TRISC3 = 0;
   2021  0151  1683               	bsf	3,5	;RP0=1, select bank1
   2022  0152  1303               	bcf	3,6	;RP1=0, select bank1
   2023  0153  1187               	bcf	7,3	;volatile
   2024                           
-  2025                           ;main.c: 396: PORTCbits.RC3 = 0;
+  2025                           ;main.c: 394: PORTCbits.RC3 = 0;
   2026  0154  1283               	bcf	3,5	;RP0=0, select bank0
   2027  0155  1303               	bcf	3,6	;RP1=0, select bank0
   2028  0156  1187               	bcf	7,3	;volatile
   2029                           
-  2030                           ;main.c: 398: TRISAbits.TRISA0 = 0;
+  2030                           ;main.c: 396: TRISAbits.TRISA0 = 0;
   2031  0157  1683               	bsf	3,5	;RP0=1, select bank1
   2032  0158  1303               	bcf	3,6	;RP1=0, select bank1
   2033  0159  1005               	bcf	5,0	;volatile
   2034                           
-  2035                           ;main.c: 399: PORTAbits.RA0 = 1;
+  2035                           ;main.c: 397: PORTAbits.RA0 = 1;
   2036  015A  1283               	bcf	3,5	;RP0=0, select bank0
   2037  015B  1303               	bcf	3,6	;RP1=0, select bank0
   2038  015C  1405               	bsf	5,0	;volatile
   2039                           
-  2040                           ;main.c: 401: TRISAbits.TRISA5 = 0;
+  2040                           ;main.c: 399: TRISAbits.TRISA5 = 0;
   2041  015D  1683               	bsf	3,5	;RP0=1, select bank1
   2042  015E  1303               	bcf	3,6	;RP1=0, select bank1
   2043  015F  1285               	bcf	5,5	;volatile
   2044                           
-  2045                           ;main.c: 402: PORTAbits.RA5 = 1;
+  2045                           ;main.c: 400: PORTAbits.RA5 = 1;
   2046  0160  1283               	bcf	3,5	;RP0=0, select bank0
   2047  0161  1303               	bcf	3,6	;RP1=0, select bank0
   2048  0162  1685               	bsf	5,5	;volatile
   2049                           
-  2050                           ;main.c: 407: ADCON1 = 6;
+  2050                           ;main.c: 405: ADCON1 = 6;
   2051  0163  3006               	movlw	6
   2052  0164  1683               	bsf	3,5	;RP0=1, select bank1
   2053  0165  1303               	bcf	3,6	;RP1=0, select bank1
@@ -2066,7 +2066,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2059  0168                     __ptext12:	
   2060 ;; *************** function _isr *****************
   2061 ;; Defined at:
-  2062 ;;		line 260 in file "main.c"
+  2062 ;;		line 258 in file "main.c"
   2063 ;; Parameters:    Size  Location     Type
   2064 ;;		None
   2065 ;; Auto vars:     Size  Location     Type
@@ -2097,24 +2097,24 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2090                           ;psect for function _isr
   2091  0168                     _isr:	
   2092                           
-  2093                           ;main.c: 262: static int Count=0;
-  2094                           ;main.c: 265: if (PIR1bits.TMR1IF)
+  2093                           ;main.c: 260: static int Count=0;
+  2094                           ;main.c: 263: if (PIR1bits.TMR1IF)
   2095  0168  1C0C               	btfss	12,0	;volatile
   2096  0169  29BE               	goto	i1l130
   2097                           
-  2098                           ;main.c: 266: {
-  2099                           ;main.c: 267: PIR1bits.TMR1IF = 0;
+  2098                           ;main.c: 264: {
+  2099                           ;main.c: 265: PIR1bits.TMR1IF = 0;
   2100  016A  100C               	bcf	12,0	;volatile
   2101                           
-  2102                           ;main.c: 268: TMR1L = 0x099;
+  2102                           ;main.c: 266: TMR1L = 0x099;
   2103  016B  3099               	movlw	153
   2104  016C  008E               	movwf	14	;volatile
   2105                           
-  2106                           ;main.c: 269: TMR1H = 0x0F1;
+  2106                           ;main.c: 267: TMR1H = 0x0F1;
   2107  016D  30F1               	movlw	241
   2108  016E  008F               	movwf	15	;volatile
   2109                           
-  2110                           ;main.c: 271: if (++Count > 999)
+  2110                           ;main.c: 269: if (++Count > 999)
   2111  016F  3001               	movlw	1
   2112  0170  07A6               	addwf	isr@Count,f
   2113  0171  1803               	skipnc
@@ -2134,54 +2134,54 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2127  017E  1C03               	skipc
   2128  017F  2986               	goto	i1l1094
   2129                           
-  2130                           ;main.c: 272: {
-  2131                           ;main.c: 273: Count = 0;
+  2130                           ;main.c: 270: {
+  2131                           ;main.c: 271: Count = 0;
   2132  0180  1283               	bcf	3,5	;RP0=0, select bank0
   2133  0181  1303               	bcf	3,6	;RP1=0, select bank0
   2134  0182  01A6               	clrf	isr@Count
   2135  0183  01A7               	clrf	isr@Count+1
   2136                           
-  2137                           ;main.c: 274: SecondInterrupt = 1;
+  2137                           ;main.c: 272: SecondInterrupt = 1;
   2138  0184  01AB               	clrf	_SecondInterrupt
   2139  0185  0AAB               	incf	_SecondInterrupt,f
   2140  0186                     i1l1094:	
   2141                           
-  2142                           ;main.c: 275: }
-  2143                           ;main.c: 278: if (RxTimer)
+  2142                           ;main.c: 273: }
+  2143                           ;main.c: 276: if (RxTimer)
   2144  0186  1283               	bcf	3,5	;RP0=0, select bank0
   2145  0187  1303               	bcf	3,6	;RP1=0, select bank0
   2146  0188  082A               	movf	_RxTimer,w
   2147  0189  1903               	btfsc	3,2
   2148  018A  2995               	goto	i1l1102
   2149                           
-  2150                           ;main.c: 279: {
-  2151                           ;main.c: 280: if (!--RxTimer){
+  2150                           ;main.c: 277: {
+  2151                           ;main.c: 278: if (!--RxTimer){
   2152  018B  3001               	movlw	1
   2153  018C  02AA               	subwf	_RxTimer,f
   2154  018D  1D03               	btfss	3,2
   2155  018E  2995               	goto	i1l1102
   2156                           
-  2157                           ;main.c: 281: PrRxMsg = 1;
+  2157                           ;main.c: 279: PrRxMsg = 1;
   2158  018F  01A8               	clrf	_PrRxMsg
   2159  0190  0AA8               	incf	_PrRxMsg,f
   2160                           
-  2161                           ;main.c: 282: Rx_OK = 1;
+  2161                           ;main.c: 280: Rx_OK = 1;
   2162  0191  3001               	movlw	1
   2163  0192  00A4               	movwf	_Rx_OK
   2164  0193  3000               	movlw	0
   2165  0194  00A5               	movwf	_Rx_OK+1
   2166  0195                     i1l1102:	
   2167                           
-  2168                           ;main.c: 283: }
-  2169                           ;main.c: 284: }
-  2170                           ;main.c: 286: if (RedLED_timer)
+  2168                           ;main.c: 281: }
+  2169                           ;main.c: 282: }
+  2170                           ;main.c: 284: if (RedLED_timer)
   2171  0195  0822               	movf	_RedLED_timer,w
   2172  0196  0423               	iorwf	_RedLED_timer+1,w
   2173  0197  1903               	btfsc	3,2
   2174  0198  29B0               	goto	i1l1116
   2175                           
-  2176                           ;main.c: 287: {
-  2177                           ;main.c: 288: if (!--RedLED_timer){
+  2176                           ;main.c: 285: {
+  2177                           ;main.c: 286: if (!--RedLED_timer){
   2178  0199  3001               	movlw	1
   2179  019A  02A2               	subwf	_RedLED_timer,f
   2180  019B  3000               	movlw	0
@@ -2193,43 +2193,43 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2186  01A1  1D03               	btfss	3,2
   2187  01A2  29B0               	goto	i1l1116
   2188                           
-  2189                           ;main.c: 289: PORTCbits.RC1 = 0;
+  2189                           ;main.c: 287: PORTCbits.RC1 = 0;
   2190  01A3  1087               	bcf	7,1	;volatile
   2191                           
-  2192                           ;main.c: 290: PORTCbits.RC0 = 0;
+  2192                           ;main.c: 288: PORTCbits.RC0 = 0;
   2193  01A4  1007               	bcf	7,0	;volatile
   2194                           
-  2195                           ;main.c: 291: if(Rx_OK){
+  2195                           ;main.c: 289: if(Rx_OK){
   2196  01A5  0824               	movf	_Rx_OK,w
   2197  01A6  0425               	iorwf	_Rx_OK+1,w
   2198  01A7  1903               	btfsc	3,2
   2199  01A8  29B0               	goto	i1l1116
   2200                           
-  2201                           ;main.c: 292: Rx_OK = 0;
+  2201                           ;main.c: 290: Rx_OK = 0;
   2202  01A9  01A4               	clrf	_Rx_OK
   2203  01AA  01A5               	clrf	_Rx_OK+1
   2204                           
-  2205                           ;main.c: 293: PORTCbits.RC0 = 1;
+  2205                           ;main.c: 291: PORTCbits.RC0 = 1;
   2206  01AB  1407               	bsf	7,0	;volatile
   2207                           
-  2208                           ;main.c: 294: GreenLED_timer = 100;
+  2208                           ;main.c: 292: GreenLED_timer = 100;
   2209  01AC  3064               	movlw	100
   2210  01AD  00A0               	movwf	_GreenLED_timer
   2211  01AE  3000               	movlw	0
   2212  01AF  00A1               	movwf	_GreenLED_timer+1
   2213  01B0                     i1l1116:	
   2214                           
-  2215                           ;main.c: 295: }
-  2216                           ;main.c: 296: }
-  2217                           ;main.c: 297: }
-  2218                           ;main.c: 299: if (GreenLED_timer)
+  2215                           ;main.c: 293: }
+  2216                           ;main.c: 294: }
+  2217                           ;main.c: 295: }
+  2218                           ;main.c: 297: if (GreenLED_timer)
   2219  01B0  0820               	movf	_GreenLED_timer,w
   2220  01B1  0421               	iorwf	_GreenLED_timer+1,w
   2221  01B2  1903               	btfsc	3,2
   2222  01B3  29BE               	goto	i1l130
   2223                           
-  2224                           ;main.c: 300: {
-  2225                           ;main.c: 301: if (!--GreenLED_timer){
+  2224                           ;main.c: 298: {
+  2225                           ;main.c: 299: if (!--GreenLED_timer){
   2226  01B4  3001               	movlw	1
   2227  01B5  02A0               	subwf	_GreenLED_timer,f
   2228  01B6  3000               	movlw	0
@@ -2240,7 +2240,7 @@ Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080
   2233  01BB  0421               	iorwf	_GreenLED_timer+1,w
   2234  01BC  1903               	btfsc	3,2
   2235                           
-  2236                           ;main.c: 302: PORTCbits.RC0 = 0;
+  2236                           ;main.c: 300: PORTCbits.RC0 = 0;
   2237  01BD  1007               	bcf	7,0	;volatile
   2238  01BE                     i1l130:	
   2239  01BE  084C               	movf	??_isr+3,w
@@ -2446,7 +2446,7 @@ EEDATA              80      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.35 build -356382666 
-Symbol Table                                                                                   Mon Aug 24 14:06:41 2015
+Symbol Table                                                                                   Mon Aug 24 16:51:31 2015
 
                       pc 0002              __CFG_CP$OFF 0000                       l91 02D9  
                      l93 02DA             generateCRC@i 0061                       fsr 0004  
