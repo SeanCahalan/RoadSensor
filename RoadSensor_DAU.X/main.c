@@ -6,7 +6,7 @@
  * 19200 baud. Every 3 seconds it polls to the sensor and receives a reading in response.
  * The response packet is processed and the corresponding relay is switched on.
  *
- * \author Leo Cahalan. leoc@tilco-design.com
+ *
  */
 
 
@@ -294,7 +294,7 @@ unsigned short calc_crc(unsigned short crc_buff, unsigned char input)
         if (GreenLED_timer)
         {
             if (!--GreenLED_timer){
-                GREEN_LED = 0;
+                GREEN_LED = 0;  //turn off green
             }
         }
     }
@@ -493,7 +493,7 @@ unsigned short calc_crc(unsigned short crc_buff, unsigned char input)
 
              //turn off other relays
              TurnOffRelays();
-
+             //turn on relay
              switch(status){
                  case 0x00:
                     DRY = 1;
@@ -501,7 +501,7 @@ unsigned short calc_crc(unsigned short crc_buff, unsigned char input)
                     break;
                  case 0x01:
                     MOIST = 1;
-                    NOTDRY = 1;
+                    NOTDRY = 1; //Not dry corresponds to all not dry conditions
                     sensorVal = (RxBuf[24] << 8) | RxBuf[23] ;
                     break;
                  case 0x02:
