@@ -5,8 +5,8 @@
  * This code runs on a DAU and communicates with a Lufft IRS31 Road Sensor at
  * 19200 baud. Every 3 seconds it polls to the sensor and receives a reading in response.
  * The response packet is processed and the corresponding relay is switched on.
- *
- *
+ * As a diagnostic tool the BI-LED flashes red upon sending a packet and green
+ * once ready to process a received packet.
  */
 
 
