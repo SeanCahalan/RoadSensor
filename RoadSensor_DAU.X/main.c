@@ -130,7 +130,9 @@ static void TestRelays(void);
  {
     //Configure watchdog
     OPTION_REGbits.PSA = 1; //Prescale assigned to watchdog
-    OPTION_REGbits.PS2 = 0; //Divide by 16
+    OPTION_REGbits.PS0 = 1;
+    OPTION_REGbits.PS1 = 1;
+    OPTION_REGbits.PS2 = 1; //Divide by 128. 128 * (18 to 33 msec)
 
     InitPorts();
     InitTimer();
@@ -275,6 +277,7 @@ unsigned short calc_crc(unsigned short crc_buff, unsigned char input)
             if (!--RxTimer){
                 PrRxMsg = 1;    // Process the packet now.
                 Rx_OK = 1;      // Packet is valid
+                RxPtr = 0;
             }
         }
 
@@ -309,6 +312,8 @@ unsigned short calc_crc(unsigned short crc_buff, unsigned char input)
  */
  static void PollSensor(void)
  {
+    RxPtr = 0;
+
     for(int i = 0; i<19; i++){
             UART_putc(TxBuf[i]);
     }
@@ -415,12 +420,21 @@ unsigned short calc_crc(unsigned short crc_buff, unsigned char input)
  {
      unsigned char c;
 
-     if (RCSTAbits.FERR || RCSTAbits.OERR)
+     while (RCSTAbits.OERR)
      {
+         c = RCREG;
+         c = RCREG;
          c = RCREG;
          RCSTAbits.CREN = 0;
          NOP();
          RCSTAbits.CREN = 1;
+     }
+     if (RCSTAbits.FERR)
+     {
+         c = RCREG;
+         TXSTAbits.TXEN = 0;
+         NOP();
+         TXSTAbits.TXEN = 1;
      }
 
      // Check if char available

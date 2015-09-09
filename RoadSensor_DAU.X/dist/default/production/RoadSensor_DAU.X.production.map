@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\RoadSensor_DAU.X.production.sym \
   --cmf=dist/default/production\RoadSensor_DAU.X.production.cmf -z \
-  -Q16F874A -oC:\Users\Leo\AppData\Local\Temp\s3o4.2 \
+  -Q16F874A -oC:\Users\Leo\AppData\Local\Temp\s9n0.2 \
   -Mdist/default/production/RoadSensor_DAU.X.production.map -E1 -ver=XC8 \
   -ASTACK=0B3h-0fdh -pstack=STACK -ACODE=00h-07FFhx2 -ASTRCODE=00h-0FFFh \
   -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 -AENTRY=00h-0FFhx16 \
@@ -16,7 +16,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-07Fh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\Leo\AppData\Local\Temp\s3o4.obj \
+  -DENTRY=2 -k C:\Users\Leo\AppData\Local\Temp\s9n0.obj \
   dist/default/production\RoadSensor_DAU.X.production.obj 
 
 Object code version is 3.11
@@ -26,35 +26,35 @@ Machine type is 16F874A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Leo\AppData\Local\Temp\s3o4.obj
+C:\Users\Leo\AppData\Local\Temp\s9n0.obj
                 end_init                             11       11        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             2007     2007        1     400E       0
 dist/default/production\RoadSensor_DAU.X.production.obj
                 cinit                                13       13       18        8       0
                 intentry                              4        4        D        8       0
-                text12                              168      168       61        8       0
+                text12                              168      168       62        8       0
                 text11                               EF       EF       79        8       0
-                text10                              331      331       13        8       0
-                text9                               364      364        D      6C8       0
-                text8                               371      371        C      6C8       0
-                text7                               28E      28E       34        8       0
-                text6                               37D      37D        B      6C8       0
-                text5                               251      251       3D        8       0
-                text4                               20D      20D       44        8       0
+                text10                              348      348       13        8       0
+                text9                               37B      37B        D      6F6       0
+                text8                               388      388        C      6F6       0
+                text7                               2D0      2D0       35        8       0
+                text6                               394      394        B      6F6       0
+                text5                               293      293       3D        8       0
+                text4                               20E      20E       44        8       0
                 text3                                2B       2B       C4        8       0
-                text2                               2F4      2F4       2A        8       0
-                swtext1                             354      354       10      6A8       0
-                text1                               1C9      1C9       44        8       0
-                maintext                            2C2      2C2       32        8       0
+                text2                               252      252       41        8       0
+                swtext1                             36B      36B       10      6D6       0
+                text1                               1CA      1CA       44        8       0
+                maintext                            305      305       30        8       0
                 cstackBANK0                          49       49       24       20       1
-                inittext                            344      344       10        8       0
-                clrtext                             388      388        8      6C8       0
+                inittext                            35B      35B       10        8       0
+                clrtext                             39F      39F        8      6F6       0
                 dataBANK1                            A0       A0       13       A0       1
                 dataBANK0                            6D       6D        1       20       1
                 bssBANK0                             20       20       29       20       1
-                idataBANK1                          31E      31E       13        8       0
-                idataBANK0                          390      390        1      6C8       0
+                idataBANK1                          335      335       13        8       0
+                idataBANK0                          3A7      3A7        1      6F6       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -64,30 +64,30 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                13       13       18         0
                 intentry                              4        4        D         0
                 reset_vec                             0        0        2         0
-                text12                              168      168       61         0
+                text12                              168      168       62         0
                 text11                               EF       EF       79         0
-                text10                              331      331       13         0
-                text9                               364      364        D         0
-                text8                               371      371        C         0
-                text7                               28E      28E       34         0
-                text6                               37D      37D        B         0
-                text5                               251      251       3D         0
-                text4                               20D      20D       44         0
+                text10                              348      348       13         0
+                text9                               37B      37B        D         0
+                text8                               388      388        C         0
+                text7                               2D0      2D0       35         0
+                text6                               394      394        B         0
+                text5                               293      293       3D         0
+                text4                               20E      20E       44         0
                 text3                                2B       2B       C4         0
-                text2                               2F4      2F4       2A         0
-                text1                               1C9      1C9       44         0
-                maintext                            2C2      2C2       32         0
-                inittext                            344      344       10         0
-                clrtext                             388      388        8         0
-                idataBANK1                          31E      31E       13         0
-                idataBANK0                          390      390        1         0
+                text2                               252      252       41         0
+                text1                               1CA      1CA       44         0
+                maintext                            305      305       30         0
+                inittext                            35B      35B       10         0
+                clrtext                             39F      39F        8         0
+                idataBANK1                          335      335       13         0
+                idataBANK0                          3A7      3A7        1         0
 
         CLASS   STRCODE        
 
         CLASS   STRING         
 
         CLASS   CONST          
-                swtext1                             354      354       10         0
+                swtext1                             36B      36B       10         0
 
         CLASS   ENTRY          
 
@@ -130,11 +130,11 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000002  000002         0       0  CODE        2
-                intentry                       000004  000350  000354         8       0  CODE        2
+                intentry                       000004  000367  00036B         8       0  CODE        2
                 bssBANK0                       000020  00004E  00006E        20       1  BANK0       1
                 dataBANK1                      0000A0  000013  0000B3        A0       1  BANK1       1
-                swtext1                        000354  000010  000364       6A8       0  CONST       2
-                text9                          000364  00002D  000391       6C8       0  CODE        2
+                swtext1                        00036B  000010  00037B       6D6       0  CONST       2
+                text9                          00037B  00002D  0003A8       6F6       0  CODE        2
                 config                         002007  000001  002008      400E       0  CONFIG      2
 
 
@@ -144,12 +144,12 @@ UNUSED ADDRESS RANGES
         BANK0            006E-007D             10           1
         BANK1            00B3-00FD             4B           1
         CODE             0002-0003              2           2
-                         0391-0FFF            46F
+                         03A8-0FFF            458
         CONST            0002-0003              2           2
-                         0391-0FFF            100
+                         03A8-0FFF            100
         EEDATA           2100-217F             80           2
         ENTRY            0002-0003              2           2
-                         0391-0FFF            100
+                         03A8-0FFF            100
         IDLOC            2000-2003              4           2
         RAM              006E-007D             10           1
                          00B3-00FD             4B
@@ -159,9 +159,9 @@ UNUSED ADDRESS RANGES
         SFR3             0180-01FD             7E           1
         STACK            00B3-00FD             4B           1
         STRCODE          0002-0003              2           2
-                         0391-0FFF            C6F
+                         03A8-0FFF            C58
         STRING           0002-0003              2           2
-                         0391-0FFF            100
+                         03A8-0FFF            100
 
                                   Symbol Table
 
@@ -178,8 +178,8 @@ _ADCON1                  (abs)        009F
 _GreenLED_timer          bssBANK0     0020
 _INTCONbits              (abs)        000B
 _InitPorts               text11       00EF
-_InitTimer               text10       0331
-_Init_UART               text9        0364
+_InitTimer               text10       0348
+_Init_UART               text9        037B
 _OPTION_REGbits          (abs)        0081
 _PIE1bits                (abs)        008C
 _PIR1bits                (abs)        000C
@@ -188,13 +188,13 @@ _PORTBbits               (abs)        0006
 _PORTCbits               (abs)        0007
 _PORTDbits               (abs)        0008
 _PORTEbits               (abs)        0009
-_PollSensor              text7        028E
+_PollSensor              text7        02D0
 _PollTimer               dataBANK0    006D
 _PrRxMsg                 bssBANK0     0028
 _Pr_UART_Data            text3        002B
 _RCREG                   (abs)        001A
 _RCSTAbits               (abs)        0018
-_Read_UART               text2        02F4
+_Read_UART               text2        0252
 _RedLED_timer            bssBANK0     0022
 _RxBuf                   bssBANK0     002C
 _RxPtr                   bssBANK0     0029
@@ -213,10 +213,10 @@ _TRISDbits               (abs)        0088
 _TRISEbits               (abs)        0089
 _TXREG                   (abs)        0019
 _TXSTAbits               (abs)        0098
-_TestRelays              text1        01C9
-_TurnOffRelays           text6        037D
+_TestRelays              text1        01CA
+_TurnOffRelays           text6        0394
 _TxBuf                   dataBANK1    00A0
-_UART_putc               text8        0371
+_UART_putc               text8        0388
 __CFG_BOREN$ON           (abs)        0000
 __CFG_CP$OFF             (abs)        0000
 __CFG_DEBUG$OFF          (abs)        0000
@@ -310,42 +310,42 @@ ___int_sp                stack        0000
 ___latbits               (abs)        0001
 ___sp                    stack        0000
 __end_of_InitPorts       text11       0168
-__end_of_InitTimer       text10       0344
-__end_of_Init_UART       text9        0371
-__end_of_PollSensor      text7        02C2
+__end_of_InitTimer       text10       035B
+__end_of_Init_UART       text9        0388
+__end_of_PollSensor      text7        0305
 __end_of_Pr_UART_Data    text3        00EF
-__end_of_Read_UART       text2        031E
-__end_of_TestRelays      text1        020D
-__end_of_TurnOffRelays   text6        0388
-__end_of_UART_putc       text8        037D
+__end_of_Read_UART       text2        0293
+__end_of_TestRelays      text1        020E
+__end_of_TurnOffRelays   text6        039F
+__end_of_UART_putc       text8        0394
 __end_of__initialization cinit        0028
-__end_of_calc_crc        text5        028E
-__end_of_generateCRC     text4        0251
-__end_of_isr             text12       01C9
-__end_of_main            maintext     02F4
+__end_of_calc_crc        text5        02D0
+__end_of_generateCRC     text4        0252
+__end_of_isr             text12       01CA
+__end_of_main            maintext     0335
 __initialization         cinit        0013
 __pbssBANK0              bssBANK0     0020
 __pcstackBANK0           cstackBANK0  0049
 __pcstackCOMMON          cstackCOMMON 0000
 __pdataBANK0             dataBANK0    006D
 __pdataBANK1             dataBANK1    00A0
-__pidataBANK0            idataBANK0   0390
-__pidataBANK1            idataBANK1   031E
+__pidataBANK0            idataBANK0   03A7
+__pidataBANK1            idataBANK1   0335
 __pintentry              intentry     0004
-__pmaintext              maintext     02C2
-__pswtext1               swtext1      0354
-__ptext1                 text1        01C9
-__ptext10                text10       0331
+__pmaintext              maintext     0305
+__pswtext1               swtext1      036B
+__ptext1                 text1        01CA
+__ptext10                text10       0348
 __ptext11                text11       00EF
 __ptext12                text12       0168
-__ptext2                 text2        02F4
+__ptext2                 text2        0252
 __ptext3                 text3        002B
-__ptext4                 text4        020D
-__ptext5                 text5        0251
-__ptext6                 text6        037D
-__ptext7                 text7        028E
-__ptext8                 text8        0371
-__ptext9                 text9        0364
+__ptext4                 text4        020E
+__ptext5                 text5        0293
+__ptext6                 text6        0394
+__ptext7                 text7        02D0
+__ptext8                 text8        0388
+__ptext9                 text9        037B
 __size_of_InitPorts      (abs)        0000
 __size_of_InitTimer      (abs)        0000
 __size_of_Init_UART      (abs)        0000
@@ -359,23 +359,23 @@ __size_of_calc_crc       (abs)        0000
 __size_of_generateCRC    (abs)        0000
 __size_of_isr            (abs)        0000
 __size_of_main           (abs)        0000
-_calc_crc                text5        0251
-_generateCRC             text4        020D
+_calc_crc                text5        0293
+_generateCRC             text4        020E
 _isr                     text12       0168
-_main                    maintext     02C2
+_main                    maintext     0305
 btemp                    (abs)        007E
 calc_crc@crc_buff        cstackBANK0  004D
 calc_crc@i               cstackBANK0  0058
 calc_crc@input           cstackBANK0  004F
 calc_crc@x16             cstackBANK0  0056
-clear_ram0               clrtext      0388
+clear_ram0               clrtext      039F
 end_of_initialization    cinit        0028
 generateCRC@buf          cstackBANK0  005E
 generateCRC@crc          cstackBANK0  005F
 generateCRC@i            cstackBANK0  0061
 generateCRC@len          cstackBANK0  0059
-init_fetch0              inittext     0344
-init_ram0                inittext     0348
+init_fetch0              inittext     035B
+init_ram0                inittext     035F
 interrupt_function       intentry     0004
 intlevel0                functab      0000
 intlevel1                functab      0000
@@ -450,7 +450,7 @@ Total ram usage:        1 bytes
 
  *************** function _TestRelays *****************
  Defined at:
-		line 545 in file "main.c"
+		line 556 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -480,7 +480,7 @@ Total ram usage:        2 bytes
 
  *************** function _Read_UART *****************
  Defined at:
-		line 417 in file "main.c"
+		line 419 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -510,7 +510,7 @@ Total ram usage:        2 bytes
 
  *************** function _Pr_UART_Data *****************
  Defined at:
-		line 481 in file "main.c"
+		line 492 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -543,7 +543,7 @@ Total ram usage:        9 bytes
 
  *************** function _generateCRC *****************
  Defined at:
-		line 195 in file "main.c"
+		line 194 in file "main.c"
  Parameters:    Size  Location     Type
   buf             1    wreg     PTR unsigned char 
 		 -> RxBuf(29), 
@@ -578,7 +578,7 @@ Total ram usage:       10 bytes
 
  *************** function _calc_crc *****************
  Defined at:
-		line 172 in file "main.c"
+		line 171 in file "main.c"
  Parameters:    Size  Location     Type
   crc_buff        2    4[BANK0 ] unsigned short 
   input           1    6[BANK0 ] unsigned char 
@@ -610,7 +610,7 @@ Total ram usage:       12 bytes
 
  *************** function _TurnOffRelays *****************
  Defined at:
-		line 448 in file "main.c"
+		line 459 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -671,7 +671,7 @@ Total ram usage:        2 bytes
 
  *************** function _UART_putc *****************
  Defined at:
-		line 329 in file "main.c"
+		line 331 in file "main.c"
  Parameters:    Size  Location     Type
   c               1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -701,7 +701,7 @@ Total ram usage:        1 bytes
 
  *************** function _Init_UART *****************
  Defined at:
-		line 213 in file "main.c"
+		line 212 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -731,7 +731,7 @@ Total ram usage:        0 bytes
 
  *************** function _InitTimer *****************
  Defined at:
-		line 237 in file "main.c"
+		line 236 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -761,7 +761,7 @@ Total ram usage:        0 bytes
 
  *************** function _InitPorts *****************
  Defined at:
-		line 344 in file "main.c"
+		line 346 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -791,7 +791,7 @@ Total ram usage:        0 bytes
 
  *************** function _isr *****************
  Defined at:
-		line 258 in file "main.c"
+		line 257 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -828,19 +828,19 @@ shared
 shared estimated size: 22
 
 main.c
-		_Init_UART     		CODE           	0364	0000	14
+		_Init_UART     		CODE           	037B	0000	14
 		_Pr_UART_Data  		CODE           	002B	0000	197
 		_InitPorts     		CODE           	00EF	0000	122
-		_Read_UART     		CODE           	02F4	0000	43
-		_calc_crc      		CODE           	0251	0000	62
-		_TestRelays    		CODE           	01C9	0000	69
-		_InitTimer     		CODE           	0331	0000	20
-		_main          		CODE           	02C2	0000	51
-		_UART_putc     		CODE           	0371	0000	13
-		_generateCRC   		CODE           	020D	0000	69
-		_isr           		CODE           	0168	0000	98
-		_TurnOffRelays 		CODE           	037D	0000	12
-		_PollSensor    		CODE           	028E	0000	53
+		_Read_UART     		CODE           	0252	0000	66
+		_calc_crc      		CODE           	0293	0000	62
+		_TestRelays    		CODE           	01CA	0000	69
+		_InitTimer     		CODE           	0348	0000	20
+		_main          		CODE           	0305	0000	49
+		_UART_putc     		CODE           	0388	0000	13
+		_generateCRC   		CODE           	020E	0000	69
+		_isr           		CODE           	0168	0000	99
+		_TurnOffRelays 		CODE           	0394	0000	12
+		_PollSensor    		CODE           	02D0	0000	54
 
-main.c estimated size: 823
+main.c estimated size: 846
 

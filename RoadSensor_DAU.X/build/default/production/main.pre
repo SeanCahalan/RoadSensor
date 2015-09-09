@@ -1548,7 +1548,9 @@ void main()
 {
 
 OPTION_REGbits.PSA = 1;
-OPTION_REGbits.PS2 = 0;
+OPTION_REGbits.PS0 = 1;
+OPTION_REGbits.PS1 = 1;
+OPTION_REGbits.PS2 = 1;
 
 InitPorts();
 InitTimer();
@@ -1557,9 +1559,6 @@ Init_UART();
 if(PORTEbits.RE1 == 1)
 TestRelays();
 
-if(PORTEbits.RE2 == 1){
-for (;;){}
-}
 
 for (;;)
 {
@@ -1580,7 +1579,7 @@ PollSensor();
 }
 }
 
-# 172
+# 171
 unsigned short calc_crc(unsigned short crc_buff, unsigned char input)
 {
 unsigned char i;
@@ -1597,7 +1596,7 @@ input = input >> 1;
 return(crc_buff);
 }
 
-# 195
+# 194
 unsigned short generateCRC(unsigned char *buf, int len)
 {
 unsigned short crc;
@@ -1609,7 +1608,7 @@ crc = calc_crc(crc, buf[i]);
 return crc;
 }
 
-# 213
+# 212
 static void Init_UART(void)
 {
 TXSTAbits.BRGH = 1;
@@ -1621,7 +1620,7 @@ RCSTAbits.CREN = 1;
 SPBRG = 47;
 }
 
-# 237
+# 236
 static void InitTimer(void)
 {
 T1CON = 0x01;
@@ -1636,7 +1635,7 @@ T1CONbits.T1CKPS0 = 0;
 T1CONbits.T1CKPS1 = 0;
 }
 
-# 258
+# 257
 void interrupt isr(void)
 {
 static int Count=0;
@@ -1660,6 +1659,7 @@ if (RxTimer)
 if (!--RxTimer){
 PrRxMsg = 1;
 Rx_OK = 1;
+RxPtr = 0;
 }
 }
 
@@ -1688,6 +1688,8 @@ PORTCbits.RC0 = 0;
 # 313
 static void PollSensor(void)
 {
+RxPtr = 0;
+
 for(int i = 0; i<19; i++){
 UART_putc(TxBuf[i]);
 }
@@ -1695,7 +1697,7 @@ PORTCbits.RC1 = 1;
 RedLED_timer = 100;
 }
 
-# 329
+# 331
 static void UART_putc(char c)
 {
 
@@ -1704,7 +1706,7 @@ while (TXSTAbits.TRMT == 0);
 TXREG = c;
 }
 
-# 344
+# 346
 static void InitPorts(void)
 {
 TRISCbits.TRISC0 = 0;
@@ -1769,17 +1771,26 @@ PORTAbits.RA5 = 1;
 ADCON1 = 6;
 }
 
-# 417
+# 419
 static void Read_UART(void)
 {
 unsigned char c;
 
-if (RCSTAbits.FERR || RCSTAbits.OERR)
+while (RCSTAbits.OERR)
 {
+c = RCREG;
+c = RCREG;
 c = RCREG;
 RCSTAbits.CREN = 0;
 __nop();
 RCSTAbits.CREN = 1;
+}
+if (RCSTAbits.FERR)
+{
+c = RCREG;
+TXSTAbits.TXEN = 0;
+__nop();
+TXSTAbits.TXEN = 1;
 }
 
 
@@ -1794,7 +1805,7 @@ RxTimer = 50;
 }
 }
 
-# 448
+# 459
 static void TurnOffRelays(void){
 PORTDbits.RD3 = 0;
 PORTBbits.RB0 = 0;
@@ -1806,7 +1817,7 @@ PORTDbits.RD2 = 0;
 PORTBbits.RB5 = 0;
 }
 
-# 481
+# 492
 static void Pr_UART_Data(void)
 {
 unsigned int sensorVal;
@@ -1864,7 +1875,7 @@ break;
 }
 }
 
-# 545
+# 556
 static void TestRelays(void){
 int i = 0;
 for (;;)
